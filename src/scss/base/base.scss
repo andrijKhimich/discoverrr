@@ -15,8 +15,8 @@ html {
 body {
   margin: 0; // Remove the margin in all browsers.
   font-size: 16px;
-  font-family: "Montserrat", sans-serif;
-  // color: $white;
+  font-family: "Inter", sans-serif;
+  color: $black;
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -26,30 +26,30 @@ body {
   -webkit-text-size-adjust: 100%;
   backface-visibility: hidden;
   text-rendering: geometricPrecision;
-  background-color: pink;
 }
 
-// custom scrollbar
-// /* width */
-// ::-webkit-scrollbar {
-//   width: 8px;
-// }
+custom scrollbar
 
-// /* Track */
-// ::-webkit-scrollbar-track {
-//   background: #444;
-// }
+/* width */
+::-webkit-scrollbar {
+  width: 8px;
+}
 
-// /* Handle */
-// ::-webkit-scrollbar-thumb {
-//   background: #666;
-//   border-radius: 3px;
-// }
+/* Track */
+::-webkit-scrollbar-track {
+  background: $white;
+}
 
-// /* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//   background: #555;
-// }
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: $primary;
+  border-radius: 3px;
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: $white;
+}
 
 h1,
 h2,
@@ -58,38 +58,49 @@ h4,
 h5,
 h6 {
   margin: 0;
-  font-weight: normal;
+  color: $blackLight;
   // font-family: $font-primary;
 }
 
 h1 {
-  font-size: 100px;
-  line-height: .8em;
-  // color: $gray;
+  font-size: 60px;
+  line-height: 1.2em;
+  font-weight: 800;
+  margin-bottom: 60px;
+
+  span {
+    color: $primary;
+  }
 }
 
 h2 {
-  line-height: 1em;
+  font-size: 70px;
+  line-height: 1.2em;
+  font-weight: 700;
+
+  span {
+    color: $primary;
+  }
 }
 
 h3 {
-  line-height: 1em;
+  font-size: 50px;
+  line-height: 1.2em;
 }
 
 h4 {
-  font-size: 40px;
-  line-height: 1em;
+  font-size: 36px;
+  line-height: 1.111em;
 }
 
 h5 {
-  font-size: 24px;
-  line-height: 1em;
+  font-size: 28px;
+  line-height: 1.214em;
 }
 
 h6 {
   font-size: 16px;
   line-height: 1em;
-
 }
 
 hr {
@@ -172,7 +183,9 @@ textarea {
 }
 
 input {
-  line-height: 1em;
+  font-size: 20px;
+  line-height: 1.2em;
+  font-weight: 500;
 }
 
 button,
@@ -297,7 +310,7 @@ li {
   line-height: 1.5em;
   margin: 0;
   font-size: 16px;
-  color: $black;
+  color: inherit;
 }
 
 ul,
@@ -311,9 +324,13 @@ ol {
   }
 }
 
-section.section {
+.section {
   position: relative;
   overflow: hidden;
+
+  &__title {
+    text-align: center;
+  }
 }
 
 tr {
@@ -379,22 +396,22 @@ textarea,
 input {
   &::-webkit-input-placeholder {
     font-size: 16px;
-    color: $black;
+    color: #494A4D;
   }
 
   &::-moz-placeholder {
     font-size: 16px;
-    color: $black;
+    color: #494A4D;
   }
 
   &:-ms-input-placeholder {
     font-size: 16px;
-    color: $black;
+    color: #494A4D;
   }
 
   &::placeholder {
     font-size: 16px;
-    color: $black;
+    color: #494A4D;
   }
 }
 
@@ -408,7 +425,7 @@ input {
 }
 
 .container {
-  max-width: 1140px;
+  max-width: 1560px;
   margin: 0 auto;
   padding: 0 15px;
 }
@@ -446,4 +463,15 @@ main {
 
 .title-6 {
   @extend h6;
+}
+
+.btn {
+  display: inline-block;
+  cursor: pointer;
+  background-color: $primary;
+  color: $white;
+  border: none;
+  border-radius: 8px;
+  padding: 19px 30px;
+  font-size: 18px;
 }

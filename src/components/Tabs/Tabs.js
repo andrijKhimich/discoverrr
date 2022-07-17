@@ -21,4 +21,4 @@ const toggleTab = () => {
     })
   });
 };
-toggleTab()
+toggleTab();

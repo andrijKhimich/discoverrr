@@ -42,9 +42,9 @@ let { src, dest } = require("gulp"),
   concat = require("gulp-concat"),
   babel = require("gulp-babel"),
   imagemin = require("gulp-imagemin"),
-  webp = require("gulp-webp"),
-  webphtml = require("gulp-webp-html"),
-  webpcss = require("gulp-webpcss"),
+  // webp = require("gulp-webp"),
+  // webphtml = require("gulp-webp-html"),
+  // webpcss = require("gulp-webpcss"),
   svgsprite = require("gulp-svg-sprite"),
   cheerio = require("gulp-cheerio"),
   ttf2woff = require("gulp-ttf2woff"),
@@ -65,7 +65,7 @@ const browserSync = () => {
 const html = () => {
   return src(path.src.html)
     .pipe(fileinclude())
-    .pipe(webphtml())
+    // .pipe(webphtml())
     .pipe(dest(path.build.html))
     .pipe(browsersync.stream())
 }
@@ -79,7 +79,7 @@ const css = () => {
         cascade: true,
       })
     )
-    .pipe(webpcss())
+    // .pipe(webpcss())
     .pipe(dest(path.build.css))
     .pipe(cleanCss())
     .pipe(rename({
@@ -128,9 +128,9 @@ const js = () => {
 
 const img = () => {
   return src(path.src.img)
-    .pipe(webp({
-      quality: 70,
-    }))
+    // .pipe(webp({
+    //   quality: 70,
+    // }))
     .pipe(
       cache(
         imagemin({
