@@ -147,11 +147,8 @@ toggleTab();
 
 const animItems = document.querySelectorAll(".js-show");
 const showAnimation = () => {
-  console.log("start");
   const trigger = (window.innerHeight / 5) * 4;
   animItems.forEach((item) => {
-  console.log(item);
-
     const itemTop = item.getBoundingClientRect().top;
     if (itemTop < trigger) {
       item.classList.add("show");
