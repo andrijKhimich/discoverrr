@@ -85,6 +85,36 @@ const toggleAccordion = () => {
 }
 toggleAccordion();
 
+document.querySelector("#openDefault").click();
+
+const faqAccordion = document.querySelector(".faq-accordion");
+const faqAccordionItems = document.querySelectorAll(".faq-accordion__item");
+const faqAccordionContent = document.querySelectorAll(".faq-accordion__panel");
+
+const toggleFaqAccordion = () => {
+  faqAccordion.addEventListener("click", (e) => {
+    const faqParent = e.target.parentNode;
+    let faqPanel = faqParent.querySelector(".faq-accordion__panel");
+
+    if (faqParent.classList.contains("active")) {
+      faqParent.classList.remove("active");
+      faqPanel.style.maxHeight = null;
+    } else {
+      faqAccordionItems.forEach((item) => {
+        item.classList.remove("active");
+      });
+      faqAccordionContent.forEach((item) => {
+        item.style.maxHeight = null;
+      })
+      faqParent.classList.add("active");
+      faqPanel.style.maxHeight = faqPanel.scrollHeight + "px";
+    }
+  })
+}
+
+toggleFaqAccordion();
+document.querySelector("#openFaq").click();
+
 
 function openTab(evt, currencyName) {
   let i, tabContent, tabLinks;
@@ -115,6 +145,21 @@ const toggleTab = () => {
 };
 toggleTab();
 
-document.querySelector("#openDefault").click();
+const animItems = document.querySelectorAll(".js-show");
+const showAnimation = () => {
+  console.log("start");
+  const trigger = (window.innerHeight / 5) * 4;
+  animItems.forEach((item) => {
+  console.log(item);
 
+    const itemTop = item.getBoundingClientRect().top;
+    if (itemTop < trigger) {
+      item.classList.add("show");
+    } else {
+      item.classList.remove("show");
+    }
+  });
+}
+window.addEventListener("scroll", showAnimation);
+showAnimation();
 svg4everybody();

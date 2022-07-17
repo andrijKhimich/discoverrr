@@ -1,1 +1,154 @@
 // footer
+.footer {
+  .form {
+    p {
+      color: $white;
+      font-size: 14px;
+    }
+  }
+
+  .form__input,
+  .btn {
+    height: 52px;
+    width: 50%;
+    @include d(768) {
+      width: 100%;
+    }
+  }
+
+  .btn {
+    font-size: 16px;
+  }
+
+  .form__input {
+    padding-left: 20px;
+    font-size: 14px;
+    background-color: $white;
+
+    &::-webkit-input-placeholder {
+      font-size: 14px;
+      color: rgba(#494A4D, .5);
+    }
+
+    &::-moz-placeholder {
+      font-size: 14px;
+      color: rgba(#494A4D, .5);
+    }
+
+    &:-ms-input-placeholder {
+      font-size: 14px;
+      color: rgba(#494A4D, .5);
+    }
+
+    &::placeholder {
+      font-size: 14px;
+      color: rgba(#494A4D, .5);
+    }
+  }
+
+  &__row {
+    max-width: 1330px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    margin: 0 -15px;
+
+    @include d(992) {
+      flex-direction: column;
+    }
+  }
+
+  .container {
+    max-width: 1300px;
+  }
+
+  &__col {
+    padding: 0 15px;
+
+    @include d(992) {
+      margin: 0 auto 30px auto;
+      text-align: center;
+    }
+
+    &:last-child {
+      .footer__item {
+        max-width: 290px;
+        margin-left: auto;
+        margin-right: 0;
+      }
+    }
+  }
+
+  &__item {
+    max-width: 490px;
+
+    .title-5,
+    h5 {
+      color: $white;
+      margin-bottom: 16px;
+    }
+
+    p {
+      font-size: 16px;
+      line-height: 1.6em;
+      margin-bottom: 23px;
+    }
+  }
+
+  &_top {
+    background-color: #080C29;
+    color: $white;
+    padding: 100px 0 70px;
+  }
+
+  &_bottom {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 0;
+  }
+}
+
+.copyright {
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 15px;
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.social {
+  display: flex;
+  align-items: center;
+  @include d(992) {
+    justify-content: center;
+  }
+  &__item {
+    &:not(:last-child) {
+      margin-right: 20px;
+    }
+  }
+
+  &__link {
+    width: 20px;
+    height: 20px;
+
+    &:hover {
+      .svg-social {
+        fill: $primary;
+      }
+    }
+  }
+}
+
+.svg-social {
+  width: 20px;
+  height: 20px;
+  fill: rgba($white, .8);
+  transition: fill $hover-duration $timing;
+}
+
+.email__link {
+  text-decoration-line: underline;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: 36px;
+}

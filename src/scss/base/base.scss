@@ -8,6 +8,7 @@
 
 html {
   font-size: 100%;
+  height: 100%;
   line-height: 1.15; // Correct the line height in all browsers.
   -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS.
 }
@@ -16,7 +17,7 @@ body {
   margin: 0; // Remove the margin in all browsers.
   font-size: 16px;
   font-family: "Inter", sans-serif;
-  color: $black;
+  color: $blackLight;
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
   -moz-backface-visibility: hidden;
@@ -26,6 +27,7 @@ body {
   -webkit-text-size-adjust: 100%;
   backface-visibility: hidden;
   text-rendering: geometricPrecision;
+  height: 100%; /* necessary */
 }
 
 custom scrollbar
@@ -71,6 +73,14 @@ h1 {
   span {
     color: $primary;
   }
+
+  @include d(1440) {
+    font-size: 50px;
+  }
+
+  @include d(992) {
+    font-size: 40px;
+  }
 }
 
 h2 {
@@ -81,26 +91,67 @@ h2 {
   span {
     color: $primary;
   }
+
+  @include d(1440) {
+    font-size: 50px;
+  }
+
+  @include d(992) {
+    font-size: 40px;
+  }
 }
 
 h3 {
   font-size: 50px;
   line-height: 1.2em;
+
+  @include d(1440) {
+    font-size: 44px;
+  }
+
+  @include d(992) {
+    font-size: 36px;
+  }
 }
 
 h4 {
   font-size: 36px;
   line-height: 1.111em;
+
+  @include d(1440) {
+    font-size: 32px;
+  }
+
+  @include d(992) {
+    font-size: 28px;
+  }
 }
 
 h5 {
   font-size: 28px;
   line-height: 1.214em;
+
+  @include d(1440) {
+    font-size: 24px;
+  }
+
+  @include d(992) {
+    font-size: 22px;
+  }
 }
 
 h6 {
-  font-size: 16px;
-  line-height: 1em;
+  font-size: 24px;
+  line-height: 1.208em;
+  font-style: italic;
+
+  @include d(1440) {
+    font-size: 22px;
+  }
+
+  @include d(992) {
+    font-size: 18px;
+  }
 }
 
 hr {
@@ -428,6 +479,7 @@ input {
   max-width: 1560px;
   margin: 0 auto;
   padding: 0 15px;
+  width: 100%;
 }
 
 .main,
@@ -472,6 +524,75 @@ main {
   color: $white;
   border: none;
   border-radius: 8px;
-  padding: 19px 30px;
+  padding: 18px 29px;
   font-size: 18px;
+  border: 1px solid transparent;
+  transition: background-color $hover-duration $timing, color $hover-duration $timing, border $hover-duration $timing;
+
+  &:hover {
+    background-color: $white;
+    border-color: #080C29;
+    color: $blackLight;
+  }
+
+  &_white {
+    background-color: $white;
+    color: $blackLight;
+    font-weight: 700;
+    padding: 16px 21px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid $white;
+
+    &:hover {
+      background-color: #080C29;
+      color: $white;
+      border: 1px solid #080C29;
+
+      .svg-icon {
+        fill: $white;
+      }
+    }
+  }
+
+  &_icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      margin-right: 10px;
+    }
+  }
+
+  &_black {
+    background-color: #080C29;
+    color: $white;
+    font-weight: 700;
+    padding: 16px 21px;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 1px solid #080C29;
+
+    &:hover {
+      background-color: $white;
+      color: #080C29;
+      border-color: $white;
+
+      .svg-icon {
+        fill: $primary;
+      }
+    }
+  }
+}
+
+.js-show {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: transform .8s ease, opacity .8s ease;
+
+  &.show {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
