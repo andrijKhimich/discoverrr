@@ -27,10 +27,11 @@ body {
   -webkit-text-size-adjust: 100%;
   backface-visibility: hidden;
   text-rendering: geometricPrecision;
-  height: 100%; /* necessary */
+  height: 100%;
+  /* necessary */
 }
 
-custom scrollbar
+// custom scrollbar
 
 /* width */
 ::-webkit-scrollbar {
@@ -61,13 +62,13 @@ h5,
 h6 {
   margin: 0;
   color: $blackLight;
-  // font-family: $font-primary;
+  font-weight: 800;
 }
 
 h1 {
   font-size: 60px;
   line-height: 1.2em;
-  font-weight: 800;
+
   margin-bottom: 60px;
 
   span {
@@ -84,9 +85,8 @@ h1 {
 }
 
 h2 {
-  font-size: 70px;
+  font-size: 60px;
   line-height: 1.2em;
-  font-weight: 700;
 
   span {
     color: $primary;
@@ -105,6 +105,10 @@ h3 {
   font-size: 50px;
   line-height: 1.2em;
 
+  span {
+    color: $primary;
+  }
+
   @include d(1440) {
     font-size: 44px;
   }
@@ -117,6 +121,10 @@ h3 {
 h4 {
   font-size: 36px;
   line-height: 1.111em;
+  font-weight: 700;
+  span {
+    color: $primary;
+  }
 
   @include d(1440) {
     font-size: 32px;
@@ -131,6 +139,10 @@ h5 {
   font-size: 28px;
   line-height: 1.214em;
 
+  span {
+    color: $primary;
+  }
+
   @include d(1440) {
     font-size: 24px;
   }
@@ -144,6 +156,10 @@ h6 {
   font-size: 24px;
   line-height: 1.208em;
   font-style: italic;
+
+  span {
+    color: $primary;
+  }
 
   @include d(1440) {
     font-size: 22px;
@@ -445,6 +461,7 @@ input[type='number'] {
 
 textarea,
 input {
+
   &::-webkit-input-placeholder {
     font-size: 16px;
     color: #494A4D;
@@ -476,10 +493,22 @@ input {
 }
 
 .container {
-  max-width: 1560px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
+
+  @include d(1440) {
+    max-width: 86%;
+  }
+
+  @include d(1280) {
+    max-width: 90%;
+  }
+
+  @include d(1024) {
+    max-width: 100%;
+  }
 }
 
 .main,
@@ -492,37 +521,13 @@ main {
   overflow: hidden;
 }
 
-// project typography
-.title-1 {
-  @extend h1;
-}
-
-.title-2 {
-  @extend h2;
-}
-
-.title-3 {
-  @extend h3;
-}
-
-.title-4 {
-  @extend h4;
-}
-
-.title-5 {
-  @extend h5;
-}
-
-.title-6 {
-  @extend h6;
-}
-
 .btn {
   display: inline-block;
   cursor: pointer;
   background-color: $primary;
   color: $white;
   border: none;
+  font-weight: 700;
   border-radius: 8px;
   padding: 18px 29px;
   font-size: 18px;
@@ -535,10 +540,15 @@ main {
     color: $blackLight;
   }
 
+  &_sm {
+    padding: 8px 29px;
+    font-size: 14px;
+    line-height: 17px;
+  }
+
   &_white {
     background-color: $white;
     color: $blackLight;
-    font-weight: 700;
     padding: 16px 21px;
     font-size: 16px;
     border-radius: 5px;
@@ -568,7 +578,6 @@ main {
   &_black {
     background-color: #080C29;
     color: $white;
-    font-weight: 700;
     padding: 16px 21px;
     font-size: 16px;
     border-radius: 5px;
@@ -577,11 +586,22 @@ main {
     &:hover {
       background-color: $white;
       color: #080C29;
-      border-color: $white;
+      border-color: #080C29;
 
       .svg-icon {
         fill: $primary;
       }
+    }
+  }
+
+  &_black-border {
+    background-color: $white;
+    border: 1px solid $blackLight;
+    color: $blackLight;
+
+    &:hover {
+      background-color: $blackLight;
+      color: $white;
     }
   }
 }
@@ -589,10 +609,21 @@ main {
 .js-show {
   opacity: 0;
   transform: translate(0, 50px);
-  transition: transform .8s ease, opacity .8s ease;
+  transition: transform $duration $timing, opacity $duration $timing;
 
   &.show {
     opacity: 1;
     transform: translate(0, 0);
+  }
+}
+
+.link {
+  font-weight: 600;
+  font-size: 14px;
+  color: #707070;
+  transition: color $hover-duration $timing;
+
+  &:hover {
+    color: $primary;
   }
 }

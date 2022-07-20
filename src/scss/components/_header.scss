@@ -1,5 +1,5 @@
 .header {
-  padding: 50px 0 20px 0;
+  padding: 14px 0;
   position: absolute;
   top: 0;
   left: 0;
@@ -8,126 +8,254 @@
 
   &.js-show {
     transform: translate(0, -20px);
-    transition: all 1s ease;
+    transition: all $hover-duration $timing;
+
     &.show {
       opacity: 1;
       transform: translate(0, 0);
     }
   }
 
-  // &-row {
-  //   display: flex;
-  //   align-items: center;
-  //   justify-content: space-between;
-  // }
+  &-row {
+    display: flex;
+    align-items: center;
 
-  // &__nav {
-  //   @include d(991) {
-  //     position: fixed;
-  //     top: 0;
-  //     left: 0;
-  //     width: 100vw;
-  //     height: 100vh;
-  //     background-color: $primary;
-  //     pointer-events: none;
-  //     opacity: 0;
-  //     transform: translateX(-20px);
-  //     transition: opacity .5s ease-out, transform .5s ease-out;
+    // justify-content: flex-start;
+    @include d(768) {
+      justify-content: space-between;
+    }
+  }
 
-  //     &.active {
-  //       opacity: 1;
-  //       pointer-events: initial;
-  //       transform: translateX(0);
-  //     }
+  &__content {
+    display: flex;
+    flex-grow: 1;
 
-  //     .nav-list {
-  //       flex-direction: column;
-  //       align-items: flex-start;
-  //       padding: 90px 0 0 22px;
-  //       justify-content: flex-start;
-  //       font-size: 18px;
-  //     }
-  //   }
+    // align-items: center;
+    // justify-content: space-between;
+    @include d(768) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: $white;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity $hover-duration $timing, transform $hover-duration $timing;
+      flex-direction: column;
+      padding-left: 10px;
 
-  // }
+      &.active {
+        opacity: 1;
+        pointer-events: initial;
+        transform: translateX(0);
+      }
+    }
+  }
+
+  &__nav {
+    @include d(992) {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background-color: $white;
+      pointer-events: none;
+      opacity: 0;
+      transform: translateX(-20px);
+      transition: opacity $hover-duration $timing, transform $hover-duration $timing;
+
+      &.active {
+        opacity: 1;
+        pointer-events: initial;
+        transform: translateX(0);
+      }
+    }
+
+    @include d(768) {
+      position: static;
+      pointer-events: initial;
+      opacity: 1;
+      height: auto;
+      transform: translate(0, 0);
+      background-color: transparent;
+    }
+  }
+
+  &__login {
+    display: flex;
+    align-items: center;
+
+    @include d(992) {
+      margin-left: auto;
+      margin-right: 20px;
+    }
+
+    @include d(768) {
+      margin: 40px auto 0 10px;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .btn {
+      @include d(768) {
+        width: 100%;
+      }
+
+      &:not(:last-child) {
+        margin-right: 20px;
+
+        @include d(992) {
+          margin-right: 10px;
+        }
+
+        @include d(768) {
+          margin: 0 0 10px 0;
+        }
+      }
+    }
+
+    .link {
+      margin-right: 30px;
+
+      @include d(992) {
+        margin-right: 10px;
+      }
+
+      @include d(768) {
+        margin: 0 0 10px 0;
+        font-size: 18px;
+      }
+    }
+  }
 }
 
 .logo {
   display: inline-block;
-  max-width: 180px;
+  max-width: 174px;
+  margin-right: 80px;
+  position: relative;
+  z-index: 1;
+
   @include d(768) {
     max-width: 140px;
+    margin-right: 10px;
   }
 }
 
-// .nav {
-//   &-list {
-//     display: flex;
-//     align-items: center;
-//     flex-wrap: wrap;
+.nav {
+  margin-left: 0;
+  margin-right: auto;
 
-//     &__item,
-//     li {
-//       &:not(:last-child) {
-//         margin-right: 2px;
-//       }
-//     }
+  &-list {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
 
-//     &__link,
-//     a {
-//       padding: 10px 15px;
-//     }
-//   }
-// }
+    @include d(992) {
+      flex-direction: column;
+      align-items: flex-start;
+      padding: 90px 0 0 10px;
+      justify-content: flex-start;
+    }
 
-// .burger {
-//   position: relative;
-//   width: 22px;
-//   height: 16px;
-//   z-index: 101;
-//   display: none;
+    @include d(768) {
+      padding: 80px 0 0 0;
+    }
 
-//   @include d(991) {
-//     display: inline-block;
-//   }
+    &__item,
+    li {
+      position: relative;
 
-//   &_item {
-//     position: absolute;
-//     width: 22px;
-//     height: 2px;
-//     background-color: $white;
-//     left: 0;
-//     transition: .5s ease-out;
+      &::before {
+        content: "";
+        height: 2px;
+        border-radius: 4px;
+        background-color: $primary;
+        position: absolute;
+        left: 5px;
+        bottom: 5px;
+        width: 0;
+        transition: width $hover-duration $timing;
+      }
 
-//     &:first-child {
-//       top: 0;
-//     }
+      &:not(:last-child) {
+        margin-right: 32px;
+      }
 
-//     &:nth-child(2) {
-//       top: 50%;
-//       margin-top: -1px;
-//     }
+      &:hover {
+        &::before {
+          width: calc(100% - 10px);
+        }
+      }
+    }
 
-//     &:last-child {
-//       bottom: 0;
-//     }
-//   }
+    &__link,
+    a {
+      padding: 0 10px;
+      font-weight: 600;
+      font-size: 14px;
+      color: #707070;
+      line-height: 40px;
 
-//   &.active {
-//     .burger_item {
-//       &:first-child {
-//         transform: rotate(45deg);
-//         top: 7px;
-//       }
+      @include d(992) {
+        font-size: 18px;
+      }
+    }
+  }
+}
 
-//       &:nth-child(2) {
-//         width: 0;
-//       }
+.burger {
+  position: relative;
+  width: 28px;
+  height: 20px;
+  z-index: 101;
+  display: none;
 
-//       &:last-child {
-//         transform: rotate(-45deg);
-//         bottom: 7px;
-//       }
-//     }
-//   }
-// }
+  @include d(992) {
+    display: inline-block;
+  }
+
+  &_item {
+    position: absolute;
+    width: 22px;
+    height: 4px;
+    background-color: $primary;
+    left: 0;
+    transition: $hover-duration $timing;
+    border-radius: 3px;
+
+    &:first-child {
+      top: 0;
+    }
+
+    &:nth-child(2) {
+      top: 50%;
+      margin-top: -2px;
+    }
+
+    &:last-child {
+      bottom: 0;
+    }
+  }
+
+  &.active {
+    .burger_item {
+      &:first-child {
+        transform: rotate(45deg);
+        top: 8px;
+      }
+
+      &:nth-child(2) {
+        width: 0;
+      }
+
+      &:last-child {
+        transform: rotate(-45deg);
+        bottom: 7px;
+      }
+    }
+  }
+}

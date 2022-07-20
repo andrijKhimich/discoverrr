@@ -1,37 +1,46 @@
-// const toggleMenu = () => {
-//   const burger = document.querySelector(".js-burger");
-//   const menu = document.querySelector(".js-header-nav");
-//   const body = document.querySelector("body");
-//   burger.addEventListener("click", () => {
-//     if (!menu.classList.contains("active")) {
-//       menu.classList.add("active");
-//       burger.classList.add("active");
-//       body.classList.add("locked");
-//     } else {
-//       menu.classList.remove("active");
-//       burger.classList.remove("active");
-//       body.classList.remove("locked");
-//     }
-//   });
-//   window.addEventListener("resize", () => {
-//     if (window.innerWidth > 992) {
-//       menu.classList.remove("active");
-//       burger.classList.remove("active");
-//       body.classList.remove("locked");
-//     }
-//   })
-// }
-// toggleMenu();
+const toggleMenu = () => {
+  const burger = document.querySelector(".js-burger");
+  const menu = document.querySelector(".js-header-nav");
+  const body = document.querySelector("body");
+  const headerContent = document.querySelector(".js-header-content");
 
-// const fixedHeader = () => {
-//   const header = document.querySelector(".header");
-//   const startPoint = 1;
-//   if (window.scrollY >= startPoint) {
-//     header.classList.add("fixed");
-//   } else {
-//     header.classList.remove("fixed");
-//   }
-// }
+  burger.addEventListener("click", () => {
+    if (!menu.classList.contains("active")) {
+      menu.classList.add("active");
+      burger.classList.add("active");
+      body.classList.add("locked");
+      headerContent.classList.add("active");
+    } else {
+      menu.classList.remove("active");
+      burger.classList.remove("active");
+      body.classList.remove("locked");
+      headerContent.classList.remove("active");
+    }
+  });
+  window.addEventListener("resize", () => {
+    if (window.innerWidth > 992) {
+      menu.classList.remove("active");
+      burger.classList.remove("active");
+      body.classList.remove("locked");
+    } else if(window.innerWidth > 768) {
+      headerContent.classList.remove("active");
+      // menu.classList.add("active");
+    } else {
+
+    }
+  })
+}
+toggleMenu();
+
+const fixedHeader = () => {
+  const header = document.querySelector(".header");
+  const startPoint = 1;
+  if (window.scrollY >= startPoint) {
+    header.classList.add("fixed");
+  } else {
+    header.classList.remove("fixed");
+  }
+}
 
 // window.addEventListener("scroll", fixedHeader);
 
@@ -160,3 +169,19 @@ const showAnimation = () => {
 window.addEventListener("scroll", showAnimation);
 showAnimation();
 svg4everybody();
+
+
+const svgs = document.querySelectorAll('.svg-hero path');
+console.log(svgs);
+
+// tasks is your array
+svgs.forEach((element, i) => {
+  // setInterval(
+  //   function () {
+  //     element.style.opacity = 0;
+  //     //the work you want to perform   
+  //   }
+  //   , i * 10);
+  element.style.animationDelay = i + 1;
+
+});

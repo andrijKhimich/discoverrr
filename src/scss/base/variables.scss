@@ -11,6 +11,10 @@ $greyLight: #DEDEDE;
 
 
 // timing
-$hover-duration: .5s;
-$duration: .8s;
-$timing: cubic-bezier(.17,.67,.55,1.05);
+$duration: 1.6s;
+
+// $hover-duration: .5s;
+// $timing: cubic-bezier(.17,.67,.55,1.05);
+
+$hover-duration: .6s;
+$timing: cubic-bezier(.32,.94,.6,1);
