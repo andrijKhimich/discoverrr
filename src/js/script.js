@@ -22,7 +22,7 @@ const toggleMenu = () => {
       menu.classList.remove("active");
       burger.classList.remove("active");
       body.classList.remove("locked");
-    } else if(window.innerWidth > 768) {
+    } else if (window.innerWidth > 768) {
       headerContent.classList.remove("active");
       // menu.classList.add("active");
     } else {
@@ -76,20 +76,22 @@ const toggleAccordion = () => {
   accordion.addEventListener("click", (e) => {
     const parent = e.target.parentNode;
     let panel = parent.querySelector(".accordion__panel");
-
-    if (parent.classList.contains("active")) {
-      parent.classList.remove("active");
-      panel.style.maxHeight = null;
-    } else {
-      accordionItems.forEach((item) => {
-        item.classList.remove("active");
-      });
-      accordionContent.forEach((item) => {
-        item.style.maxHeight = null;
-      })
-      parent.classList.add("active");
-      panel.style.maxHeight = panel.scrollHeight + "px";
+    if (parent.classList.contains("accordion__item")) {
+      if (parent.classList.contains("active")) {
+        parent.classList.remove("active");
+        panel.style.maxHeight = null;
+      } else {
+        accordionItems.forEach((item) => {
+          item.classList.remove("active");
+        });
+        accordionContent.forEach((item) => {
+          item.style.maxHeight = null;
+        })
+        parent.classList.add("active");
+        panel.style.maxHeight = panel.scrollHeight + "px";
+      }
     }
+
   })
 }
 toggleAccordion();
@@ -104,19 +106,20 @@ const toggleFaqAccordion = () => {
   faqAccordion.addEventListener("click", (e) => {
     const faqParent = e.target.parentNode;
     let faqPanel = faqParent.querySelector(".faq-accordion__panel");
-
-    if (faqParent.classList.contains("active")) {
-      faqParent.classList.remove("active");
-      faqPanel.style.maxHeight = null;
-    } else {
-      faqAccordionItems.forEach((item) => {
-        item.classList.remove("active");
-      });
-      faqAccordionContent.forEach((item) => {
-        item.style.maxHeight = null;
-      })
-      faqParent.classList.add("active");
-      faqPanel.style.maxHeight = faqPanel.scrollHeight + "px";
+    if (faqParent.classList.contains('faq-accordion__item')) {
+      if (faqParent.classList.contains("active")) {
+        faqParent.classList.remove("active");
+        faqPanel.style.maxHeight = null;
+      } else {
+        faqAccordionItems.forEach((item) => {
+          item.classList.remove("active");
+        });
+        faqAccordionContent.forEach((item) => {
+          item.style.maxHeight = null;
+        })
+        faqParent.classList.add("active");
+        faqPanel.style.maxHeight = faqPanel.scrollHeight + "px";
+      }
     }
   })
 }
@@ -171,17 +174,12 @@ showAnimation();
 svg4everybody();
 
 
-const svgs = document.querySelectorAll('.svg-hero path');
-console.log(svgs);
 
-// tasks is your array
-svgs.forEach((element, i) => {
-  // setInterval(
-  //   function () {
-  //     element.style.opacity = 0;
-  //     //the work you want to perform   
-  //   }
-  //   , i * 10);
-  element.style.animationDelay = i + 1;
 
-});
+const removeLogoSizes = () => {
+  const logoImg = document.querySelector('.logo img');
+  logoImg.removeAttribute('width');
+  logoImg.removeAttribute('height');
+}
+
+removeLogoSizes();

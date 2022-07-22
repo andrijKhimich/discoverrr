@@ -1,5 +1,24 @@
 // footer
 .footer {
+  &__logo {
+    max-width: 130px;
+
+    &-container {
+      display: flex;
+      align-items: center;
+
+      p {
+        font-style: italic;
+        font-size: 12px;
+        color: #080C29;
+        font-weight: 400;
+        margin-left: 6px;
+        position: relative;
+        top: 4px;
+      }
+    }
+  }
+
   .form {
     p {
       color: $white;
@@ -9,6 +28,7 @@
     .form__content {
       label {
         width: 50%;
+
         @include d(768) {
           width: 100%;
         }
@@ -21,6 +41,7 @@
       font-size: 16px;
       line-height: 1em;
       padding: 15px 17px;
+
       @include d(768) {
         width: 100%;
       }

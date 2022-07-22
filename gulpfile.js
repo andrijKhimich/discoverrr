@@ -244,7 +244,7 @@ const watchFiles = () => {
   gulp.watch([path.watch.img], img);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, img, svgSprite, fonts), fontStyle);
+const build = gulp.series(clean, gulp.parallel(html, css, js, img, svgSprite, fonts));
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;
@@ -253,7 +253,7 @@ exports.js = js;
 exports.img = img;
 exports.svgSprite = svgSprite;
 exports.fonts = fonts;
-exports.fontStyle = fontStyle;
+// exports.fontStyle = fontStyle;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

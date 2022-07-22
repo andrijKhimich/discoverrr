@@ -23,12 +23,12 @@
     bottom: 0;
     right: 0;
     background-image: url(../img/hero-bg.png);
-    background-size: 150%;
+    background-size: 120%;
     background-repeat: no-repeat;
     background-position: center;
     opacity: .1;
     z-index: -1;
-    animation: bgAnimation 100s linear infinite forwards;
+    animation: bgAnimation 50s linear infinite forwards;
 
     &::before {
       content: "";
@@ -51,30 +51,34 @@
     }
   }
 
+  &__content {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
   &__tag {
     background-color: #F9F9F9;
-    min-height: 55px;
     border-radius: 24px;
-    max-width: 485px;
-    margin: 0 auto;
-    margin-bottom: 36px;
+    margin: 0 auto 36px auto;
+    display: inline-block;
+    padding: 8px 30px;
 
     @include d(992) {
       margin-bottom: 80px;
     }
 
     p {
-      color: #656565;
+      color: #4361EE;
       font-weight: 700;
-      line-height: 55px;
       font-size: 20px;
       text-transform: uppercase;
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 18px;
       }
 
-      @include d(768) {
+      @include d(1440) {
         font-size: 16px;
       }
     }
@@ -98,7 +102,7 @@
         background-repeat: no-repeat;
         background-position: center;
 
-        @include d(1440) {
+        @include d(1600) {
           left: auto;
           right: 0;
           bottom: 100%;
@@ -112,46 +116,24 @@
 
 @keyframes bgAnimation {
   0% {
-    background-position: left bottom;
+    background-position: right;
   }
 
   100% {
-    background-position: right top;
+    background-position: left;
   }
 }
-
-// .svg-hero {
-//   position: absolute;
-//   top: 0;
-//   left: 0;
-//   bottom: 0;
-//   right: 0;
-//   width: 100%;
-//   height: 100%;
-//   fill: red;
-
-//   use {
-//     position: absolute;
-//     top: 0;
-//     left: 0;
-//     bottom: 0;
-//     right: 0;
-//     width: 100%;
-//     height: 100%;
-//   }
-// }
 
 .subtitle {
   font-size: 24px;
   font-weight: 600;
-  // font-style: italic;
   max-width: 960px;
   margin: 0 auto;
   line-height: 1.5em;
   color: #494949;
   margin-bottom: 55px;
 
-  @include d(992) {
+  @include d(1600) {
     font-size: 20px;
   }
 
@@ -169,7 +151,7 @@
   align-items: baseline;
 
   @include d(700) {
-    text-align: center;
+    align-items: center;
   }
 
   form {
@@ -236,7 +218,7 @@
       border-right: none;
     }
 
-    @include d(992) {
+    @include d(1600) {
       font-size: 18px;
     }
 
@@ -255,11 +237,11 @@
       font-size: 20px;
       color: #A0A1A2;
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 18px;
       }
 
-      @include d(768) {
+      @include d(1600) {
         font-size: 16px;
       }
     }
@@ -268,11 +250,11 @@
       font-size: 20px;
       color: #A0A1A2;
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 18px;
       }
 
-      @include d(768) {
+      @include d(1600) {
         font-size: 16px;
       }
     }
@@ -281,11 +263,11 @@
       font-size: 20px;
       color: #A0A1A2;
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 18px;
       }
 
-      @include d(768) {
+      @include d(1600) {
         font-size: 16px;
       }
     }
@@ -294,11 +276,11 @@
       font-size: 20px;
       color: rgba(#494A4D, .5);
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 18px;
       }
 
-      @include d(768) {
+      @include d(1600) {
         font-size: 16px;
       }
     }
@@ -332,6 +314,9 @@
   background-color: $white;
   box-shadow: 0px 0px 24px rgba(96, 112, 188, 0.15);
   overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 
   &::before {
     content: "";
@@ -358,7 +343,6 @@
     left: 50%;
     transform: translate(-50%, -50%) scale(0);
     border-radius: 50%;
-    // transform: ;
     transition: transform $duration $timing;
   }
 
@@ -373,7 +357,6 @@
       }
 
       .svg-arrow {
-        transform: translate(-50%, -30%);
         fill: $white;
       }
 
@@ -389,11 +372,23 @@
   width: 20px;
   height: 28px;
   position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
   transition: transform $duration $timing, fill $duration $timing;
   z-index: 1;
+  animation: bounce 3s linear infinite forwards;
+}
+
+@keyframes bounce {
+  0% {
+    transform: translate(0, -3px);
+  }
+
+  50% {
+    transform: translate(0, 8px);
+  }
+
+  100% {
+    transform: translate(0, -3px);
+  }
 }
 
 @keyframes rotation {
@@ -426,7 +421,7 @@
 .showcase {
   padding: 135px 0 10px 0;
 
-  @include d(1440) {
+  @include d(1600) {
     padding: 80px 0 0 0;
   }
 
@@ -437,12 +432,12 @@
   &__title {
     margin-bottom: 134px;
 
-    @include d(1440) {
+    @include d(1600) {
       margin-bottom: 100px;
     }
 
     @include d(992) {
-      margin-bottom: 0;
+      margin-bottom: 60px;
     }
 
     &-container {
@@ -460,7 +455,7 @@
         margin-right: 15px;
       }
 
-      @include d(1440) {
+      @include d(1600) {
         font-size: 50px;
       }
 
@@ -493,13 +488,18 @@
             left: -10px;
             top: -10px;
           }
+
+          @include d(768) {
+            left: -5px;
+            top: -5px;
+          }
         }
       }
 
       .showcase__content {
         margin: 50px 40px 0 auto;
 
-        @include d(1440) {
+        @include d(1600) {
           margin: 50px 0 0 60px;
         }
 
@@ -571,6 +571,10 @@
       max-width: 100%;
       margin-bottom: 40px;
     }
+
+    @include d(768) {
+      padding: 0 15px;
+    }
   }
 
   &__text {
@@ -582,7 +586,7 @@
       margin-bottom: 30px;
       font-weight: 500;
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 18px;
         margin-bottom: 15px;
       }
@@ -640,6 +644,10 @@
       margin: 10px 0 60px 0;
     }
 
+    @include d(992) {
+      display: none;
+    }
+
     p {
       line-height: 1.875em;
       color: rgba($blackLight, .8);
@@ -690,6 +698,11 @@
       margin-bottom: 40px;
     }
 
+    @include d(768) {
+      padding: 0 15px;
+
+    }
+
     &::before {
       content: "";
       width: 100%;
@@ -705,6 +718,11 @@
         top: -10px;
         right: -10px;
       }
+
+      @include d(768) {
+        top: -5px;
+        right: -5px;
+      }
     }
   }
 }
@@ -718,7 +736,7 @@
   width: 280px;
   overflow: hidden;
 
-  @include d(1440) {
+  @include d(1600) {
     height: 49px;
     width: 200px;
   }
@@ -791,7 +809,7 @@
 .business {
   padding: 10px 0 142px;
 
-  @include d(1440) {
+  @include d(1600) {
     padding: 0 0 80px 0;
   }
 
@@ -924,7 +942,7 @@
     background-color: transparent;
     position: relative;
 
-    @include d(992) {
+    @include d(1600) {
       font-size: 18px;
     }
 
@@ -957,6 +975,7 @@
     opacity: 0;
 
     p {
+      pointer-events: none;
       padding: 0 30px 25px 30px;
     }
   }
@@ -967,7 +986,7 @@
   background: linear-gradient(180deg, #080C29 5.5%, #0F1D5E 143.66%);
   padding: 95px 0 110px;
 
-  @include d(1440) {
+  @include d(1600) {
     padding: 80px 0;
   }
 
@@ -1087,7 +1106,7 @@
           line-height: 1.200em;
           margin-bottom: 9px;
 
-          @include d(992) {
+          @include d(1600) {
             font-size: 18px;
           }
 
@@ -1153,7 +1172,7 @@
       font-size: 24px;
       font-weight: 700;
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 20px;
       }
 
@@ -1335,7 +1354,7 @@
     font-size: 24px;
     font-weight: 900;
 
-    @include d(992) {
+    @include d(1600) {
       font-size: 20px;
     }
 
@@ -1375,7 +1394,7 @@
     left: 0;
   }
 
-  @include d(1440) {
+  @include d(1600) {
     padding: 100px 0;
   }
 
@@ -1387,7 +1406,11 @@
     max-width: 590px;
     margin: 0 auto 50px auto;
 
-    @include d(1440) {
+    @include d(1600) {
+      max-width: 450px;
+    }
+
+    @include d(1450) {
       max-width: 490px;
     }
 
@@ -1437,22 +1460,9 @@
     padding: 60px 30px 30px 30px;
     position: relative;
     min-height: 240px;
-    counter-increment: my-counter;
 
     @include d(992) {
       margin: 0 auto 60px;
-    }
-
-    &::before {
-      content: "0"counter(my-counter);
-      position: absolute;
-      bottom: 0;
-      right: 10px;
-      line-height: .8em;
-      font-weight: 800;
-      font-size: 40px;
-      color: #404040;
-      opacity: 0.05;
     }
 
     &::after {
@@ -1467,15 +1477,15 @@
       top: 50%;
       left: 112%;
 
+      @include d(1600) {
+        left: 107%;
+        width: 30px;
+      }
+
       @include d(1440) {
         left: 103%;
         width: 30px;
       }
-
-      // @include d(1280) {
-      //   left: 105%;
-      //   width: 30px;
-      // }
 
       @include d(1024) {
         display: none;
@@ -1511,7 +1521,7 @@
   background: linear-gradient(180deg, #080C29 5.5%, #0F1D5E 122.8%);
   text-align: center;
 
-  @include d(1440) {
+  @include d(1600) {
     padding: 100px 0;
   }
 
@@ -1539,7 +1549,7 @@
       font-weight: 500;
       margin-bottom: 40px;
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 20px;
       }
 
@@ -1587,7 +1597,7 @@
 .faq {
   padding: 112px 0 100px;
 
-  @include d(1440) {
+  @include d(1600) {
     padding: 80px 0;
   }
 
@@ -1654,7 +1664,7 @@
       position: relative;
       display: block;
 
-      @include d(992) {
+      @include d(1600) {
         font-size: 18px;
       }
 
@@ -1691,6 +1701,7 @@
   position: absolute;
   top: 44%;
   right: 25px;
+  pointer-events: none;
 
   &::before,
   &::after {
@@ -1723,7 +1734,7 @@
   padding: 85px 0 113px 0;
   background: rgba(67, 97, 238, 0.05);
 
-  @include d(1440) {
+  @include d(1600) {
     padding: 80px 0;
   }
 
@@ -1802,11 +1813,12 @@
 }
 
 .svg-phone {
-  fill: $primary;
+
+  fill: $white;
 }
 
 .svg-list {
-  fill: $white;
+  fill: $primary;
 }
 
 .wpcf7 {
@@ -1851,6 +1863,7 @@
   right: 0;
   background-color: transparent;
   border: 1px solid $blackLight;
+
   &::before {
     background-color: $primary;
   }
