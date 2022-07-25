@@ -184,238 +184,21 @@ removeLogoSizes();
 const roundNumber = (val) => {
   return Math.ceil(val / 100) * 100
 }
-
-let startPrice = 45;
-let discount = 10;
-let price;
-let priceNew;
-let total;
-let totalForYear;
-let totalDiscount;
-
-let oldVal = 0;
-
-let upResults = {};
-let newNumber;
-let saveNumber;
-let numbersArray = [];
-const setArrayValue = (value) => {
-  numbersArray.push(value);
-}
-const removeArrayValue = () => {
-  numbersArray.shift();
-}
-
-const rewriteArrayValue = (value) => {
-  numbersArray[0] = value;
-}
+const discoverTotal = $(".discover-total");
 
 $(function () {
-  const discoverTotal = $(".discover-total");
   const range = $("#slider-range-min");
   range.slider({
     range: "min",
     value: 100,
     min: 0,
-    max: 1000,
+    max: 5000,
     step: 100,
     slide: function (event, ui) {
       let newVal = ui.value;
-      let increase;
-      if (newVal === 0) {
-        discoverTotal.text('0');
-      }
-      else if (newVal === 100) {
-        increase = 18;
-        price = (startPrice / 100 * increase) + startPrice;
-        priceNew = price;
-        totalForYear = priceNew * 12;
-        totalForYear = startPrice * 12;
-        totalDiscount = (totalForYear / 100 * discount);
-        total = totalForYear - totalDiscount;
-        discoverTotal.text(total);
-      }
-
-      else if (newVal === 200) {
-        increase = 18;
-        price = (startPrice / 100 * increase) + startPrice;
-        priceNew = price;
-        totalForYear = priceNew * 12;
-        totalDiscount = totalForYear / 100 * discount;
-        total = totalForYear - totalDiscount;
-        discoverTotal.text(Math.floor(total));
-        newNumber = priceNew;
-        // setArrayValue(priceNew);
-        console.log(newNumber);
-      }
-      else if (newVal === 300) {
-        increase = 18;
-        if (newVal >= oldVal) {
-          console.log("right 300");
-        console.log(newNumber);
-          price = (priceNew / 100 * increase) + priceNew;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-          // rewriteArrayValue(priceNew);
-          newNumber = priceNew;
-        }
-        else if (newVal <= oldVal) {
-          console.log("left 300", newNumber);
-          // saveNumber = numbersArray[0];
-          // console.log(saveNumber);
-          price = (saveNumber / 100 * increase) + saveNumber;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-        }
-        oldVal = newVal;
-      }
-      else if (newVal === 400) {
-        increase = 14;
-        if (newVal >= oldVal) {
-          console.log("right 400",    );
-          price = (priceNew / 100 * increase) + priceNew;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-          newNumber = priceNew;
-        }
-        else if (newVal <= oldVal) {
-          console.log("left 400", newNumber);
-          saveNumber = newNumber;
-          price = (saveNumber / 100 * increase) + saveNumber;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-        }
-        oldVal = newVal;
-      }
-      else if (newVal === 500) {
-        increase = 14;
-
-        console.log(newNumber)
-
-        if (newVal >= oldVal) {
-          console.log("right 500");
-          // console.log(newNumber)
-          price = (priceNew / 100 * increase) + priceNew;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-          // newNumber = newNumber;
-        }
-        else if (newVal <= oldVal) {
-          console.log("left 500");
-        }
-        oldVal = newVal;
-      }
-      else if (newVal === 600) {
-        increase = 10;
-
-
-        if (newVal >= oldVal) {
-          console.log("right 600");
-          price = (priceNew / 100 * increase) + priceNew;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-          // newNumber = newNumber;
-        }
-        else if (newVal <= oldVal) {
-          console.log("left 600");
-
-        }
-        oldVal = newVal;
-      }
-      else if (newVal === 700) {
-        increase = 10;
-
-        if (newVal >= oldVal) {
-          console.log("right 700");
-          price = (priceNew / 100 * increase) + priceNew;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-          // newNumber = newNumber;
-        }
-        else if (newVal <= oldVal) {
-          console.log("left 700");
-        }
-        oldVal = newVal;;
-      }
-      else if (newVal === 800) {
-        increase = 10;
-
-        if (newVal >= oldVal) {
-          console.log("right 800");
-          price = (priceNew / 100 * increase) + priceNew;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-          // newNumber = newNumber;
-        }
-        else if (newVal <= oldVal) {
-          console.log("left 800");
-        }
-        oldVal = newVal;
-      }
-      else if (newVal === 900) {
-        increase = 10;
-
-        if (newVal >= oldVal) {
-          console.log("right 900");
-          price = (priceNew / 100 * increase) + priceNew;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-          // newNumber = newNumber;
-        }
-        else if (newVal <= oldVal) {
-          upResults.downPrice = priceNew;
-          console.log("left 900");
-        }
-        oldVal = newVal;
-      }
-      else if (newVal === 1000) {
-        increase = 10;
-
-        if (newVal >= oldVal) {
-          console.log("right 1000");
-          price = (priceNew / 100 * increase) + priceNew;
-          priceNew = price;
-          totalForYear = priceNew * 12;
-          totalDiscount = (totalForYear / 100 * discount);
-          total = totalForYear - totalDiscount;
-          discoverTotal.text(Math.floor(total));
-          // newNumber = newNumber;
-        }
-        else if (newVal <= oldVal) {
-          console.log("left 1000");
-        }
-        oldVal = newVal;
-      }
-
-      $("#amount").val(ui.value);
-
+      $("#amount").val(newVal);
+      this.value = roundNumber(newVal);
+      getCurrentPriceFromSKU(newVal);
       // discoverTotal.text(ui.value);
     }
   });
@@ -425,227 +208,18 @@ $(function () {
   $("#amount").blur(function () {
     this.value = roundNumber(this.value);
     range.slider({
-      value: roundNumber(this.value)
+      value: getCurrentPriceFromSKU(this.value),
     });
-    console.log(roundNumber(this.value));
-    // calculate(roundNumber(this.value));
   });
 
   $("#amount").on("keyup", function (e) {
     if (e.key === "Enter") {
       this.value = roundNumber(this.value);
-      console.log(roundNumber(this.value));
-      // calculate(roundNumber(this.value));
+      range.slider({
+        value: getCurrentPriceFromSKU(this.value),
+      });
     }
   });
-
-  const calculatePlus = (val) => {
-    // console.log(val);
-    // let increase;
-    // if (val === 0) {
-    //   discoverTotal.text('0');
-    // }
-    // else if (val === 100) {
-    //   totalForYear = startPrice * 12;
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(total);
-    // } else if (val === 200) {
-    //   increase = 18;
-    //   price = (startPrice / 100 * increase) + startPrice;
-    //   // let n = n - (n * (p/100));
-    //   priceNew = price;
-    //   // console.log(priceNew);
-    //   totalForYear = priceNew * 12;
-
-    //   totalDiscount = totalForYear / 100 * discount;
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-    // else if (val === 300) {
-
-    //   increase = 18;
-    //   price = (priceNew / 100 * increase) + priceNew;
-    //   priceNew = price;
-    //   totalForYear = priceNew * 12;
-    //   console.log(totalForYear);
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-    // else if (val === 400) {
-    //   increase = 14;
-    //   price = (priceNew / 100 * increase) + priceNew;
-    //   priceNew = price;
-    //   totalForYear = priceNew * 12;
-    //   console.log(totalForYear);
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-    // else if (val === 500) {
-    //   increase = 14;
-    //   price = (priceNew / 100 * increase) + priceNew;
-    //   priceNew = price;
-    //   totalForYear = priceNew * 12;
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-    // else if (val === 600) {
-    //   increase = 10;
-    //   price = (priceNew / 100 * increase) + priceNew;
-    //   priceNew = price;
-    //   totalForYear = priceNew * 12;
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-    // else if (val === 700) {
-    //   increase = 10;
-    //   price = (priceNew / 100 * increase) + priceNew;
-    //   priceNew = price;
-    //   totalForYear = priceNew * 12;
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-    // else if (val === 800) {
-    //   increase = 10;
-    //   price = (priceNew / 100 * increase) + priceNew;
-    //   priceNew = price;
-    //   totalForYear = priceNew * 12;
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-    // else if (val === 900) {
-    //   increase = 10;
-    //   price = (priceNew / 100 * increase) + priceNew;
-    //   priceNew = price;
-    //   totalForYear = priceNew * 12;
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-    // else if (val === 1000) {
-    //   increase = 10;
-    //   price = (priceNew / 100 * increase) + priceNew;
-    //   priceNew = price;
-    //   totalForYear = priceNew * 12;
-    //   totalDiscount = (totalForYear / 100 * discount);
-    //   total = totalForYear - totalDiscount;
-    //   discoverTotal.text(Math.floor(total));
-    // }
-  }
-  const calculateMinus = (val) => {
-    console.log(val);
-    let increase;
-    if (val === 0) {
-      discoverTotal.text('0');
-    }
-    else if (val === 100) {
-      totalForYear = startPrice * 12;
-      totalDiscount = (totalForYear / 100 * discount);
-      total = totalForYear - totalDiscount;
-      discoverTotal.text(total);
-    }
-    else if (val === 200) {
-      increase = 18;
-
-      price = (startPrice / 100 * increase) + startPrice;
-      // let n = n - (n * (p/100));
-      priceNew = price;
-      // console.log(priceNew);
-      totalForYear = priceNew * 12;
-      totalDiscount = totalForYear / 100 * discount;
-      total = totalForYear - totalDiscount;
-      discoverTotal.text(Math.floor(total));
-    }
-    else if (val === 300) {
-      increase = 18;
-      console.log(priceNew, total);
-      let fullPrice = total + total / 100 * 10;
-      console.log(fullPrice);
-      // price = (priceNew / 100) * (100 - increase);
-      // priceNew = price;
-      // // console.log(priceNew, price);
-      // totalForYear = priceNew * 12;
-      // totalDiscount = (totalForYear / 100 * discount);
-      // total = totalForYear - totalDiscount;
-      // discoverTotal.text(Math.floor(total));
-    }
-    else if (val === 400) {
-      increase = 14;
-      price = (priceNew / 100) * (100 - increase);
-      priceNew = price;
-      // console.log(priceNew, price);
-      totalForYear = priceNew * 12;
-      totalDiscount = (totalForYear / 100 * discount);
-      total = totalForYear - totalDiscount;
-      discoverTotal.text(Math.floor(total));
-    }
-    else if (val === 500) {
-      // increase = 14;
-      // price = (priceNew / 100) * (100 - increase);
-      // priceNew = price;
-      // // console.log(priceNew, price);
-      // totalForYear = priceNew * 12;
-      // totalDiscount = (totalForYear / 100 * discount);
-      // total = totalForYear - totalDiscount;
-      // discoverTotal.text(Math.floor(total));
-    }
-    else if (val === 600) {
-      // increase = 10;
-      // price = (priceNew / 100) * (100 - increase);
-      // priceNew = price;
-      // // console.log(priceNew, price);
-      // totalForYear = priceNew * 12;
-      // totalDiscount = (totalForYear / 100 * discount);
-      // total = totalForYear - totalDiscount;
-      // discoverTotal.text(Math.floor(total));
-    }
-    else if (val === 700) {
-      // increase = 10;
-      // price = (priceNew / 100) * (100 - increase);
-      // priceNew = price;
-      // // console.log(priceNew, price);
-      // totalForYear = priceNew * 12;
-      // totalDiscount = (totalForYear / 100 * discount);
-      // total = totalForYear - totalDiscount;
-      // discoverTotal.text(Math.floor(total));
-    }
-    else if (val === 800) {
-      // increase = 10;
-      // price = (priceNew / 100) * (100 - increase);
-      // priceNew = price;
-      // console.log(priceNew, price);
-      // totalForYear = priceNew * 12;
-      // totalDiscount = (totalForYear / 100 * discount);
-      // total = totalForYear - totalDiscount;
-      // discoverTotal.text(Math.floor(total));
-    }
-    else if (val === 900) {
-      // increase = 10;
-      // price = (priceNew / 100) * (100 - increase);
-      // priceNew = price;
-      // // console.log(priceNew, price);
-      // totalForYear = priceNew * 12;
-      // totalDiscount = (totalForYear / 100 * discount);
-      // total = totalForYear - totalDiscount;
-      // discoverTotal.text(Math.floor(total));
-    }
-    else if (val === 1000) {
-      // increase = 10;
-      // price = (priceNew / 100) * (100 - increase);
-      // priceNew = price;
-      // // console.log(priceNew, price);
-      // totalForYear = priceNew * 12;
-      // totalDiscount = (totalForYear / 100 * discount);
-      // total = totalForYear - totalDiscount;
-      // discoverTotal.text(Math.floor(total));
-    }
-  }
 });
 
 
@@ -665,7 +239,53 @@ var config = {
   100: 0,
   200: 0.18,
   300: 0.18,
-  400: 0.14
+  400: 0.14,
+  500: 0.14,
+  600: 0.10,
+  700: 0.10,
+  800: 0.10,
+  900: 0.10,
+  1000: 0.10,
+  1100: 0.07,
+  1200: 0.07,
+  1300: 0.05,
+  1400: 0.05,
+  1500: 0.05,
+  1600: 0.03,
+  1700: 0.03,
+  1800: 0.03,
+  1900: 0.03,
+  2000: 0.03,
+  2100: 0.02,
+  2200: 0.02,
+  2300: 0.02,
+  2400: 0.02,
+  2500: 0.02,
+  2600: 0.01,
+  2700: 0.01,
+  2800: 0.01,
+  2900: 0.01,
+  3000: 0.01,
+  3100: 0.01,
+  3200: 0.01,
+  3300: 0.01,
+  3400: 0.01,
+  3500: 0.01,
+  3600: 0.005,
+  3700: 0.005,
+  3800: 0.005,
+  3900: 0.005,
+  4000: 0.005,
+  4100: 0.005,
+  4200: 0.005,
+  4300: 0.005,
+  4400: 0.005,
+  4500: 0.005,
+  4600: 0.005,
+  4700: 0.005,
+  4800: 0.005,
+  4900: 0.005,
+  5000: 0.005
 }
 
 /* 
@@ -685,7 +305,7 @@ function getNewPrice(val) {
       // let [skuVal, skuPercent] = item;
       let skuVal = Number(item[0]);
       let skuPercent = item[1];
-      
+
 
       if (skuVal > val) {
         return oldPrice;
@@ -708,8 +328,10 @@ function getCurrentPriceFromSKU(SKUvalue) {
   let pricePerMonth = getNewPrice(SKUvalue);// +
   let pricePerYear = pricePerMonth * month; // +
   let discountPerYear = pricePerYear * disCount; // +
-  total = pricePerYear - discountPerYear;
+  total = Math.ceil(pricePerYear - discountPerYear);
   console.log("total: ", total);
+  discoverTotal.text(total);
+  return total;
 }
 
-getCurrentPriceFromSKU(400)
+// getCurrentPriceFromSKU(700)
