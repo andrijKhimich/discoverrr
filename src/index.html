@@ -182,7 +182,13 @@
               <span>500</span>
             </div>
             <div class="range__body">
-              <input type="range" min="1" max="100" value="50" class="range__input" id="myRange">
+              <div class="range-slider">
+                <p class="range-slider__value">
+                  <label for="amount">SKU count :</label>
+                  <input type="text" pattern="\d*" maxlength="4" id="amount" placeholder="100">
+                </p>
+                <div id="slider-range-min"></div>
+              </div>
               <img src="./img/range.svg" alt="range">
               <div class="range__numbers">
                 <span>0</span>
@@ -218,7 +224,7 @@
                     <span>No printing required, Unlimited editing, Unlimited catalogues</span>
                   </th>
                   <th>
-                    <p>$1150</p>
+                    <p class="discover-total">$1150</p>
                   </th>
                 </tr>
               </table>

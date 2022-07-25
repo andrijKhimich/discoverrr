@@ -11,6 +11,8 @@ const path = {
     js: `${deployFolder}/js/`,
     img: `${deployFolder}/img/`,
     fonts: `${deployFolder}/fonts/`,
+    libs: `${deployFolder}/libs/`,
+
   },
   src: {
     html: `${devFolder}/*.html`,
@@ -18,6 +20,8 @@ const path = {
     js: `${devFolder}/js/script.js`,
     img: `${devFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${devFolder}/fonts/*.ttf`,
+    libs: `${devFolder}/libs/*.*`,
+
   },
   watch: {
     html: `${devFolder}/**/*.html`,
@@ -92,19 +96,15 @@ const css = () => {
 const js = () => {
   src([
     // js libs uncomment what you need
-    // "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/jquery/dist/jquery.min.js",
+
+    "src/libs/jquery-ui/jquery-ui.min.js",
 
     // svg support in all browsers
     "node_modules/svg4everybody/dist/svg4everybody.min.js", // no jQuery needed
 
     // modal
     // "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
-
-    // tooltips
-    // "node_modules/@popperjs/core/dist/umd/popper.min.js",
-
-    // counter
-    // "node_modules/jquery-nice-select/js/jquery.nice-select.min.js",
 
     // swiper slider
     // "node_modules/swiper/swiper-bundle.min.js",
@@ -118,7 +118,7 @@ const js = () => {
       presets: ['@babel/env']
     }))
     .pipe(dest(path.build.js))
-    .pipe(uglify())
+    // .pipe(uglify())
     .pipe(rename({
       extname: ".min.js"
     }))
@@ -198,6 +198,11 @@ const fonts = () => {
     .pipe(dest(path.build.fonts))
 }
 
+const libs = () => {
+  return src(path.src.libs)
+    .pipe(dest(path.build.libs));
+}
+
 gulp.task("otf2ttf", function () {
   return src([devFolder + '/fonts/*.otf'])
     .pipe(fonter({
@@ -244,7 +249,7 @@ const watchFiles = () => {
   gulp.watch([path.watch.img], img);
 }
 
-const build = gulp.series(clean, gulp.parallel(html, css, js, img, svgSprite, fonts));
+const build = gulp.series(gulp.parallel(html, css, js, img, svgSprite, fonts, libs));
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;
@@ -253,6 +258,10 @@ exports.js = js;
 exports.img = img;
 exports.svgSprite = svgSprite;
 exports.fonts = fonts;
+exports.clean = clean;
+
+exports.libs = libs;
+
 // exports.fontStyle = fontStyle;
 exports.build = build;
 exports.watch = watch;
