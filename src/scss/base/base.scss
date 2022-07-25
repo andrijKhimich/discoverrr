@@ -666,3 +666,92 @@ main {
     color: $primary;
   }
 }
+
+.ui-widget.ui-widget-content {
+  height: 6px;
+  border-radius: 5px;
+  border: none;
+}
+
+.ui-widget-header {
+  background-color: $primary;
+}
+
+.ui-button,
+.ui-state-default,
+.ui-widget-content .ui-state-default,
+.ui-widget-header .ui-state-default,
+html .ui-button.ui-state-disabled:active,
+html .ui-button.ui-state-disabled:hover {
+  border-radius: 50%;
+  border: 2px solid #FFFFFF !important;
+  // box-shadow: 0px 0px 14px 2px #FFFFFF, inset 0px 0px 12px #ADADAD;
+  width: 25px;
+  height: 25px;
+  top: -10px;
+  animation: boxShadow 2s linear infinite forwards;
+
+  .ui-state-active {
+    background-color: $primary;
+    border: none;
+  }
+
+  .ui-state-focus {
+    background-color: $primary;
+    border: none;
+  }
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    background-image: url(../img/triangle-left.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(0, -50%);
+
+  }
+
+  &::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    background-image: url(../img/triangle-right.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(0, -50%);
+  }
+}
+
+@keyframes boxShadow {
+  0% {
+    box-shadow: 0px 0px 14px 2px #FFFFFF, inset 0px 0px 12px #ADADAD;
+
+  }
+
+  50% {
+    box-shadow: 0px 0px 20px 0px rgba($white, .4), inset 0px 0px 12px #ADADAD;
+  }
+
+  100% {
+    box-shadow: 0px 0px 20px 2px #FFFFFF, inset 0px 0px 12px #ADADAD;
+
+  }
+}
+
+.ui-button.ui-state-active:hover,
+.ui-button:active,
+.ui-state-active,
+.ui-widget-content .ui-state-active,
+.ui-widget-header .ui-state-active,
+a.ui-button:active {
+  background-color: $primary;
+}

@@ -134,7 +134,6 @@ function openTab(evt, currencyName) {
   for (i = 0; i < tabContent.length; i++) {
     tabContent[i].style.display = "none";
     tabContent[i].classList.remove("active");
-
   }
   tabLinks = document.getElementsByClassName("calculator-tab__links");
   for (i = 0; i < tabLinks.length; i++) {
@@ -184,7 +183,16 @@ removeLogoSizes();
 const roundNumber = (val) => {
   return Math.ceil(val / 100) * 100
 }
-const discoverTotal = $(".discover-total");
+const discoverTotalUsd = $("#discoverTotalUsd");
+const traditionalTotalUsd = $("#traditionalTotalUsd");
+const savingsUsd = $('#savingsUsd');
+
+const discoverTotalAed = $("#discoverTotalAed");
+const traditionalTotalAed = $("#traditionalTotalAed");
+const savingsAed = $('#savingsAed')
+
+const input = $('.range-slider__value');
+let slide;
 
 $(function () {
   const range = $("#slider-range-min");
@@ -196,10 +204,23 @@ $(function () {
     step: 100,
     slide: function (event, ui) {
       let newVal = ui.value;
-      $("#amount").val(newVal);
       this.value = roundNumber(newVal);
-      getCurrentPriceFromSKU(newVal);
-      // discoverTotal.text(ui.value);
+      $("#amount").val(this.value);
+      if (this.value === 0) {
+        discoverTotalUsd.text('$0');
+        discoverTotalAed.text('AED 0');
+      }
+
+      slide = $(".ui-slider-range").css('width');
+      console.log(slide);
+      input.css('left', slide);
+      getCurrentPriceFromSKUUSD(this.value);
+      getCurrentPriceFromSKUAED(this.value);
+    },
+    change: function () {
+      slide = $(".ui-slider-range").css('width');
+      console.log(slide);
+      input.css('left', slide);
     }
   });
 
@@ -207,32 +228,45 @@ $(function () {
   // $("#amount")
   $("#amount").blur(function () {
     this.value = roundNumber(this.value);
+    if (this.value === 0) {
+      discoverTotalUsd.text('$0');
+      discoverTotalAed.text('AED 0');
+    }
     range.slider({
-      value: getCurrentPriceFromSKU(this.value),
+      value: this.value,
     });
+    slide = $(".ui-slider-range").css('width');
+    console.log(slide);
+    input.css('left', slide);
+    getCurrentPriceFromSKUUSD(this.value);
+    getCurrentPriceFromSKUAED(this.value);
   });
 
   $("#amount").on("keyup", function (e) {
     if (e.key === "Enter") {
+
       this.value = roundNumber(this.value);
+      if (this.value === 0) {
+        discoverTotalUsd.text('$0');
+        discoverTotalAed.text('EAD 0');
+      }
+      // console.log(this.value);
+
       range.slider({
-        value: getCurrentPriceFromSKU(this.value),
+        value: this.value,
       });
+      slide = $(".ui-slider-range").css('width');
+      console.log(slide);
+      input.css('left', slide);
+      getCurrentPriceFromSKUUSD(this.value);
+      getCurrentPriceFromSKUAED(this.value);
     }
   });
 });
 
+var basePriceUSD = 45;
+var basePriceAED = 165;
 
-
-// function minusPercent(n,p) {
-//   return n - (n * (p/100));
-// }
-
-// console.log(minusPercent(200,32)); // 70
-
-
-
-var basePrice = 45;
 var disCount = 0.1;
 const month = 12;
 var config = {
@@ -286,26 +320,23 @@ var config = {
   4800: 0.005,
   4900: 0.005,
   5000: 0.005
-}
+};
 
-/* 
-1) порахувати ціну із знижкою
-2) порахувати ціну із конфігу
-3) порахувати ціну за рік
-*/
-
-function getNewPrice(val) {
+function getNewPriceUSD(val) {
   let newPrice = 0;
-
-  if (val === 100) {
-    newPrice = basePrice;
+  if (val === 0) {
+    discoverTotalUsd.text('$0');
+    traditionalTotalUsd.text('$0');
+    savingsUsd.text('$0');
+  }
+  else if (val === 100) {
+    newPrice = basePriceUSD;
   } else {
     const prices = Object.entries(config);
     newPrice = prices.reduce((oldPrice, item) => {
       // let [skuVal, skuPercent] = item;
       let skuVal = Number(item[0]);
       let skuPercent = item[1];
-
 
       if (skuVal > val) {
         return oldPrice;
@@ -314,24 +345,70 @@ function getNewPrice(val) {
         const newPrice = oldPrice + diff;
         return newPrice
       }
-    }, basePrice)
+    }, basePriceUSD)
   }
-  console.log('newPrice', newPrice);
+  // console.log('newPrice', newPrice);
   return newPrice;
 }
 
-// getNewPrice(300);
 
-function getCurrentPriceFromSKU(SKUvalue) {
-  // let result;
+function getCurrentPriceFromSKUUSD(SKUvalue) {
   let total = 0;
-  let pricePerMonth = getNewPrice(SKUvalue);// +
+  let pricePerMonth = getNewPriceUSD(SKUvalue);// +
   let pricePerYear = pricePerMonth * month; // +
   let discountPerYear = pricePerYear * disCount; // +
   total = Math.ceil(pricePerYear - discountPerYear);
-  console.log("total: ", total);
-  discoverTotal.text(total);
+  // console.log("total: ", total);
+  discoverTotalUsd.text('$' + total);
+  let traditionalPriceUsd = total * 2;
+  let savingsPriceUsd = traditionalPriceUsd - total;
+  traditionalTotalUsd.text('$' + traditionalPriceUsd);
+  savingsUsd.text('$' + savingsPriceUsd);
   return total;
 }
+getCurrentPriceFromSKUUSD(100);
 
+function getNewPriceAED(val) {
+  let newPrice = 0;
+  if (val === 0) {
+    discoverTotalUsd.text('AED 0');
+    traditionalTotalUsd.text('AED 0');
+    savingsUsd.text('AED 0');
+  } else if (val === 100) {
+    newPrice = basePriceAED;
+  } else {
+    const prices = Object.entries(config);
+    newPrice = prices.reduce((oldPrice, item) => {
+      let skuVal = Number(item[0]);
+      let skuPercent = item[1];
+      if (skuVal > val) {
+        return oldPrice;
+      } else {
+        let diff = oldPrice * skuPercent;
+        const newPrice = oldPrice + diff;
+        return newPrice
+      }
+    }, basePriceAED)
+  }
+  // console.log('newPrice', newPrice);
+  return newPrice;
+}
+
+function getCurrentPriceFromSKUAED(SKUvalue) {
+  let total = 0;
+  let pricePerMonth = getNewPriceAED(SKUvalue);// +
+  let pricePerYear = pricePerMonth * month; // +
+  let discountPerYear = pricePerYear * disCount; // +
+  total = Math.ceil(pricePerYear - discountPerYear);
+  // console.log("total: ", total);
+  discoverTotalAed.text('AED'+ " " + total);
+  let traditionalPriceAed = total * 2;
+  let savingsPriceAed = traditionalPriceAed - total;
+  traditionalTotalAed.text('AED' + " " + traditionalPriceAed);
+  savingsAed.text('AED'+ " " + savingsPriceAed);
+  return total;
+}
+getCurrentPriceFromSKUAED(100);
 // getCurrentPriceFromSKU(700)
+
+
