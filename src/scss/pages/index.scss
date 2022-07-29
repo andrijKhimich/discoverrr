@@ -1333,7 +1333,7 @@
 
 .range-slider {
   position: relative;
-
+  margin-bottom: 10px;
   &__value {
     position: absolute;
     bottom: calc(100% + 20px);
@@ -1904,4 +1904,9 @@
   &::before {
     background-color: $primary;
   }
+}
+
+.meeting {
+  background-color: $white;
+  padding: 40px 0 0 0;
 }

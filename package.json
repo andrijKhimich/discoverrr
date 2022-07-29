@@ -42,6 +42,7 @@
   "dependencies": {
     "jquery": "^3.6.0",
     "jquery-nice-select": "^1.1.0",
+    "sticky-sidebar": "^3.3.1",
     "svg4everybody": "^2.1.9",
     "swiper": "^8.3.0"
   }

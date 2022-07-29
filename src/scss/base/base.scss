@@ -581,6 +581,17 @@ main {
     }
   }
 
+  &_md {
+    font-weight: 700;
+    font-size: 16px;
+    line-height: 19px;
+    padding: 15px 36px;
+
+    @include d(1600) {
+      font-size: 14px;
+    }
+  }
+
   &_white {
     background-color: $white;
     color: $blackLight;
@@ -664,6 +675,45 @@ main {
 
   &:hover {
     color: $primary;
+  }
+
+  &_blue {
+    color: $primary;
+    font-size: 16px;
+    position: relative;
+    font-weight: 700;
+    padding-right: 20px;
+
+    &::before {
+      content: '>';
+      position: absolute;
+      top: 0;
+      right: 5px;
+      transform: translate(0, 0);
+      transition: transform $hover-duration $timing
+    }
+
+    &:hover {
+      &::before {
+        transform: translate(3px, 0);
+      }
+    }
+    
+    &_reverce {
+      padding-right: 0;
+      padding-left: 20px;
+
+      &::before {
+        content: "<";
+        right: auto;
+        left: 5px;
+      }
+      &:hover {
+        &::before {
+          transform: translate(-3px, 0);
+        }
+      }
+    }
   }
 }
 

@@ -1,3 +1,8 @@
+
+document.addEventListener("DOMContentLoaded", function (event) {
+
+});
+
 const toggleMenu = () => {
   const burger = document.querySelector(".js-burger");
   const menu = document.querySelector(".js-header-nav");
@@ -42,90 +47,70 @@ const fixedHeader = () => {
   }
 }
 
-// window.addEventListener("scroll", fixedHeader);
-
-// run for sprite svg support 
-
-// const accordion = () => {
-//   let acc = document.getElementsByClassName("accordion__btn");
-//   let i;
-
-//   for (i = 0; i < acc.length; i++) {
-//     acc[i].addEventListener("click", function () {
-//       // acc.classList.remove("active");
-//       // this.classList.add("active");
-//       this.parentNode.classList.toggle("active");
-
-//       let panel = this.nextElementSibling;
-
-//       if (panel.style.maxHeight) {
-//         panel.style.maxHeight = null;
-//       } else {
-//         panel.style.maxHeight = panel.scrollHeight + "px";
-//       }
-//     });
-//   }
-// }
-// accordion();
-
 const accordion = document.querySelector(".accordion");
-const accordionItems = document.querySelectorAll(".accordion__item");
-const accordionContent = document.querySelectorAll(".accordion__panel");
+// console.log(accordion);
+if (accordion) {
 
-const toggleAccordion = () => {
-  accordion.addEventListener("click", (e) => {
-    const parent = e.target.parentNode;
-    let panel = parent.querySelector(".accordion__panel");
-    if (parent.classList.contains("accordion__item")) {
-      if (parent.classList.contains("active")) {
-        parent.classList.remove("active");
-        panel.style.maxHeight = null;
-      } else {
-        accordionItems.forEach((item) => {
-          item.classList.remove("active");
-        });
-        accordionContent.forEach((item) => {
-          item.style.maxHeight = null;
-        })
-        parent.classList.add("active");
-        panel.style.maxHeight = panel.scrollHeight + "px";
+  const accordionItems = document.querySelectorAll(".accordion__item");
+  const accordionContent = document.querySelectorAll(".accordion__panel");
+  const toggleAccordion = () => {
+    accordion.addEventListener("click", (e) => {
+      const parent = e.target.parentNode;
+      let panel = parent.querySelector(".accordion__panel");
+      if (parent.classList.contains("accordion__item")) {
+        if (parent.classList.contains("active")) {
+          parent.classList.remove("active");
+          panel.style.maxHeight = null;
+        } else {
+          accordionItems.forEach((item) => {
+            item.classList.remove("active");
+          });
+          accordionContent.forEach((item) => {
+            item.style.maxHeight = null;
+          })
+          parent.classList.add("active");
+          panel.style.maxHeight = panel.scrollHeight + "px";
+        }
       }
-    }
 
-  })
+    })
+  }
+  toggleAccordion();
+  document.querySelector("#openDefault").click();
+
 }
-toggleAccordion();
-
-document.querySelector("#openDefault").click();
-
 const faqAccordion = document.querySelector(".faq-accordion");
-const faqAccordionItems = document.querySelectorAll(".faq-accordion__item");
-const faqAccordionContent = document.querySelectorAll(".faq-accordion__panel");
 
-const toggleFaqAccordion = () => {
-  faqAccordion.addEventListener("click", (e) => {
-    const faqParent = e.target.parentNode;
-    let faqPanel = faqParent.querySelector(".faq-accordion__panel");
-    if (faqParent.classList.contains('faq-accordion__item')) {
-      if (faqParent.classList.contains("active")) {
-        faqParent.classList.remove("active");
-        faqPanel.style.maxHeight = null;
-      } else {
-        faqAccordionItems.forEach((item) => {
-          item.classList.remove("active");
-        });
-        faqAccordionContent.forEach((item) => {
-          item.style.maxHeight = null;
-        })
-        faqParent.classList.add("active");
-        faqPanel.style.maxHeight = faqPanel.scrollHeight + "px";
+if (faqAccordion) {
+
+  const faqAccordionItems = document.querySelectorAll(".faq-accordion__item");
+  const faqAccordionContent = document.querySelectorAll(".faq-accordion__panel");
+
+  const toggleFaqAccordion = () => {
+    faqAccordion.addEventListener("click", (e) => {
+      const faqParent = e.target.parentNode;
+      let faqPanel = faqParent.querySelector(".faq-accordion__panel");
+      if (faqParent.classList.contains('faq-accordion__item')) {
+        if (faqParent.classList.contains("active")) {
+          faqParent.classList.remove("active");
+          faqPanel.style.maxHeight = null;
+        } else {
+          faqAccordionItems.forEach((item) => {
+            item.classList.remove("active");
+          });
+          faqAccordionContent.forEach((item) => {
+            item.style.maxHeight = null;
+          })
+          faqParent.classList.add("active");
+          faqPanel.style.maxHeight = faqPanel.scrollHeight + "px";
+        }
       }
-    }
-  })
-}
+    })
+  }
 
-toggleFaqAccordion();
-document.querySelector("#openFaq").click();
+  toggleFaqAccordion();
+  document.querySelector("#openFaq").click();
+}
 
 
 function openTab(evt, currencyName) {
@@ -168,6 +153,7 @@ const showAnimation = () => {
     }
   });
 }
+
 window.addEventListener("scroll", showAnimation);
 showAnimation();
 svg4everybody();
@@ -179,6 +165,119 @@ const removeLogoSizes = () => {
 }
 
 removeLogoSizes();
+
+const sidebar = document.querySelector("#sidebar");
+if (sidebar) {
+  let stickySidebar = new StickySidebar('#sidebar', {
+    topSpacing: 20,
+    bottomSpacing: 0,
+    containerSelector: false,
+    innerWrapperSelector: '',
+    resizeSensor: true,
+    stickyClass: 'is-affixed',
+    minWidth: 0
+  });
+}
+
+const setSLiderWidth = () => {
+  const article = document.querySelector('.article');
+  let blogSlider = document.querySelector('.blog-slider');
+  blogSlider.style.setProperty('width', 'calc(100% - ' + article.offsetLeft + 'px)');
+  window.addEventListener("resize", () => {
+    blogSlider.style.setProperty('width', 'calc(100% - ' + article.offsetLeft + 'px)');
+  })
+}
+
+const slider = document.querySelector('.swiper');
+const slides = document.querySelectorAll('.blog-slider__item');
+// console.log(slides.length);
+
+
+
+const initSlider = () => {
+  if (slides.length >= 4) {
+    setSLiderWidth();
+    const swiper = new Swiper(".swiper", {
+      slidesPerView: 1,
+      spaceBetween: 30,
+      grabCursor: true,
+      navigation: {
+        nextEl: ".swiper-button-next",
+        prevEl: ".swiper-button-prev",
+      },
+      breakpoints: {
+        600: {
+          slidesPerView: 2,
+        },
+        992: {
+          slidesPerView: 3,
+        },
+        1124: {
+          slidesPerView: 3.5,
+        },
+      },
+    });
+  }
+}
+
+if (slides.length) {
+  setSLiderWidth();
+  initSlider();
+}
+const initSlideMobile = () => {
+  const swiper = new Swiper(".swiper", {
+    slidesPerView: 1,
+    spaceBetween: 30,
+    grabCursor: true,
+    navigation: {
+      nextEl: ".swiper-button-next",
+      prevEl: ".swiper-button-prev",
+    },
+    breakpoints: {
+      600: {
+        slidesPerView: 2,
+      },
+      992: {
+        slidesPerView: 2,
+      },
+    },
+  });
+}
+window.addEventListener("resize", () => {
+  if (window.innerWidth < 1024 && slides.length <= 3) {
+    initSlideMobile();
+  }
+});
+
+if (window.innerWidth < 1024 && slides.length <= 3) {
+  initSlideMobile();
+}
+// initSlideMobile();
+
+
+const trimText = () => {
+  var string = document.querySelectorAll('.blog-item__text');
+  var length = 100;
+  string.forEach((char) => {
+    let text = char.innerHTML.substring(0, length);
+    char.innerHTML = `${text}...`;
+  });
+}
+
+const trimHeading = () => {
+  var string = document.querySelectorAll('.blog-slider__item a');
+  var length = 40;
+  string.forEach((char) => {
+    // console.log(char.textContent.length);
+    if (char.textContent.length > 40) {
+      let text = char.innerHTML.substring(0, length);
+      char.innerHTML = `${text}...`;
+    }
+  });
+}
+trimHeading();
+
+trimText();
 
 const roundNumber = (val) => {
   return Math.ceil(val / 100) * 100
@@ -195,6 +294,7 @@ const input = $('.range-slider__value');
 let slide;
 
 $(function () {
+
   const range = $("#slider-range-min");
   range.slider({
     range: "min",
@@ -212,20 +312,19 @@ $(function () {
       }
 
       slide = $(".ui-slider-range").css('width');
-      console.log(slide);
+      // console.log(slide);
       input.css('left', slide);
       getCurrentPriceFromSKUUSD(this.value);
       getCurrentPriceFromSKUAED(this.value);
     },
     change: function () {
       slide = $(".ui-slider-range").css('width');
-      console.log(slide);
+      // console.log(slide);
       input.css('left', slide);
     }
   });
 
   $("#amount").val($("#slider-range-min").slider("value"));
-  // $("#amount")
   $("#amount").blur(function () {
     this.value = roundNumber(this.value);
     if (this.value === 0) {
@@ -236,7 +335,7 @@ $(function () {
       value: this.value,
     });
     slide = $(".ui-slider-range").css('width');
-    console.log(slide);
+    // console.log(slide);
     input.css('left', slide);
     getCurrentPriceFromSKUUSD(this.value);
     getCurrentPriceFromSKUAED(this.value);
@@ -256,20 +355,102 @@ $(function () {
         value: this.value,
       });
       slide = $(".ui-slider-range").css('width');
-      console.log(slide);
+      // console.log(slide);
       input.css('left', slide);
       getCurrentPriceFromSKUUSD(this.value);
       getCurrentPriceFromSKUAED(this.value);
     }
   });
+
+
+  function loadMore(paged) {
+    $.ajax({
+      type: 'POST',
+      url: '/wp-admin/admin-ajax.php',
+      dataType: 'json',
+      data: {
+        action: 'custom_load_more',
+        tag: $(this).data("tag"),
+        paged,
+      },
+      success: function (res) {
+
+        if (paged >= res.max) {
+          $('#loadMore').hide();
+        } 
+        if (paged === res.max) {
+          paged = 1;
+        }
+        // else {
+        //   $('#loadMore').show();
+        // }
+        console.log(res);
+        $('.blog__items').append(res.html);
+        trimText();
+      }
+    });
+  }
+
+  let newPage = 1;
+
+  $('#loadMore').on('click', function () {
+    loadMore(newPage);
+    newPage++;
+    console.log(newPage);
+  });
+
+
+
+  $('.blog-tag').on('click', function (event) {
+    event.preventDefault();
+    let tag = $(this).text();
+    $('#loadMore').attr('data-tag', tag);
+    $.ajax({
+      type: 'POST',
+      url: '/wp-admin/admin-ajax.php',
+      dataType: 'html',
+      data: {
+        action: 'custom_tag_filter',
+        tag: tag,
+        // paged: 1,
+      },
+      success: function (res) {
+        $('#loadMore').show();
+        console.log(res);
+        $('.blog__items').html(res);
+        trimText();
+      }
+    });
+  });
+
+
+  // article navigation
+  var list = [], idList = []
+  $('.article h1,.article h2,.article h3,.article h4,.article h5,.article h6').each(function (i) {
+    $(this).attr('id', i);
+    idList.push(i);
+    console.log(idList);
+    list.push('<li class="' + ($(this).get(0).tagName == 'H2' ? "article-nav__item" : "") + '"><a href="#' + i + '">' + $(this).text() + '</a></li>');
+  });
+  $('.article-nav').prepend(list);
+
+  $(window).scroll(function () {
+    for (let i = 0; i < idList.length; i++) {
+      if ($(window).scrollTop() > $('#' + idList[i]).offset().top - 100 || $(this).scrollTop() + $(this).height() == $(document).height()) {
+        $('.article-nav').find('li').eq(i).addClass('active').siblings('li').removeClass('active');
+        // $('.j-bj').css('top', i * 44);
+      }
+    }
+  });
+
 });
 
-var basePriceUSD = 45;
-var basePriceAED = 165;
+let basePriceUSD = 45;
+let basePriceAED = 165;
 
-var disCount = 0.1;
+let disCount = 0.1;
 const month = 12;
-var config = {
+let config = {
   100: 0,
   200: 0.18,
   300: 0.18,
@@ -277,7 +458,7 @@ var config = {
   500: 0.14,
   600: 0.10,
   700: 0.10,
-  800: 0.10,
+  800: 0.10, // 10%
   900: 0.10,
   1000: 0.10,
   1100: 0.07,
@@ -311,7 +492,7 @@ var config = {
   3900: 0.005,
   4000: 0.005,
   4100: 0.005,
-  4200: 0.005,
+  4200: 0.005, // 0.5%
   4300: 0.005,
   4400: 0.005,
   4500: 0.005,
@@ -401,11 +582,11 @@ function getCurrentPriceFromSKUAED(SKUvalue) {
   let discountPerYear = pricePerYear * disCount; // +
   total = Math.ceil(pricePerYear - discountPerYear);
   // console.log("total: ", total);
-  discoverTotalAed.text('AED'+ " " + total);
+  discoverTotalAed.text('AED' + " " + total);
   let traditionalPriceAed = total * 2;
   let savingsPriceAed = traditionalPriceAed - total;
   traditionalTotalAed.text('AED' + " " + traditionalPriceAed);
-  savingsAed.text('AED'+ " " + savingsPriceAed);
+  savingsAed.text('AED' + " " + savingsPriceAed);
   return total;
 }
 getCurrentPriceFromSKUAED(100);

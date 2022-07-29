@@ -1,4 +1,5 @@
 /node_modules
+/wp-content
 /dist
 /psd
 /src/libs

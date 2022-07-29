@@ -4,6 +4,8 @@ const devFolder = "src";
 
 let fileSystem = require("fs");
 
+
+
 const path = {
   build: {
     html: `${deployFolder}/`,
@@ -20,7 +22,7 @@ const path = {
     js: `${devFolder}/js/script.js`,
     img: `${devFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${devFolder}/fonts/*.ttf`,
-    libs: `${devFolder}/libs/*.*`,
+    libs: `${devFolder}/libs/**/*.*`,
 
   },
   watch: {
@@ -105,9 +107,9 @@ const js = () => {
 
     // modal
     // "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
-
+    "node_modules/sticky-sidebar/dist/sticky-sidebar.min.js",
     // swiper slider
-    // "node_modules/swiper/swiper-bundle.min.js",
+    "node_modules/swiper/swiper-bundle.min.js",
   ])
     .pipe(concat("libs.min.js"))
     .pipe(dest(path.build.js))
@@ -118,7 +120,7 @@ const js = () => {
       presets: ['@babel/env']
     }))
     .pipe(dest(path.build.js))
-    // .pipe(uglify())
+    .pipe(uglify())
     .pipe(rename({
       extname: ".min.js"
     }))
@@ -203,6 +205,17 @@ const libs = () => {
     .pipe(dest(path.build.libs));
 }
 
+// let filesToMove = [
+//   './src/libs/**/*.*',
+// ];
+
+// gulp.task('move', ['clean'], function () {
+//   // the base option sets the relative root for the set of files,
+//   // preserving the folder structure
+//   gulp.src(filesToMove, { base: './' })
+//     .pipe(gulp.dest('dist'));
+// });
+
 gulp.task("otf2ttf", function () {
   return src([devFolder + '/fonts/*.otf'])
     .pipe(fonter({
@@ -249,7 +262,7 @@ const watchFiles = () => {
   gulp.watch([path.watch.img], img);
 }
 
-const build = gulp.series(gulp.parallel(html, css, js, img, svgSprite, fonts, libs));
+const build = gulp.series(clean, gulp.parallel(libs, html, css, js, img, svgSprite, fonts));
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;
@@ -259,7 +272,7 @@ exports.img = img;
 exports.svgSprite = svgSprite;
 exports.fonts = fonts;
 exports.clean = clean;
-
+// exports.filesToMove = filesToMove;
 exports.libs = libs;
 
 // exports.fontStyle = fontStyle;
