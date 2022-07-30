@@ -68,6 +68,10 @@
       margin-bottom: 80px;
     }
 
+    @include d(768) {
+      padding: 6px 25px;
+    }
+
     p {
       color: #4361EE;
       font-weight: 700;
@@ -80,6 +84,10 @@
 
       @include d(1440) {
         font-size: 16px;
+      }
+
+      @include d(768) {
+        font-size: 14px;
       }
     }
   }
@@ -101,6 +109,7 @@
         background-size: contain;
         background-repeat: no-repeat;
         background-position: center;
+        display: none;
 
         @include d(1600) {
           left: auto;
@@ -374,7 +383,7 @@
   position: absolute;
   transition: transform $duration $timing, fill $duration $timing;
   z-index: 1;
-  animation: bounce 3s linear infinite forwards;
+  animation: bounce 1.5s linear infinite forwards;
 }
 
 @keyframes bounce {
@@ -468,6 +477,7 @@
   &__row {
     display: flex;
     justify-content: space-between;
+    align-items: center;
     max-width: 1355px;
     margin: 0 auto 120px auto;
     flex-wrap: wrap;
@@ -497,10 +507,10 @@
       }
 
       .showcase__content {
-        margin: 50px 40px 0 auto;
+        margin: 30px 40px 0 auto;
 
         @include d(1600) {
-          margin: 50px 0 0 60px;
+          margin: 30px 0 0 60px;
         }
 
         @include d(1280) {
@@ -530,17 +540,17 @@
         }
       }
 
-      .showcase__tooltip {
-        &::before {
-          right: auto;
-          left: 30px;
-        }
+      // .showcase__tooltip {
+      //   &::before {
+      //     right: auto;
+      //     left: 30px;
+      //   }
 
-        &::after {
-          left: 30px;
-          right: auto;
-        }
-      }
+      //   &::after {
+      //     left: 30px;
+      //     right: auto;
+      //   }
+      // }
 
       .showcase__col {
         &:first-child {
@@ -581,110 +591,121 @@
     transition: opacity $hover-duration $timing;
 
     p {
-      font-size: 19px;
+      font-size: 20px;
       line-height: 1.579em;
       margin-bottom: 30px;
       font-weight: 500;
 
       @include d(1600) {
-        font-size: 18px;
         margin-bottom: 15px;
       }
 
+      @include d(992) {
+        font-size: 18px;
+      }
+
       @include d(768) {
+
         font-size: 16px;
       }
     }
 
     h4 {
       position: relative;
-      max-width: 435px;
       margin-bottom: 40px;
+      font-size: 40px;
 
       @include d(992) {
         margin-bottom: 20px;
         max-width: 100%;
+        font-size: 32px;
       }
 
-      &::before {
-        content: "";
-        width: 50px;
-        height: 50px;
-        position: absolute;
-        left: 106%;
-        top: 4px;
-        background-image: url(../img/cursor.svg);
-        background-size: contain;
-        background-repeat: no-repeat;
-
-        @include d(1280) {
-          right: 0;
-          left: auto;
-          bottom: 100%;
-          top: auto;
-          width: 40px;
-          height: 40px;
-        }
+      @include d(768) {
+        margin-bottom: 20px;
+        max-width: 100%;
+        font-size: 28px;
       }
+
+      // &::before {
+      //   content: "";
+      //   width: 50px;
+      //   height: 50px;
+      //   position: absolute;
+      //   left: 106%;
+      //   top: 4px;
+      //   background-image: url(../img/cursor.svg);
+      //   background-size: contain;
+      //   background-repeat: no-repeat;
+      //   display: none;
+      //   @include d(1280) {
+      //     right: 0;
+      //     left: auto;
+      //     bottom: 100%;
+      //     top: auto;
+      //     width: 40px;
+      //     height: 40px;
+      //   }
+      // }
     }
   }
 
-  &__tooltip {
-    padding: 20px 35px 35px 30px;
-    position: relative;
-    margin: 30px 0 27px 0;
-    border-radius: 20px;
-    opacity: .2;
-    transition: opacity $hover-duration $timing;
-    border: 1px solid #dddddd;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  // &__tooltip {
+  // padding: 20px 35px 35px 30px;
+  // position: relative;
+  // margin: 30px 0 27px 0;
+  // border-radius: 20px;
+  // opacity: .2;
+  // transition: opacity $hover-duration $timing;
+  // border: 1px solid #dddddd;
+  // box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  // // display: none;
+  // @include d(1024) {
+  //   padding: 10px 25px 25px 20px;
+  //   margin: 10px 0 60px 0;
+  // }
 
-    @include d(1024) {
-      padding: 10px 25px 25px 20px;
-      margin: 10px 0 60px 0;
-    }
+  // @include d(992) {
+  //   display: none;
+  // }
 
-    @include d(992) {
-      display: none;
-    }
+  // p {
+  //   line-height: 1.875em;
+  //   color: rgba($blackLight, .8);
+  //   font-style: italic;
+  //   font-weight: 600;
+  // }
 
-    p {
-      line-height: 1.875em;
-      color: rgba($blackLight, .8);
-      font-style: italic;
-      font-weight: 600;
-    }
+  // &:hover {
+  //   opacity: 1;
 
-    &:hover {
-      opacity: 1;
+  //   &~.showcase__text {
+  //     opacity: 0.2;
+  //   }
+  // }
 
-      &~.showcase__text {
-        opacity: 0.2;
-      }
-    }
+  // &::after {
+  //   content: "";
+  //   width: 20px;
+  //   height: 20px;
+  //   background-color: $white;
+  //   position: absolute;
+  //   bottom: -1px;
+  //   right: 30px;
+  // }
 
-    &::after {
-      content: "";
-      width: 20px;
-      height: 20px;
-      background-color: $white;
-      position: absolute;
-      bottom: -1px;
-      right: 30px;
-    }
-
-    &::before {
-      content: "";
-      width: 0;
-      height: 0;
-      border-right: 20px solid transparent;
-      border-top: 20px solid $white;
-      position: absolute;
-      top: 100%;
-      right: 30px;
-      filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
-    }
-  }
+  // &::before {
+  //   content: "";
+  //   width: 0;
+  //   height: 0;
+  //   border-right: 20px solid transparent;
+  //   border-top: 20px solid $white;
+  //   position: absolute;
+  //   top: 100%;
+  //   right: 30px;
+  //   filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+  // }
+  // }
 
   &__img {
     max-width: 605px;
@@ -971,12 +992,15 @@
     overflow: hidden;
     background-color: rgba(217, 217, 217, 0.1);
     transition: max-height $hover-duration ease-out, opacity $duration $timing;
-
     opacity: 0;
 
     p {
       pointer-events: none;
       padding: 0 30px 25px 30px;
+    }
+
+    a {
+      color: $primary;
     }
   }
 }
@@ -1334,6 +1358,7 @@
 .range-slider {
   position: relative;
   margin-bottom: 10px;
+
   &__value {
     position: absolute;
     bottom: calc(100% + 20px);
@@ -1728,6 +1753,10 @@
           margin: 0 10% 18px 20px;
         }
       }
+
+      a {
+        color: $primary;
+      }
     }
   }
 }
@@ -1909,4 +1938,38 @@
 .meeting {
   background-color: $white;
   padding: 40px 0 0 0;
+}
+
+.svg-arrow-btn {
+  width: 22px;
+  height: 16px;
+  fill: $white;
+  margin-left: 15px;
+  position: relative;
+  top: 3px;
+  transform: translate(0, 0);
+  transition: fill $hover-duration $timing, transform $hover-duration $timing;
+}
+
+.form-arrow {
+  position: relative;
+
+  .btn {
+    padding-right: 45px;
+  }
+
+  &:hover {
+    .svg-arrow-btn {
+      fill: $primary;
+      transform: translate(5px, -50%);
+
+    }
+  }
+
+  .svg-arrow-btn {
+    position: absolute;
+    top: 50%;
+    right: 20px;
+    transform: translate(0, -50%);
+  }
 }

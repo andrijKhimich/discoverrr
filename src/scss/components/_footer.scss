@@ -20,6 +20,9 @@
   }
 
   .form {
+    .form-arrow {
+      width: 50%;
+    }
     p {
       color: $white;
       font-size: 14px;
@@ -37,10 +40,10 @@
 
     .btn {
       height: 52px;
-      width: 50%;
+      width: 100%;
       font-size: 16px;
       line-height: 1em;
-      padding: 15px 17px;
+      padding: 15px 40px 15px 17px;
 
       @include d(768) {
         width: 100%;

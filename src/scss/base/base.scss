@@ -569,6 +569,11 @@ main {
     background-color: $white;
     border-color: #080C29;
     color: $blackLight;
+    
+    .svg-arrow-btn {
+      fill: #080C29;
+      transform: translate(5px, 0);
+    }
   }
 
   &_sm {
@@ -604,12 +609,19 @@ main {
       color: $primary;
     }
 
+    .svg-arrow-btn {
+      fill: #080C29;
+    }
+
     &:hover {
       background-color: #080C29;
       color: $white;
       border: 1px solid #080C29;
 
       .svg-icon {
+        fill: $white;
+      }
+      .svg-arrow-btn {
         fill: $white;
       }
     }
@@ -698,7 +710,7 @@ main {
         transform: translate(3px, 0);
       }
     }
-    
+
     &_reverce {
       padding-right: 0;
       padding-left: 20px;
@@ -708,6 +720,7 @@ main {
         right: auto;
         left: 5px;
       }
+
       &:hover {
         &::before {
           transform: translate(-3px, 0);

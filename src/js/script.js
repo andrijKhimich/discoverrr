@@ -167,7 +167,7 @@ const removeLogoSizes = () => {
 removeLogoSizes();
 
 const sidebar = document.querySelector("#sidebar");
-if (sidebar) {
+const fixSidebar = () => {
   let stickySidebar = new StickySidebar('#sidebar', {
     topSpacing: 20,
     bottomSpacing: 0,
@@ -178,6 +178,10 @@ if (sidebar) {
     minWidth: 0
   });
 }
+if (sidebar) {
+  fixSidebar();
+}
+
 
 const setSLiderWidth = () => {
   const article = document.querySelector('.article');
@@ -349,62 +353,66 @@ $(function () {
         discoverTotalUsd.text('$0');
         discoverTotalAed.text('EAD 0');
       }
-      // console.log(this.value);
-
       range.slider({
         value: this.value,
       });
       slide = $(".ui-slider-range").css('width');
-      // console.log(slide);
       input.css('left', slide);
       getCurrentPriceFromSKUUSD(this.value);
       getCurrentPriceFromSKUAED(this.value);
     }
   });
 
+  let currentPage = 1;
 
-  function loadMore(paged) {
+  $('#loadMore').on('click', function () {
+    currentPage++; // Do currentPage + 1, because we want to load the next page
+
     $.ajax({
       type: 'POST',
       url: '/wp-admin/admin-ajax.php',
       dataType: 'json',
       data: {
-        action: 'custom_load_more',
-        tag: $(this).data("tag"),
-        paged,
+        action: 'weichie_load_more',
+        paged: currentPage,
       },
       success: function (res) {
-
-        if (paged >= res.max) {
+        if (currentPage >= res.max) {
           $('#loadMore').hide();
-        } 
-        if (paged === res.max) {
-          paged = 1;
         }
-        // else {
-        //   $('#loadMore').show();
-        // }
-        console.log(res);
         $('.blog__items').append(res.html);
         trimText();
+        // fixSidebar();
       }
     });
-  }
-
-  let newPage = 1;
-
-  $('#loadMore').on('click', function () {
-    loadMore(newPage);
-    newPage++;
-    console.log(newPage);
   });
 
+  $('#showAll').on('click', function (e) {
+    currentPage = 1; // Do currentPage + 1, because we want to load the next page
+    e.preventDefault();
+    $.ajax({
+      type: 'POST',
+      url: '/wp-admin/admin-ajax.php',
+      dataType: 'json',
+      data: {
+        action: 'show_all_posts',
+        // paged: currentPage,
+      },
+      success: function (res) {
+        $('#loadMore').show();
+        $('.blog__items').html(res.html);
+        trimText();
+        // fixSidebar();
+      }
+    });
+  });
 
-
-  $('.blog-tag').on('click', function (event) {
+  $('.js-ajax-posts').on('click', function (event) {
     event.preventDefault();
+    currentPage = 1;
     let tag = $(this).text();
     $('#loadMore').attr('data-tag', tag);
+
     $.ajax({
       type: 'POST',
       url: '/wp-admin/admin-ajax.php',
@@ -412,13 +420,14 @@ $(function () {
       data: {
         action: 'custom_tag_filter',
         tag: tag,
-        // paged: 1,
+        paged: currentPage,
       },
       success: function (res) {
         $('#loadMore').show();
         console.log(res);
         $('.blog__items').html(res);
         trimText();
+        // fixSidebar();
       }
     });
   });
@@ -436,9 +445,8 @@ $(function () {
 
   $(window).scroll(function () {
     for (let i = 0; i < idList.length; i++) {
-      if ($(window).scrollTop() > $('#' + idList[i]).offset().top - 100 || $(this).scrollTop() + $(this).height() == $(document).height()) {
+      if ($(window).scrollTop() > $('#' + idList[i]).offset().top / 1.6 || $(this).scrollTop() + $(this).height() == $(document).height()) {
         $('.article-nav').find('li').eq(i).addClass('active').siblings('li').removeClass('active');
-        // $('.j-bj').css('top', i * 44);
       }
     }
   });
