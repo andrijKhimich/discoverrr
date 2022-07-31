@@ -367,7 +367,8 @@ $(function () {
 
   $('#loadMore').on('click', function () {
     currentPage++; // Do currentPage + 1, because we want to load the next page
-
+    let tag = $(this).attr('data-tag');
+    console.log(tag);
     $.ajax({
       type: 'POST',
       url: '/wp-admin/admin-ajax.php',
@@ -375,6 +376,7 @@ $(function () {
       data: {
         action: 'weichie_load_more',
         paged: currentPage,
+        tag: tag,
       },
       success: function (res) {
         if (currentPage >= res.max) {
@@ -389,6 +391,7 @@ $(function () {
 
   $('#showAll').on('click', function (e) {
     currentPage = 1; // Do currentPage + 1, because we want to load the next page
+    $('#loadMore').attr('data-tag', '');
     e.preventDefault();
     $.ajax({
       type: 'POST',
