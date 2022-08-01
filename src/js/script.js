@@ -436,6 +436,60 @@ $(function () {
   });
 
 
+  $('.blog__items').on('click', function (event) {
+    if ($(event.target).hasClass('article-tag')) {
+      event.preventDefault();
+      currentPage = 1;
+      let tag = $(event.target).text();
+      // console.log(event.target);
+      $('#loadMore').attr('data-tag', tag);
+
+      $.ajax({
+        type: 'POST',
+        url: '/wp-admin/admin-ajax.php',
+        dataType: 'html',
+        data: {
+          action: 'custom_tag_filter',
+          tag: tag,
+          paged: currentPage,
+        },
+        success: function (res) {
+          $('#loadMore').show();
+          console.log(res);
+          $('.blog__items').html(res);
+          trimText();
+        }
+      });
+    }
+  });
+
+
+  $('.js-posts').on('click', function (event) {
+    event.preventDefault();
+    currentPage = 1;
+    let tag = $(this).text();
+    $('#loadMore').attr('data-tag', tag);
+
+    $.ajax({
+      type: 'POST',
+      url: '/wp-admin/admin-ajax.php',
+      dataType: 'html',
+      data: {
+        action: 'custom_tag_filter',
+        tag: tag,
+        paged: currentPage,
+      },
+      success: function (res) {
+        $('#loadMore').show();
+        console.log(res);
+        $('.blog__items').html(res);
+        trimText();
+        top.location.href = 'https://discoverrr.com/blog';
+        // fixSidebar();
+      }
+    });
+  });
+
   // article navigation
   var list = [], idList = []
   $('.article h1,.article h2,.article h3,.article h4,.article h5,.article h6').each(function (i) {
