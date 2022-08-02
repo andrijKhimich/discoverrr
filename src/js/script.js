@@ -77,7 +77,6 @@ if (accordion) {
   }
   toggleAccordion();
   document.querySelector("#openDefault").click();
-
 }
 const faqAccordion = document.querySelector(".faq-accordion");
 
@@ -410,7 +409,13 @@ $(function () {
     });
   });
 
+  $(".blog-tag").on('click', function (e) {
+    $(".blog-tag").not(this).removeClass('active');
+    $(this).addClass('active');
+  });
+
   $('.js-ajax-posts').on('click', function (event) {
+
     event.preventDefault();
     currentPage = 1;
     let tag = $(this).text();

@@ -22,6 +22,9 @@
   .form {
     .form-arrow {
       width: 50%;
+      @include d(700) {
+        width: 100%;
+      }
     }
     p {
       color: $white;
