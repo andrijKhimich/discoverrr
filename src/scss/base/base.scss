@@ -11,7 +11,7 @@ html {
   height: 100%;
   line-height: 1.15; // Correct the line height in all browsers.
   -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS.
-  scroll-behavior: smooth;
+  // scroll-behavior: smooth;
 
 }
 
@@ -817,4 +817,15 @@ html .ui-button.ui-state-disabled:hover {
 .ui-widget-header .ui-state-active,
 a.ui-button:active {
   background-color: $primary;
+}
+
+.price-table {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+  opacity: 0;
+  font-size: 0;
 }

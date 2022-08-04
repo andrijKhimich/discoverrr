@@ -374,6 +374,10 @@
       }
     }
   }
+
+  .svg-arrow {
+    pointer-events: none;
+  }
 }
 
 .svg-arrow {
@@ -1032,7 +1036,7 @@
   }
 
   &__body {
-    max-width: 455px;
+    max-width: 490px;
     margin: 0 auto 80px auto;
     background-color: $white;
     border-radius: 9px;

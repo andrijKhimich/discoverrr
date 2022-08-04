@@ -1,7 +1,5 @@
 
-document.addEventListener("DOMContentLoaded", function (event) {
 
-});
 
 const toggleMenu = () => {
   const burger = document.querySelector(".js-burger");
@@ -165,11 +163,13 @@ const removeLogoSizes = () => {
 
 removeLogoSizes();
 
+
+
 const sidebar = document.querySelector("#sidebar");
 const fixSidebar = () => {
   let stickySidebar = new StickySidebar('#sidebar', {
     topSpacing: 20,
-    bottomSpacing: 0,
+    bottomSpacing: 150,
     containerSelector: false,
     innerWrapperSelector: '',
     resizeSensor: true,
@@ -297,6 +297,8 @@ const input = $('.range-slider__value');
 let slide;
 
 $(function () {
+
+  $('.ui-slider-handle').draggable();
 
   const range = $("#slider-range-min");
   range.slider({
@@ -497,26 +499,48 @@ $(function () {
 
   // article navigation
   var list = [], idList = []
-  $('.article h1,.article h2,.article h3,.article h4,.article h5,.article h6').each(function (i) {
+  $('.article h3,.article h4,.article h5,.article h6').each(function (i) {
     $(this).attr('id', i);
     idList.push(i);
-    console.log(idList);
-    list.push('<li class="' + ($(this).get(0).tagName == 'H2' ? "article-nav__item" : "") + '"><a href="#' + i + '">' + $(this).text() + '</a></li>');
+    // console.log(idList);
+    list.push('<li><a href="#' + i + '">' + $(this).text() + '</a></li>');
   });
+
   $('.article-nav').prepend(list);
 
   $(window).scroll(function () {
     for (let i = 0; i < idList.length; i++) {
-      if ($(window).scrollTop() > $('#' + idList[i]).offset().top / 1.6 || $(this).scrollTop() + $(this).height() == $(document).height()) {
+      if ($(window).scrollTop() > $('#' + idList[i]).offset().top - 200 || $(this).scrollTop() + $(this).height() == $(document).height()) {
         $('.article-nav').find('li').eq(i).addClass('active').siblings('li').removeClass('active');
       }
     }
   });
 
+  $('.article-nav li a').on("click", function () {
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top - 65
+    }, 600);
+    return false
+  });
+
+
+  $('.scroll-btn').on("click", function () {
+    $('html, body').animate({
+      scrollTop: $($.attr(this, 'href')).offset().top
+    }, 600);
+    return false
+  });
+
 });
 
-let basePriceUSD = 45;
-let basePriceAED = 165;
+
+const baseDollarPrice = document.getElementById('baseDollarPrice').textContent.trim();
+const baseAEDPrice = document.getElementById('baseAedPrice').textContent.trim();
+
+let basePriceUSD = Number(baseDollarPrice);
+let basePriceAED = Number(baseAEDPrice);
+
+console.log(basePriceUSD, basePriceAED);
 
 let disCount = 0.1;
 const month = 12;
@@ -663,3 +687,14 @@ getCurrentPriceFromSKUAED(100);
 // getCurrentPriceFromSKU(700)
 
 
+document.addEventListener("DOMContentLoaded", function () {
+
+  const blogPage = document.getElementById("blogPage");
+  // console.log(blogPage);
+  if (blogPage) {
+    // document.getElementById('hubspot-messages-iframe-container').style.visibility = 'hidden';
+    document.querySelector('.js-header-nav').style.visibility = 'hidden';
+    // document.querySelector('.js-burger').style.visibility = 'hidden';
+    document.querySelector('.js-burger').style.display = 'none';
+  }
+});

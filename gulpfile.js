@@ -99,8 +99,10 @@ const js = () => {
   src([
     // js libs uncomment what you need
     "node_modules/jquery/dist/jquery.min.js",
+    // "node_modules/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js", // no jQuery needed
+    "src/libs/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.min.js",
+    // "src/libs/stickySidebar.js",
 
-    "src/libs/jquery-ui/jquery-ui.min.js",
 
     // svg support in all browsers
     "node_modules/svg4everybody/dist/svg4everybody.min.js", // no jQuery needed

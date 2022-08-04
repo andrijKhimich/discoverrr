@@ -155,6 +155,7 @@
     flex-wrap: wrap;
     position: relative;
     top: 3px;
+
     @include d(992) {
       flex-direction: column;
       align-items: flex-start;
@@ -210,13 +211,17 @@
 
 .burger {
   position: relative;
-  width: 28px;
-  height: 20px;
-  z-index: 101;
-  display: none;
-
+  display: inline-block;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+  z-index: -10;
   @include d(992) {
-    display: inline-block;
+    width: 28px;
+    height: 20px;
+    z-index: 101;
+    pointer-events: initial;
   }
 
   &_item {
