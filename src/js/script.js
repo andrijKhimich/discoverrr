@@ -540,62 +540,96 @@ const baseAEDPrice = document.getElementById('baseAedPrice').textContent.trim();
 let basePriceUSD = Number(baseDollarPrice);
 let basePriceAED = Number(baseAEDPrice);
 
-console.log(basePriceUSD, basePriceAED);
+let valuesArray = [];
+let increasesArray = [];
+
+
+const skuValues = document.querySelectorAll('.sku-value');
+skuValues.forEach(val => {
+  valuesArray.push(Number(val.textContent.trim()));
+});
+
+
+
+
+const skuIncreases = document.querySelectorAll('.sku-increase');
+
+let con;
+let config2;
+
+function setValues() {
+  skuIncreases.forEach(val => {
+    increasesArray.push(Number(val.textContent.trim()));
+
+    let i = 0;
+
+    config2 = valuesArray.reduce((a, valuesArray) => Object.assign(a, { [valuesArray]: Number([increasesArray[i++]]) }), {});
+
+  });
+  return config2;
+};
+
+let config = setValues();
+
+console.log(config);
+
 
 let disCount = 0.1;
 const month = 12;
-let config = {
-  100: 0,
-  200: 0.18,
-  300: 0.18,
-  400: 0.14,
-  500: 0.14,
-  600: 0.10,
-  700: 0.10,
-  800: 0.10, // 10%
-  900: 0.10,
-  1000: 0.10,
-  1100: 0.07,
-  1200: 0.07,
-  1300: 0.05,
-  1400: 0.05,
-  1500: 0.05,
-  1600: 0.03,
-  1700: 0.03,
-  1800: 0.03,
-  1900: 0.03,
-  2000: 0.03,
-  2100: 0.02,
-  2200: 0.02,
-  2300: 0.02,
-  2400: 0.02,
-  2500: 0.02,
-  2600: 0.01,
-  2700: 0.01,
-  2800: 0.01,
-  2900: 0.01,
-  3000: 0.01,
-  3100: 0.01,
-  3200: 0.01,
-  3300: 0.01,
-  3400: 0.01,
-  3500: 0.01,
-  3600: 0.005,
-  3700: 0.005,
-  3800: 0.005,
-  3900: 0.005,
-  4000: 0.005,
-  4100: 0.005,
-  4200: 0.005, // 0.5%
-  4300: 0.005,
-  4400: 0.005,
-  4500: 0.005,
-  4600: 0.005,
-  4700: 0.005,
-  4800: 0.005,
-  4900: 0.005,
-  5000: 0.005
-};
+// let config = {
+//   100: 0,
+//   200: 0.18,
+//   300: 0.18,
+//   400: 0.14,
+//   500: 0.14,
+//   600: 0.10,
+//   700: 0.10,
+//   800: 0.10, // 10%
+//   900: 0.10,
+//   1000: 0.10,
+//   1100: 0.07,
+//   1200: 0.07,
+//   1300: 0.05,
+//   1400: 0.05,
+//   1500: 0.05,
+//   1600: 0.03,
+//   1700: 0.03,
+//   1800: 0.03,
+//   1900: 0.03,
+//   2000: 0.03,
+//   2100: 0.02,
+//   2200: 0.02,
+//   2300: 0.02,
+//   2400: 0.02,
+//   2500: 0.02,
+//   2600: 0.01,
+//   2700: 0.01,
+//   2800: 0.01,
+//   2900: 0.01,
+//   3000: 0.01,
+//   3100: 0.01,
+//   3200: 0.01,
+//   3300: 0.01,
+//   3400: 0.01,
+//   3500: 0.01,
+//   3600: 0.005,
+//   3700: 0.005,
+//   3800: 0.005,
+//   3900: 0.005,
+//   4000: 0.005,
+//   4100: 0.005,
+//   4200: 0.005, // 0.5%
+//   4300: 0.005,
+//   4400: 0.005,
+//   4500: 0.005,
+//   4600: 0.005,
+//   4700: 0.005,
+//   4800: 0.005,
+//   4900: 0.005,
+//   5000: 0.005
+// };
+
+// console.log(config);
 
 function getNewPriceUSD(val) {
   let newPrice = 0;
@@ -692,9 +726,9 @@ document.addEventListener("DOMContentLoaded", function () {
   const blogPage = document.getElementById("blogPage");
   // console.log(blogPage);
   if (blogPage) {
-    // document.getElementById('hubspot-messages-iframe-container').style.visibility = 'hidden';
+    document.getElementById('hubspot-messages-iframe-container').style.visibility = 'hidden';
     document.querySelector('.js-header-nav').style.visibility = 'hidden';
-    // document.querySelector('.js-burger').style.visibility = 'hidden';
+    document.querySelector('.js-burger').style.visibility = 'hidden';
     document.querySelector('.js-burger').style.display = 'none';
   }
 });
