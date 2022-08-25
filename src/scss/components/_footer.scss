@@ -10,7 +10,7 @@
       p {
         font-style: italic;
         font-size: 12px;
-        color: #080C29;
+        color: #080c29;
         font-weight: 400;
         margin-left: 6px;
         position: relative;
@@ -62,26 +62,25 @@
 
       &::-webkit-input-placeholder {
         font-size: 14px;
-        color: rgba(#494A4D, .5);
+        color: rgba(#494a4d, 0.5);
       }
 
       &::-moz-placeholder {
         font-size: 14px;
-        color: rgba(#494A4D, .5);
+        color: rgba(#494a4d, 0.5);
       }
 
       &:-ms-input-placeholder {
         font-size: 14px;
-        color: rgba(#494A4D, .5);
+        color: rgba(#494a4d, 0.5);
       }
 
       &::placeholder {
         font-size: 14px;
-        color: rgba(#494A4D, .5);
+        color: rgba(#494a4d, 0.5);
       }
     }
   }
-
 
   &__row {
     max-width: 1330px;
@@ -101,7 +100,8 @@
 
   &__col {
     padding: 0 15px;
-
+    display: flex;
+    align-items: center;
     @include d(992) {
       margin: 0 auto 30px auto;
       text-align: center;
@@ -137,7 +137,7 @@
   }
 
   &_top {
-    background-color: #080C29;
+    background-color: #080c29;
     color: $white;
     padding: 100px 0 70px;
   }
@@ -147,6 +147,19 @@
     align-items: center;
     justify-content: space-between;
     padding: 18px 0;
+  }
+  &__nav {
+    ul {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      li {
+        padding: 0 10px;
+        a {
+          font-size: 12px;
+        }
+      }
+    }
   }
 }
 
@@ -186,7 +199,7 @@
 .svg-social {
   width: 20px;
   height: 20px;
-  fill: #CECED4;
+  fill: #ceced4;
   transition: fill $hover-duration $timing;
 }
 

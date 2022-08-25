@@ -1,10 +1,7 @@
-
 const deployFolder = "dist";
 const devFolder = "src";
 
 let fileSystem = require("fs");
-
-
 
 const path = {
   build: {
@@ -14,7 +11,6 @@ const path = {
     img: `${deployFolder}/img/`,
     fonts: `${deployFolder}/fonts/`,
     libs: `${deployFolder}/libs/`,
-
   },
   src: {
     html: `${devFolder}/*.html`,
@@ -23,7 +19,6 @@ const path = {
     img: `${devFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
     fonts: `${devFolder}/fonts/*.ttf`,
     libs: `${devFolder}/libs/**/*.*`,
-
   },
   watch: {
     html: `${devFolder}/**/*.html`,
@@ -31,15 +26,15 @@ const path = {
     js: `${devFolder}/js/**/*.js`,
     img: `${devFolder}/img/**/*.{jpg,png,svg,gif,ico,webp}`,
   },
-  clean: `./${deployFolder}/`
-}
+  clean: `./${deployFolder}/`,
+};
 
 let { src, dest } = require("gulp"),
   gulp = require("gulp"),
   browsersync = require("browser-sync").create(),
   fileinclude = require("gulp-file-include"),
   del = require("del"),
-  scss = require('gulp-sass')(require('sass')),
+  scss = require("gulp-sass")(require("sass")),
   autoprefixer = require("gulp-autoprefixer"),
   gcmq = require("gulp-group-css-media-queries"),
   cleanCss = require("gulp-clean-css"),
@@ -56,44 +51,50 @@ let { src, dest } = require("gulp"),
   ttf2woff = require("gulp-ttf2woff"),
   ttf2woff2 = require("gulp-ttf2woff2"),
   fonter = require("gulp-fonter"),
-  cache = require("gulp-cache")
+  cache = require("gulp-cache");
 
 const browserSync = () => {
   browsersync.init({
     server: {
-      baseDir: `./${deployFolder}/`
+      baseDir: `./${deployFolder}/`,
     },
     port: 3000,
-    notify: true
+    notify: true,
   });
-}
+};
 
 const html = () => {
-  return src(path.src.html)
-    .pipe(fileinclude())
-    // .pipe(webphtml())
-    .pipe(dest(path.build.html))
-    .pipe(browsersync.stream())
-}
+  return (
+    src(path.src.html)
+      .pipe(fileinclude())
+      // .pipe(webphtml())
+      .pipe(dest(path.build.html))
+      .pipe(browsersync.stream())
+  );
+};
 
 const css = () => {
-  return src(path.src.css)
-    .pipe(scss().on('error', scss.logError))
-    .pipe(gcmq())
-    .pipe(
-      autoprefixer(["last 5 versions"], {
-        cascade: true,
-      })
-    )
-    // .pipe(webpcss())
-    .pipe(dest(path.build.css))
-    .pipe(cleanCss())
-    .pipe(rename({
-      extname: ".min.css"
-    }))
-    .pipe(dest(path.build.css))
-    .pipe(browsersync.stream())
-}
+  return (
+    src(path.src.css)
+      .pipe(scss().on("error", scss.logError))
+      .pipe(gcmq())
+      .pipe(
+        autoprefixer(["last 5 versions"], {
+          cascade: true,
+        })
+      )
+      // .pipe(webpcss())
+      .pipe(dest(path.build.css))
+      .pipe(cleanCss())
+      .pipe(
+        rename({
+          extname: ".min.css",
+        })
+      )
+      .pipe(dest(path.build.css))
+      .pipe(browsersync.stream())
+  );
+};
 
 const js = () => {
   src([
@@ -103,65 +104,68 @@ const js = () => {
     "src/libs/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.min.js",
     // "src/libs/stickySidebar.js",
 
-
     // svg support in all browsers
     "node_modules/svg4everybody/dist/svg4everybody.min.js", // no jQuery needed
 
     // modal
     // "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
-    "node_modules/sticky-sidebar/dist/sticky-sidebar.min.js",
+    "node_modules/sticky-sidebar/dist/jquery.sticky-sidebar.min.js",
     // swiper slider
     "node_modules/swiper/swiper-bundle.min.js",
   ])
     .pipe(concat("libs.min.js"))
-    .pipe(dest(path.build.js))
-  return src(
-    path.src.js,
-  )
-    .pipe(babel({
-      presets: ['@babel/env']
-    }))
+    .pipe(dest(path.build.js));
+  return src(path.src.js)
+    .pipe(
+      babel({
+        presets: ["@babel/env"],
+      })
+    )
     .pipe(dest(path.build.js))
     .pipe(uglify())
-    .pipe(rename({
-      extname: ".min.js"
-    }))
+    .pipe(
+      rename({
+        extname: ".min.js",
+      })
+    )
     .pipe(dest(path.build.js))
-    .pipe(browsersync.stream())
-}
+    .pipe(browsersync.stream());
+};
 
 const img = () => {
-  return src(path.src.img)
-    // .pipe(webp({
-    //   quality: 70,
-    // }))
-    .pipe(
-      cache(
+  return (
+    src(path.src.img)
+      // .pipe(webp({
+      //   quality: 70,
+      // }))
+      .pipe(
+        cache(
+          imagemin({
+            interlaced: true,
+          })
+        )
+      )
+      .pipe(dest(path.build.img))
+      .pipe(src(path.src.img))
+      .pipe(
         imagemin({
+          progressive: true,
+          svgoPlugins: [{ removeViewBox: false }],
           interlaced: true,
+          optimizationLevel: 3,
         })
       )
-    )
-    .pipe(dest(path.build.img))
-    .pipe(src(path.src.img))
-    .pipe(imagemin(
-      {
-        progressive: true,
-        svgoPlugins: [{ removeViewBox: false }],
-        interlaced: true,
-        optimizationLevel: 3,
-      }
-    ))
-    .pipe(
-      cache(
-        imagemin({
-          interlaced: true,
-        })
+      .pipe(
+        cache(
+          imagemin({
+            interlaced: true,
+          })
+        )
       )
-    )
-    .pipe(dest(path.build.img))
-    .pipe(browsersync.stream())
-}
+      .pipe(dest(path.build.img))
+      .pipe(browsersync.stream())
+  );
+};
 
 const svgSprite = () => {
   return src(`${devFolder}/img/svg/*.svg`) // svg files for sprite
@@ -191,21 +195,16 @@ const svgSprite = () => {
       })
     )
     .pipe(gulp.dest(`${deployFolder}/img/svg/`));
-}
+};
 
 const fonts = () => {
-  src(path.src.fonts)
-    .pipe(ttf2woff())
-    .pipe(dest(path.build.fonts));
-  return src(path.src.fonts)
-    .pipe(ttf2woff2())
-    .pipe(dest(path.build.fonts))
-}
+  src(path.src.fonts).pipe(ttf2woff()).pipe(dest(path.build.fonts));
+  return src(path.src.fonts).pipe(ttf2woff2()).pipe(dest(path.build.fonts));
+};
 
 const libs = () => {
-  return src(path.src.libs)
-    .pipe(dest(path.build.libs));
-}
+  return src(path.src.libs).pipe(dest(path.build.libs));
+};
 
 // let filesToMove = [
 //   './src/libs/**/*.*',
@@ -219,52 +218,66 @@ const libs = () => {
 // });
 
 gulp.task("otf2ttf", function () {
-  return src([devFolder + '/fonts/*.otf'])
-    .pipe(fonter({
-      formats: ["ttf"]
-    }))
-    .pipe(dest(devFolder + '/fonts/'))
+  return src([devFolder + "/fonts/*.otf"])
+    .pipe(
+      fonter({
+        formats: ["ttf"],
+      })
+    )
+    .pipe(dest(devFolder + "/fonts/"));
 });
 
-
 const fontStyle = async () => {
-  let fileContent = fileSystem.readFileSync(devFolder + '/scss/base/fonts.scss');
-  if (fileContent == '') {
-    fileSystem.writeFile(devFolder + '/scss/base/fonts.scss', '', cb);
+  let fileContent = fileSystem.readFileSync(
+    devFolder + "/scss/base/fonts.scss"
+  );
+  if (fileContent == "") {
+    fileSystem.writeFile(devFolder + "/scss/base/fonts.scss", "", cb);
     return fileSystem.readdir(path.build.fonts, function (err, items) {
       if (items) {
         let convertedFontName;
         for (var i = 0; i < items.length; i++) {
-          let fontName = items[i].split('.');
+          let fontName = items[i].split(".");
           fontName = fontName[0];
           if (convertedFontName != fontName) {
-            fileSystem.appendFile(devFolder + '/scss/base/fonts.scss', '@include font("' + fontName + '", "' + fontName + '", "400", "normal");\r\n', cb);
+            fileSystem.appendFile(
+              devFolder + "/scss/base/fonts.scss",
+              '@include font("' +
+                fontName +
+                '", "' +
+                fontName +
+                '", "400", "normal");\r\n',
+              cb
+            );
           }
           convertedFontName = fontName;
         }
       }
-    })
+    });
   }
-}
+};
 
-function cb() { }
+function cb() {}
 
 const clearCache = () => {
   return cache.clearAll();
-}
+};
 
 const clean = () => {
   return del(path.clean);
-}
+};
 
 const watchFiles = () => {
   gulp.watch([path.watch.html], html);
   gulp.watch([path.watch.css], css);
   gulp.watch([path.watch.js], js);
   gulp.watch([path.watch.img], img);
-}
+};
 
-const build = gulp.series(clean, gulp.parallel(libs, html, css, js, img, svgSprite, fonts));
+const build = gulp.series(
+  clean,
+  gulp.parallel(libs, html, css, js, img, svgSprite, fonts)
+);
 const watch = gulp.parallel(build, watchFiles, browserSync);
 
 exports.html = html;

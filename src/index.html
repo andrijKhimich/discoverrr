@@ -1,670 +1,763 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.min.css" />
+    <title>Project | Home</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.min.css">
-  <title>Project | Home</title>
-</head>
-
-<body>
-  <div class="main-wrapper">
-    @@include("./html/_header.html")
-
-    <main class="main">
-      <div class="section hero js-show">
-        <span class="hero__img"></span>
-        <div class="container">
-          <div class="hero__content">
-            <div class="hero__tag">
-              <p>For b2b SALES & Marketing TEAMS</p>
-            </div>
-            <h1>Create <span>catalogues</span> that truly <span> help you sell</span></h1>
-            <p class="subtitle">Say goodbye to costly and time-consuming catalogue creations, sharing outdated
-              powerpoint
-              or PDF files, and guessing what the buyer wants.</p>
-            <div class="form">
-              <form>
-                <div class="form__content">
-                  <label>
-                    <input type="email" placeholder="Business Email Address" class="form__input">
-                  </label>
-                  <span class="form-arrow">
-                    <input type="submit" value="Get started for free" class="btn">
-                    <svg class="svg-arrow-btn">
-                      <use xlink:href="img/svg/sprite.svg#btn-arrow">
-                      </use>
-                    </svg>
-                  </span>
-                </div>
-              </form>
-              <p>Risk free - No credit card required</p>
+  <body>
+    <div class="main-wrapper">
+      @@include("./html/_header.html")
+      <main class="main" id="homePage">
+        <div class="section hero js-show">
+          <span class="hero__img"></span>
+          <div class="container">
+            <div class="hero__content">
+              <div class="hero__tag">
+                <p>For b2b SALES & Marketing TEAMS</p>
+              </div>
+              <h1>
+                Create <span>catalogues</span> that truly
+                <span> help you sell</span>
+              </h1>
+              <p class="subtitle">
+                Say goodbye to costly and time-consuming catalogue creations,
+                sharing outdated powerpoint or PDF files, and guessing what the
+                buyer wants.
+              </p>
+              <div class="form">
+                <form>
+                  <div class="form__content">
+                    <label>
+                      <input
+                        type="email"
+                        placeholder="Business Email Address"
+                        class="form__input"
+                      />
+                    </label>
+                    <span class="form-arrow">
+                      <input
+                        type="submit"
+                        value="Get started for free"
+                        class="btn"
+                      />
+                      <svg class="svg-arrow-btn">
+                        <use xlink:href="img/svg/sprite.svg#btn-arrow"></use>
+                      </svg>
+                    </span>
+                  </div>
+                </form>
+                <p>Risk free - No credit card required</p>
+              </div>
             </div>
           </div>
+          <a href="#showcase" class="scroll-btn">
+            <svg class="svg-arrow">
+              <use xlink:href="img/svg/sprite.svg#arrow-down"></use>
+            </svg>
+          </a>
         </div>
-        <a href="#showcase" class="scroll-btn">
-          <svg class="svg-arrow">
-            <use xlink:href="img/svg/sprite.svg#arrow-down">
-            </use>
-          </svg>
-        </a>
-      </div>
-      <div class="secton showcase" id="showcase">
-        <div class="container">
-          <div class="section__title showcase__title js-show">
-            <div class="tag">Why Discoverrr?</div>
-            <div class="showcase__title-container">
-              <h2>Showcase your products <span>10x</span></h2>
-              <span class="text-container">
-                <span> faster</span>
-                <span> easier</span>
-                <span> smarter</span>
-              </span>
+        <div class="secton showcase" id="showcase">
+          <div class="container">
+            <div class="section__title showcase__title js-show">
+              <div class="tag">Why Discoverrr?</div>
+              <div class="showcase__title-container">
+                <h2>Showcase your products <span>10x</span></h2>
+                <span class="text-container">
+                  <span> faster</span>
+                  <span> easier</span>
+                  <span> smarter</span>
+                </span>
+              </div>
             </div>
-          </div>
-          <div class="showcase__row js-show">
-            <div class="showcase__col">
-              <div class="showcase__content">
-                <!-- <div class="showcase__tooltip">
+            <div class="showcase__row js-show">
+              <div class="showcase__col">
+                <div class="showcase__content">
+                  <!-- <div class="showcase__tooltip">
                   <p>Ever been in a situation where deals took longer to close because you spent hours creating
                     catalogues
                     that only had products relevant to the specific buyer?</p>
                 </div> -->
-                <div class="showcase__text">
-                  <h4>Create and share personalised catalogues
-                    in 5 minutes</h4>
-                  <p>Create unlimited personalised catalogues in minutes and share them with buyers via email, WhatsApp
-                    and more. All in just a few clicks.</p>
-                  <p>Close deals faster with instantly personalisable catalogues.</p>
+                  <div class="showcase__text">
+                    <h4>
+                      Create and share personalised catalogues in 5 minutes
+                    </h4>
+                    <p>
+                      Create unlimited personalised catalogues in minutes and
+                      share them with buyers via email, WhatsApp and more. All
+                      in just a few clicks.
+                    </p>
+                    <p>
+                      Close deals faster with instantly personalisable
+                      catalogues.
+                    </p>
+                  </div>
                 </div>
               </div>
+              <div class="showcase__col">
+                <div class="showcase__img"></div>
+              </div>
             </div>
-            <div class="showcase__col">
-              <div class="showcase__img"></div>
-            </div>
-          </div>
-          <div class="showcase__row js-show">
-            <div class="showcase__col">
-              <div class="showcase__img"></div>
-            </div>
-            <div class="showcase__col">
-              <div class="showcase__content">
-                <!-- <div class="showcase__tooltip">
+            <div class="showcase__row js-show">
+              <div class="showcase__col">
+                <div class="showcase__img"></div>
+              </div>
+              <div class="showcase__col">
+                <div class="showcase__content">
+                  <!-- <div class="showcase__tooltip">
                   <p>Remember the time and effort it took to manually update all your buyers through calls, messages, or
                     meetings when products were added or removed?</p>
                 </div> -->
-                <div class="showcase__text">
-                  <h4>Automate buyer updates</h4>
-                  <p>Let the catalogue update your buyers. Every time you edit catalogues, your buyers are notified of
-                    the
-                    product changes and the catalogues are auto-updated.</p>
-                  <p>You can now spend less time and effort updating and more on selling.</p>
+                  <div class="showcase__text">
+                    <h4>Automate buyer updates</h4>
+                    <p>
+                      Let the catalogue update your buyers. Every time you edit
+                      catalogues, your buyers are notified of the product
+                      changes and the catalogues are auto-updated.
+                    </p>
+                    <p>
+                      You can now spend less time and effort updating and more
+                      on selling.
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section business">
+          <div class="container">
+            <div class="section__title business__title js-show">
+              <h3>Achieve more <span>effortlessly</span></h3>
+            </div>
+            <div class="business__row js-show">
+              <div class="business__col">
+                <div class="business__accordion">
+                  <div class="accordion">
+                    <div class="accordion__item">
+                      <button class="accordion__btn" id="openDefault">
+                        Create impressive catalogues effortlessly
+                      </button>
+                      <div class="accordion__panel">
+                        <p>
+                          You don’t need any special skills to use Discoverrr’s
+                          catalogue. It’s just a matter of filling in fields and
+                          uploading images. Designed with ease of use in mind,
+                          so you can focus on achieving your goals.
+                          <a href="#">Link</a>
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion__item">
+                      <button class="accordion__btn">
+                        All in one - create, personalise, share
+                      </button>
+                      <div class="accordion__panel">
+                        <p>
+                          You don’t need any special skills to use Discoverrr’s
+                          catalogue. It’s just a matter of filling in fields and
+                          uploading images. Designed with ease of use in mind,
+                          so you can focus on achieving your goals.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion__item">
+                      <button class="accordion__btn">
+                        Improve sales with buyer Insights
+                      </button>
+                      <div class="accordion__panel">
+                        <p>
+                          You don’t need any special skills to use Discoverrr’s
+                          catalogue. It’s just a matter of filling in fields and
+                          uploading images. Designed with ease of use in mind,
+                          so you can focus on achieving your goals.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion__item">
+                      <button class="accordion__btn">
+                        Show products on your website
+                      </button>
+                      <div class="accordion__panel">
+                        <p>
+                          You don’t need any special skills to use Discoverrr’s
+                          catalogue. It’s just a matter of filling in fields and
+                          uploading images. Designed with ease of use in mind,
+                          so you can focus on achieving your goals.
+                        </p>
+                      </div>
+                    </div>
+                    <div class="accordion__item">
+                      <button class="accordion__btn">
+                        Compatible with all devices
+                      </button>
+                      <div class="accordion__panel">
+                        <p>
+                          You don’t need any special skills to use Discoverrr’s
+                          catalogue. It’s just a matter of filling in fields and
+                          uploading images. Designed with ease of use in mind,
+                          so you can focus on achieving your goals.
+                        </p>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="business__col">
+                <div class="business__img"></div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="section calculator js-show">
+          <div class="container">
+            <div class="section__title calculator__title">
+              <h3>Reduce <span>catalogue expenses</span> by 50%</h3>
+            </div>
+            <div class="range">
+              <div class="range__header">
+                <p>Product count</p>
+                <span>500</span>
+              </div>
+              <div class="range__body">
+                <div class="range-slider">
+                  <p class="range-slider__value">
+                    <label for="amount">SKU count :</label>
+                    <input
+                      type="text"
+                      pattern="\d*"
+                      maxlength="4"
+                      id="amount"
+                      placeholder="100"
+                    />
+                  </p>
+                  <div id="slider-range-min"></div>
+                </div>
+                <img src="./img/range.svg" alt="range" />
+                <div class="range__numbers">
+                  <span>0</span>
+                  <span>1000</span>
+                  <span>2000</span>
+                  <span>3000</span>
+                  <span>4000</span>
+                  <span>5000</span>
+                </div>
+              </div>
+            </div>
+            <div class="calculator__body">
+              <div class="calculator-tab">
+                <button class="calculator-tab__links active" data-href="usd">
+                  USD
+                </button>
+                <button class="calculator-tab__links" data-href="aed">
+                  AED
+                </button>
+              </div>
+              <h5>Cost comparison</h5>
+              <div id="usd" class="calculator-tab__content active">
+                <table>
+                  <tr>
+                    <th>
+                      <p>Traditional catalogue</p>
+                      <span>Excluding printing and editing costs</span>
+                    </th>
+                    <th>
+                      <p id="traditionalTotalUsd">$</p>
+                      <span>(Average)</span>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <p>Discoverrr catalogue</p>
+                      <span
+                        >No printing required, Unlimited editing, Unlimited
+                        catalogues</span
+                      >
+                    </th>
+                    <th>
+                      <p id="discoverTotalUsd">$</p>
+                    </th>
+                  </tr>
+                </table>
+                <div class="saving">
+                  <p>Savings</p>
+                  <span id="savingsUsd">$</span>
+                </div>
+              </div>
+              <div id="aed" class="calculator-tab__content">
+                <table>
+                  <tr>
+                    <th>
+                      <p>Traditional catalogue</p>
+                      <span>Excluding printing and editing costs</span>
+                    </th>
+                    <th>
+                      <p id="traditionalTotalAed">$2379</p>
+                      <span>(Average)</span>
+                    </th>
+                  </tr>
+                  <tr>
+                    <th>
+                      <p>Discoverrr catalogue</p>
+                      <span
+                        >No printing required, Unlimited editing, Unlimited
+                        catalogues</span
+                      >
+                    </th>
+                    <th>
+                      <p id="discoverTotalAed">$1150</p>
+                    </th>
+                  </tr>
+                </table>
+                <div class="saving">
+                  <p>Savings</p>
+                  <span id="savingsAed">$1229</span>
+                </div>
+              </div>
+            </div>
+            <div class="calculator__footer js-show">
+              <img src="./img/decor-1.svg" alt="decor" class="decor decor_1" />
+              <img src="./img/decor-2.svg" alt="decor" class="decor decor_2" />
+              <h3>Spend less. Sell more.</h3>
+              <a href="#" class="btn btn_white btn_arrow"
+                >Get started for free
+                <svg class="svg-arrow-btn">
+                  <use xlink:href="img/svg/sprite.svg#btn-arrow"></use>
+                </svg>
+              </a>
+              <p>Risk free - No credit card required</p>
+            </div>
+          </div>
+        </div>
+        <div class="section how-it-works js-show">
+          <div class="container">
+            <div class="section__title how-it-works__title">
+              <div class="tag tag_white">
+                <p>HOW IT WORKS</p>
+              </div>
+              <h2>
+                Grow your sales
+                <span> in 3 simple steps </span>
+              </h2>
+            </div>
+            <div class="how-it-works__row">
+              <div class="how-it-works__col">
+                <div class="how-it-works__item">
+                  <div class="how-it-works__icon">
+                    <img src="./img/create.png" alt="create" />
+                  </div>
+                  <h6>Create</h6>
+                  <p>
+                    Create catalogs by simply filling in fields or bulk-upload
+                    product information using an Excel file.
+                  </p>
+                </div>
+              </div>
+              <div class="how-it-works__col">
+                <div class="how-it-works__item">
+                  <div class="how-it-works__icon">
+                    <img src="./img/share.png" alt="share" />
+                  </div>
+                  <h6>Share</h6>
+                  <p>
+                    Instantly personalise catalogues based on your buyers’
+                    requirement and share with them via email, WhatsApp or
+                    weblink.
+                  </p>
+                </div>
+              </div>
+              <div class="how-it-works__col">
+                <div class="how-it-works__item">
+                  <div class="how-it-works__icon">
+                    <img src="./img/grow.png" alt="grow" />
+                  </div>
+                  <h6>Grow</h6>
+                  <p>
+                    Understand your buyers with Insights that tell you what
+                    products they’re interested in, helping you close more deals
+                    and grow your business.
+                  </p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="section business">
-        <div class="container">
-          <div class="section__title business__title js-show">
-            <h3>Achieve more <span>effortlessly</span></h3>
+        <div class="section confidence js-show">
+          <img
+            src="./img/circle.svg"
+            alt="circle"
+            class="decor circle circle_1"
+          />
+          <img
+            src="./img/circle.svg"
+            alt="circle"
+            class="decor circle circle_2"
+          />
+
+          <div class="container">
+            <div class="section__title confidence__title">
+              <h2>
+                <span>A powerful new tool to</span> showcase your products
+                <span>and</span> close deals with confidence
+              </h2>
+            </div>
+            <div class="confidence__content">
+              <p>
+                Enjoy a 15-day free trial. Test it yourself absolutely
+                risk-free!
+              </p>
+              <a href="#" class="btn btn_arrow"
+                >Get started for free
+                <svg class="svg-arrow-btn">
+                  <use xlink:href="img/svg/sprite.svg#btn-arrow"></use>
+                </svg>
+              </a>
+              <span>No credit card or commitments required.</span>
+            </div>
           </div>
-          <div class="business__row js-show">
-            <div class="business__col">
-              <div class="business__accordion">
-                <div class="accordion">
-                  <div class="accordion__item">
-                    <button class="accordion__btn" id="openDefault">Create impressive catalogues effortlessly</button>
-                    <div class="accordion__panel">
-                      <p>You don’t need any special skills to use Discoverrr’s catalogue. It’s just a matter of filling
-                        in
-                        fields and uploading images. Designed with ease of use in mind, so you can focus on achieving
-                        your
-                        goals. <a href="#">Link</a> </p>
-                    </div>
-                  </div>
-                  <div class="accordion__item">
-                    <button class="accordion__btn">All in one - create, personalise, share</button>
-                    <div class="accordion__panel">
-                      <p>You don’t need any special skills to use Discoverrr’s catalogue. It’s just a matter of filling
-                        in
-                        fields and uploading images. Designed with ease of use in mind, so you can focus on achieving
-                        your
-                        goals.</p>
-                    </div>
-                  </div>
-                  <div class="accordion__item">
-                    <button class="accordion__btn">Improve sales with buyer Insights</button>
-                    <div class="accordion__panel">
-                      <p>You don’t need any special skills to use Discoverrr’s catalogue. It’s just a matter of filling
-                        in
-                        fields and uploading images. Designed with ease of use in mind, so you can focus on achieving
-                        your
-                        goals.</p>
-                    </div>
-                  </div>
-                  <div class="accordion__item">
-                    <button class="accordion__btn">Show products on your website</button>
-                    <div class="accordion__panel">
-                      <p>You don’t need any special skills to use Discoverrr’s catalogue. It’s just a matter of filling
-                        in
-                        fields and uploading images. Designed with ease of use in mind, so you can focus on achieving
-                        your
-                        goals.</p>
-                    </div>
-                  </div>
-                  <div class="accordion__item">
-                    <button class="accordion__btn">Compatible with all devices</button>
-                    <div class="accordion__panel">
-                      <p>You don’t need any special skills to use Discoverrr’s catalogue. It’s just a matter of filling
-                        in
-                        fields and uploading images. Designed with ease of use in mind, so you can focus on achieving
-                        your
-                        goals.</p>
-                    </div>
-                  </div>
+        </div>
+        <div class="section faq js-show">
+          <div class="container">
+            <div class="faq__title section__title">
+              <div class="tag">FREquently asked questions</div>
+              <h2>In case you’re still wondering...</h2>
+            </div>
+            <div class="faq-accordion">
+              <div class="faq-accordion__item">
+                <button class="faq-accordion__btn" id="openFaq">
+                  Who is this useful for?
+                  <span class="plus"></span>
+                </button>
+                <div class="faq-accordion__panel">
+                  <p>
+                    It's perfect for B2B Sales and Marketing teams looking to
+                    create new or upgrade existing catalogues. Whether you want
+                    to do it yourself or have your in-house design team do it
+                    for you, there's value for everybody using it.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-accordion__item">
+                <button class="faq-accordion__btn">
+                  How is Discoverrr better than other catalogues?
+                  <span class="plus"></span>
+                </button>
+                <div class="faq-accordion__panel">
+                  <p>
+                    It's perfect for B2B Sales and Marketing teams looking to
+                    create new or upgrade existing catalogues. Whether you want
+                    to do it yourself or have your in-house design team do it
+                    for you, there's value for everybody using it.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-accordion__item">
+                <button class="faq-accordion__btn">
+                  My team or customers are not tech-savvy, would this be an
+                  issue?
+                  <span class="plus"></span>
+                </button>
+                <div class="faq-accordion__panel">
+                  <p>
+                    It's perfect for B2B Sales and Marketing teams looking to
+                    create new or upgrade existing catalogues. Whether you want
+                    to do it yourself or have your in-house design team do it
+                    for you, there's value for everybody using it.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-accordion__item">
+                <button class="faq-accordion__btn">
+                  Can I share catalogues with multiple people? if so how?
+                  <span class="plus"></span>
+                </button>
+                <div class="faq-accordion__panel">
+                  <p>
+                    It's perfect for B2B Sales and Marketing teams looking to
+                    create new or upgrade existing catalogues. Whether you want
+                    to do it yourself or have your in-house design team do it
+                    for you, there's value for everybody using it.
+                  </p>
+                </div>
+              </div>
+              <div class="faq-accordion__item">
+                <button class="faq-accordion__btn">
+                  Can I export the catalogue as a PDF?
+                  <span class="plus"></span>
+                </button>
+                <div class="faq-accordion__panel">
+                  <p>
+                    It's perfect for B2B Sales and Marketing teams looking to
+                    create new or upgrade existing catalogues. Whether you want
+                    to do it yourself or have your in-house design team do it
+                    for you, there's value for everybody using it.
+                  </p>
                 </div>
               </div>
             </div>
-            <div class="business__col">
-              <div class="business__img">
-
-              </div>
-            </div>
           </div>
         </div>
-      </div>
-      <div class="section calculator js-show">
-        <div class="container">
-          <div class="section__title calculator__title">
-            <h3>Reduce <span>catalogue expenses</span>
-              by 50%</h3>
-          </div>
-          <div class="range">
-            <div class="range__header">
-              <p>Product count</p>
-              <span>500</span>
+        <div class="section cta js-show">
+          <img src="./img/decor-logo.svg" alt="logo" class="decor decor_2" />
+          <img src="./img/decor-logo-2.svg" alt="logo" class="decor decor_1" />
+          <div class="container">
+            <div class="section__title cta__title">
+              <h2>Curious to know more?</h2>
             </div>
-            <div class="range__body">
-              <div class="range-slider">
-                <p class="range-slider__value">
-                  <label for="amount">SKU count :</label>
-                  <input type="text" pattern="\d*" maxlength="4" id="amount" placeholder="100">
-                </p>
-                <div id="slider-range-min"></div>
-              </div>
-              <img src="./img/range.svg" alt="range">
-              <div class="range__numbers">
-                <span>0</span>
-                <span>1000</span>
-                <span>2000</span>
-                <span>3000</span>
-                <span>4000</span>
-                <span>5000</span>
-              </div>
-            </div>
-          </div>
-          <div class="calculator__body">
-            <div class="calculator-tab">
-              <button class="calculator-tab__links active" data-href="usd">USD</button>
-              <button class="calculator-tab__links" data-href="aed">AED</button>
-            </div>
-            <h5>Cost comparison</h5>
-            <div id="usd" class="calculator-tab__content active">
-              <table>
-                <tr>
-                  <th>
-                    <p>Traditional catalogue</p>
-                    <span>Excluding printing and editing costs</span>
-                  </th>
-                  <th>
-                    <p id="traditionalTotalUsd">$</p>
-                    <span>(Average)</span>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <p>Discoverrr catalogue</p>
-                    <span>No printing required, Unlimited editing, Unlimited catalogues</span>
-                  </th>
-                  <th>
-                    <p id="discoverTotalUsd">$</p>
-                  </th>
-                </tr>
-              </table>
-              <div class="saving">
-                <p>Savings</p>
-                <span id="savingsUsd">$</span>
-              </div>
-            </div>
-            <div id="aed" class="calculator-tab__content">
-              <table>
-                <tr>
-                  <th>
-                    <p>Traditional catalogue</p>
-                    <span>Excluding printing and editing costs</span>
-                  </th>
-                  <th>
-                    <p id="traditionalTotalAed">$2379</p>
-                    <span>(Average)</span>
-                  </th>
-                </tr>
-                <tr>
-                  <th>
-                    <p>Discoverrr catalogue</p>
-                    <span>No printing required, Unlimited editing, Unlimited catalogues</span>
-                  </th>
-                  <th>
-                    <p id="discoverTotalAed">$1150</p>
-                  </th>
-                </tr>
-              </table>
-              <div class="saving">
-                <p>Savings</p>
-                <span id="savingsAed">$1229</span>
-              </div>
-            </div>
-          </div>
-          <div class="calculator__footer js-show">
-            <img src="./img/decor-1.svg" alt="decor" class="decor decor_1">
-            <img src="./img/decor-2.svg" alt="decor" class="decor decor_2">
-            <h3>Spend less. Sell more.</h3>
-            <a href="#" class="btn btn_white btn_arrow">Get started for free
-              <svg class="svg-arrow-btn">
-                <use xlink:href="img/svg/sprite.svg#btn-arrow">
-                </use>
-              </svg>
-            </a>
-            <p>Risk free - No credit card required</p>
-          </div>
-        </div>
-      </div>
-      <div class="section how-it-works js-show">
-        <div class="container">
-          <div class="section__title how-it-works__title">
-            <div class="tag tag_white">
-              <p>HOW IT WORKS</p>
-            </div>
-            <h2>Grow your sales
-              <span> in 3 simple steps </span>
-            </h2>
-          </div>
-          <div class="how-it-works__row">
-            <div class="how-it-works__col">
-              <div class="how-it-works__item">
-                <div class="how-it-works__icon">
-                  <img src="./img/create.png" alt="create">
+            <div class="cta__row">
+              <div class="cta__col">
+                <div class="cta__item">
+                  <h5>Check out our blog</h5>
+                  <p>
+                    Learn about the industry, best practices, our product and
+                    more.
+                  </p>
+                  <a href="#" class="btn btn_icon btn_white btn_white-blue">
+                    <svg class="svg-icon svg-list bounce_icon">
+                      <use xlink:href="img/svg/sprite.svg#list"></use>
+                    </svg>
+                    Read the blog
+                  </a>
                 </div>
-                <h6>Create</h6>
-                <p>Create catalogs by simply filling in fields or bulk-upload product information using an Excel file.
-                </p>
               </div>
-            </div>
-            <div class="how-it-works__col">
-              <div class="how-it-works__item">
-                <div class="how-it-works__icon">
-                  <img src="./img/share.png" alt="share">
+              <div class="cta__col">
+                <div class="cta__item cta__item_white">
+                  <h5>Talk to an expert</h5>
+                  <p>
+                    Get all your questions answered directly by one of our
+                    friendly experts.
+                  </p>
+                  <a
+                    href="meeting.html"
+                    target="_blank"
+                    class="btn btn_icon btn_black"
+                  >
+                    <svg class="svg-icon svg-phone ring_icon">
+                      <use xlink:href="img/svg/sprite.svg#phone"></use>
+                    </svg>
+                    Book a Call
+                  </a>
                 </div>
-                <h6>Share</h6>
-                <p>Instantly personalise catalogues based on your buyers’ requirement and share with them via email,
-                  WhatsApp or weblink.
-                </p>
-              </div>
-            </div>
-            <div class="how-it-works__col">
-              <div class="how-it-works__item">
-                <div class="how-it-works__icon">
-                  <img src="./img/grow.png" alt="grow">
-                </div>
-                <h6>Grow</h6>
-                <p>Understand your buyers with Insights that tell you what products they’re interested in, helping you
-                  close more deals and grow your business.
-                </p>
               </div>
             </div>
           </div>
         </div>
-      </div>
-      <div class="section confidence js-show">
-        <img src="./img/circle.svg" alt="circle" class="decor circle circle_1">
-        <img src="./img/circle.svg" alt="circle" class="decor circle circle_2">
-
-        <div class="container">
-          <div class="section__title confidence__title">
-            <h2><span>A powerful new tool to</span> showcase your products
-              <span>and</span> close deals with confidence
-            </h2>
-          </div>
-          <div class="confidence__content">
-            <p>Enjoy a 15-day free trial. Test it yourself absolutely risk-free!</p>
-            <a href="#" class="btn btn_arrow">Get started for free
-              <svg class="svg-arrow-btn">
-                <use xlink:href="img/svg/sprite.svg#btn-arrow">
-                </use>
-              </svg>
-            </a>
-            <span>No credit card or commitments required.</span>
-          </div>
-        </div>
-      </div>
-      <div class="section faq js-show">
-        <div class="container">
-          <div class="faq__title section__title">
-            <div class="tag">FREquently asked questions</div>
-            <h2>In case you’re still wondering...</h2>
-          </div>
-          <div class="faq-accordion">
-            <div class="faq-accordion__item">
-              <button class="faq-accordion__btn" id="openFaq">Who is this useful for?
-                <span class="plus"></span>
-              </button>
-              <div class="faq-accordion__panel">
-                <p>It's perfect for B2B Sales and Marketing teams looking to create new or upgrade existing catalogues.
-                  Whether you want to do it yourself or have your in-house design team do it for you, there's value for
-                  everybody using it.</p>
-              </div>
-            </div>
-            <div class="faq-accordion__item">
-              <button class="faq-accordion__btn">How is Discoverrr better than other catalogues?
-                <span class="plus"></span>
-              </button>
-              <div class="faq-accordion__panel">
-                <p>It's perfect for B2B Sales and Marketing teams looking to create new or upgrade existing catalogues.
-                  Whether you want to do it yourself or have your in-house design team do it for you, there's value for
-                  everybody using it.</p>
-              </div>
-            </div>
-            <div class="faq-accordion__item">
-              <button class="faq-accordion__btn">My team or customers are not tech-savvy, would this be an issue?
-                <span class="plus"></span>
-
-              </button>
-              <div class="faq-accordion__panel">
-                <p>It's perfect for B2B Sales and Marketing teams looking to create new or upgrade existing catalogues.
-                  Whether you want to do it yourself or have your in-house design team do it for you, there's value for
-                  everybody using it.</p>
-              </div>
-            </div>
-            <div class="faq-accordion__item">
-              <button class="faq-accordion__btn">Can I share catalogues with multiple people? if so how?
-                <span class="plus"></span>
-
-              </button>
-              <div class="faq-accordion__panel">
-                <p>It's perfect for B2B Sales and Marketing teams looking to create new or upgrade existing catalogues.
-                  Whether you want to do it yourself or have your in-house design team do it for you, there's value for
-                  everybody using it.</p>
-              </div>
-            </div>
-            <div class="faq-accordion__item">
-              <button class="faq-accordion__btn">Can I export the catalogue as a PDF?
-                <span class="plus"></span>
-              </button>
-              <div class="faq-accordion__panel">
-                <p>It's perfect for B2B Sales and Marketing teams looking to create new or upgrade existing catalogues.
-                  Whether you want to do it yourself or have your in-house design team do it for you, there's value for
-                  everybody using it.</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="section cta js-show">
-        <img src="./img/decor-logo.svg" alt="logo" class="decor decor_2">
-        <img src="./img/decor-logo-2.svg" alt="logo" class="decor decor_1">
-        <div class="container">
-          <div class="section__title cta__title">
-            <h2>Curious to know more?</h2>
-          </div>
-          <div class="cta__row">
-            <div class="cta__col">
-              <div class="cta__item">
-                <h5>Check out our blog</h5>
-                <p>Learn about the industry, best practices,
-                  our product and more.</p>
-                <a href="#" class="btn btn_icon btn_white btn_white-blue">
-                  <svg class="svg-icon svg-list bounce_icon">
-                    <use xlink:href="img/svg/sprite.svg#list">
-                    </use>
-                  </svg>
-                  Read the blog
-                </a>
-              </div>
-            </div>
-            <div class="cta__col">
-              <div class="cta__item cta__item_white">
-                <h5>Talk to an expert</h5>
-                <p>Get all your questions answered directly
-                  by one of our friendly experts.</p>
-                <a href="meeting.html" target="_blank" class="btn btn_icon  btn_black ">
-                  <svg class="svg-icon svg-phone ring_icon">
-                    <use xlink:href="img/svg/sprite.svg#phone">
-                    </use>
-                  </svg>
-                  Book a Call
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </main>
-    @@include("./html/_footer.html")
-  </div>
-  <table class="price-table">
-    <tr>
-      <td id="baseDollarPrice">45</td>
-      <td id="baseAedPrice"></td>
-    </tr>
-    <tr>
-      <td id="discount" colspan="2"></td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku1">100</td>
-      <td class="sku-increase" id="increase1">0</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku2">200</td>
-      <td class="sku-increase" id="increase2">0.40</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku3">300</td>
-      <td class="sku-increase" id="increase3">0.20</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku4">400</td>
-      <td class="sku-increase" id="increase4">0.15</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku5">500</td>
-      <td class="sku-increase" id="increase5">0.15</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku6">600</td>
-      <td class="sku-increase" id="increase6">0.10</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku7">700</td>
-      <td class="sku-increase" id="increase7">0.10</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku8">800</td>
-      <td class="sku-increase" id="increase8">0.08</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku9">900</td>
-      <td class="sku-increase" id="increase9">0.07</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku10">1000</td>
-      <td class="sku-increase" id="increase10">0.07</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku11">1100</td>
-      <td class="sku-increase" id="increase11">0.07</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku12">1200</td>
-      <td class="sku-increase" id="increase12">0.07</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku13">1300</td>
-      <td class="sku-increase" id="increase13">0.05</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku14">1400</td>
-      <td class="sku-increase" id="increase14">0.05</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku15">1500</td>
-      <td class="sku-increase" id="increase15">0.05</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku16">1600</td>
-      <td class="sku-increase" id="increase16">0.02</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku17">1700</td>
-      <td class="sku-increase" id="increase17">0.02</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku18">1800</td>
-      <td class="sku-increase" id="increase18">0.02</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku19">1900</td>
-      <td class="sku-increase" id="increase19">0.02</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku20">2000</td>
-      <td class="sku-increase" id="increase20">0.02</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku21">2100</td>
-      <td class="sku-increase" id="increase21">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku22">2200</td>
-      <td class="sku-increase" id="increase22">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku23">2300</td>
-      <td class="sku-increase" id="increase23">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku24">2400</td>
-      <td class="sku-increase" id="increase26">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku25">2500</td>
-      <td class="sku-increase" id="increase25">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku26">2600</td>
-      <td class="sku-increase" id="increase26">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku27">2700</td>
-      <td class="sku-increase" id="increase27">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku28">2800</td>
-      <td class="sku-increase" id="increase28">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku29">2900</td>
-      <td class="sku-increase" id="increase29">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku30">3000</td>
-      <td class="sku-increase" id="increase30">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku31">3100</td>
-      <td class="sku-increase" id="increase31">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku32">3200</td>
-      <td class="sku-increase" id="increase32">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku33">3300</td>
-      <td class="sku-increase" id="increase33">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku34">3400</td>
-      <td class="sku-increase" id="increase34">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku35">3500</td>
-      <td class="sku-increase" id="increase35">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku36">3600</td>
-      <td class="sku-increase" id="increase36">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku37">3700</td>
-      <td class="sku-increase" id="increase37">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku38">3800</td>
-      <td class="sku-increase" id="increase38">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku39">3900</td>
-      <td class="sku-increase" id="increase39">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku40">4000</td>
-      <td class="sku-increase" id="increase40">0.01</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku41">4100</td>
-      <td class="sku-increase" id="increase41">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku42">4200</td>
-      <td class="sku-increase" id="increase42">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku43">4300</td>
-      <td class="sku-increase" id="increase43">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku44">4400</td>
-      <td class="sku-increase" id="increase44">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku45">4500</td>
-      <td class="sku-increase" id="increase45">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku46">4600</td>
-      <td class="sku-increase" id="increase46">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku47">4700</td>
-      <td class="sku-increase" id="increase47">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku48">4800</td>
-      <td class="sku-increase" id="increase48">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku49">4900</td>
-      <td class="sku-increase" id="increase49">0.005</td>
-    </tr>
-    <tr>
-      <td class="sku-value" id="sku50">5000</td>
-      <td class="sku-increase" id="increase50">0.005</td>
-    </tr>
-  </table>
-  <script src="./js/libs.min.js"></script>
-  <script src="./js/script.min.js"></script>
-</body>
-
+      </main>
+      @@include("./html/_footer.html")
+    </div>
+    <table class="price-table">
+      <tr>
+        <td id="baseDollarPrice">45</td>
+        <td id="baseAedPrice"></td>
+      </tr>
+      <tr>
+        <td id="discount" colspan="2"></td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku1">100</td>
+        <td class="sku-increase" id="increase1">0</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku2">200</td>
+        <td class="sku-increase" id="increase2">0.40</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku3">300</td>
+        <td class="sku-increase" id="increase3">0.20</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku4">400</td>
+        <td class="sku-increase" id="increase4">0.15</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku5">500</td>
+        <td class="sku-increase" id="increase5">0.15</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku6">600</td>
+        <td class="sku-increase" id="increase6">0.10</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku7">700</td>
+        <td class="sku-increase" id="increase7">0.10</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku8">800</td>
+        <td class="sku-increase" id="increase8">0.08</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku9">900</td>
+        <td class="sku-increase" id="increase9">0.07</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku10">1000</td>
+        <td class="sku-increase" id="increase10">0.07</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku11">1100</td>
+        <td class="sku-increase" id="increase11">0.07</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku12">1200</td>
+        <td class="sku-increase" id="increase12">0.07</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku13">1300</td>
+        <td class="sku-increase" id="increase13">0.05</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku14">1400</td>
+        <td class="sku-increase" id="increase14">0.05</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku15">1500</td>
+        <td class="sku-increase" id="increase15">0.05</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku16">1600</td>
+        <td class="sku-increase" id="increase16">0.02</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku17">1700</td>
+        <td class="sku-increase" id="increase17">0.02</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku18">1800</td>
+        <td class="sku-increase" id="increase18">0.02</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku19">1900</td>
+        <td class="sku-increase" id="increase19">0.02</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku20">2000</td>
+        <td class="sku-increase" id="increase20">0.02</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku21">2100</td>
+        <td class="sku-increase" id="increase21">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku22">2200</td>
+        <td class="sku-increase" id="increase22">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku23">2300</td>
+        <td class="sku-increase" id="increase23">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku24">2400</td>
+        <td class="sku-increase" id="increase26">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku25">2500</td>
+        <td class="sku-increase" id="increase25">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku26">2600</td>
+        <td class="sku-increase" id="increase26">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku27">2700</td>
+        <td class="sku-increase" id="increase27">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku28">2800</td>
+        <td class="sku-increase" id="increase28">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku29">2900</td>
+        <td class="sku-increase" id="increase29">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku30">3000</td>
+        <td class="sku-increase" id="increase30">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku31">3100</td>
+        <td class="sku-increase" id="increase31">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku32">3200</td>
+        <td class="sku-increase" id="increase32">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku33">3300</td>
+        <td class="sku-increase" id="increase33">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku34">3400</td>
+        <td class="sku-increase" id="increase34">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku35">3500</td>
+        <td class="sku-increase" id="increase35">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku36">3600</td>
+        <td class="sku-increase" id="increase36">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku37">3700</td>
+        <td class="sku-increase" id="increase37">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku38">3800</td>
+        <td class="sku-increase" id="increase38">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku39">3900</td>
+        <td class="sku-increase" id="increase39">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku40">4000</td>
+        <td class="sku-increase" id="increase40">0.01</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku41">4100</td>
+        <td class="sku-increase" id="increase41">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku42">4200</td>
+        <td class="sku-increase" id="increase42">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku43">4300</td>
+        <td class="sku-increase" id="increase43">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku44">4400</td>
+        <td class="sku-increase" id="increase44">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku45">4500</td>
+        <td class="sku-increase" id="increase45">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku46">4600</td>
+        <td class="sku-increase" id="increase46">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku47">4700</td>
+        <td class="sku-increase" id="increase47">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku48">4800</td>
+        <td class="sku-increase" id="increase48">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku49">4900</td>
+        <td class="sku-increase" id="increase49">0.005</td>
+      </tr>
+      <tr>
+        <td class="sku-value" id="sku50">5000</td>
+        <td class="sku-increase" id="increase50">0.005</td>
+      </tr>
+    </table>
+    <script src="./js/libs.min.js"></script>
+    <script src="./js/script.min.js"></script>
+  </body>
 </html>

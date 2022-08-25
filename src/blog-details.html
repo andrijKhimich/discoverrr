@@ -1,173 +1,210 @@
 <!DOCTYPE html>
 <html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./css/style.min.css" />
+    <title>Project | Blog</title>
+  </head>
 
-<head>
-  <meta charset="UTF-8">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <link rel="stylesheet" href="./css/style.min.css">
-  <title>Project | Blog</title>
-</head>
-
-<body>
-  <div class="main-wrapper">
-    @@include("./html/_header.html")
-    <main class="main blog-details blog-page" id="blogPage">
-      <div class="section blog-tags">
-        <div class="container">
-          <div class="blog-tags__row">
-            <a href="#" class="blog-tag active">Latest Articles</a>
-            <a href="#" class="blog-tag">Growth</a>
-            <a href="#" class="blog-tag">Growth</a>
+  <body>
+    <div id="hubspot-messages-iframe-container"></div>
+    <div class="main-wrapper">
+      @@include("./html/_header.html")
+      <main class="main blog-details blog-page" id="blogPage">
+        <div class="section blog-tags">
+          <div class="container">
+            <div class="blog-tags__row">
+              <a href="#" class="blog-tag active">Latest Articles</a>
+              <a href="#" class="blog-tag">Growth</a>
+              <a href="#" class="blog-tag">Growth</a>
+            </div>
           </div>
         </div>
-      </div>
-      <div class="section blog-inner">
-        <div class="container">
-          <div class="blog__wrapper">
-            <div class="blog__sidebar" id="sidebar">
-              <a href="#" class="link_blue link_blue_reverce">Back to blogs</a>
-              <div class="article-navigation">
-                <p>Table of content</p>
-                <ol class="article-nav">
-                  <!-- <li class="article-nav__item">
-                    <a href="#"></a>
-                  </li> -->
-                  <!-- <li>
-                    <a href="#">Why Create a catalogue?</a>
-                  </li>
-                  <li>
-                    <a href="#">Why Create a catalogue?</a>
-                  </li> -->
-                </ol>
-              </div>
-              <div class="follow">
-                <p>Share this</p>
-                <ul class="follow-list">
-                  <li class="follow-list__item">
-                    <a href="#" class="follow-list__link" target="_blank">
-                      <svg class="svg-blue">
-                        <use xlink:href="img/svg/sprite.svg#linkedin">
-                        </use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="follow-list__item">
-                    <a href="#" class="follow-list__link" target="_blank">
-                      <svg class="svg-blue">
-                        <use xlink:href="img/svg/sprite.svg#facebook">
-                        </use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="follow-list__item">
-                    <a href="#" class="follow-list__link" target="_blank">
-                      <svg class="svg-blue">
-                        <use xlink:href="img/svg/sprite.svg#twitter">
-                        </use>
-                      </svg>
-                    </a>
-                  </li>
-                  <li class="follow-list__item">
-                    <a href="#" class="follow-list__link" target="_blank">
-                      <svg class="svg-blue">
-                        <use xlink:href="img/svg/sprite.svg#instagram">
-                        </use>
-                      </svg>
-                    </a>
-                  </li>
-                </ul>
-              </div>
-            </div>
-            <div class="blog-article">
-              <article class="article">
-                <h1>title-1</h1>
-
-                <h2>title-2</h2>
-                <div class="blog-item__details">
-                  <p class="post-author">Posted By <strong>Discoverrr Team</strong></p>
-                  <p class="post-date">June 30, 2022</p>
-                  <p class="post-time"> 5 min read</p>
-                </div>
-                <!-- <h3> title-3</h3> -->
-                <h4> title-4</h4>
-                <p>Why create a catalogueLorem ipsum dolor sit amet. Ut mollitia maxime est perferendis reiciendis et
-                  consequatur laborum quo impedit impedit est fugit officiis. Sed consequatur fugit et itaque expedita
-                  aut consectetur dolorum eos consectetur praesentium id laborum dolorum.</p>
-                <p>Aut excepturi nemo ut ullam totam vel mollitia consequatur ut repellat quis aut cumque dolores aut
-                  consequatur quibusdam et aliquam quod. Cum tempore omnis eum perferendis voluptatem est ipsa laborum
-                  ut ipsum nobis id voluptate reprehenderit. Aut quia voluptatem et numquam dolores aut rerum blanditiis
-                  id dolorem odit in sequi fugit.</p>
-                <p>Vel obcaecati et incidunt aut fuga quisquam ea nulla sint. Nam voluptas fugiat sed omnis reiciendis
-                  ex nobis quibusdam sit rerum praesentium et voluptatem impedit.</p>
-                <h5> title-5</h5>
-
-                <ul>
-                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, velit.</li>
-                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, velit.</li>
-                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, velit.</li>
-                  <li>Lorem ipsum dolor sit amet consectetur adipisicing elit. Cumque, velit.</li>
-                </ul>
-
-                <div class="pro-tip">
-                  <p><strong>Pro tip:</strong> Lorem ipsum dolor sit amet. Ut mollitia maxime est perferendis reiciendis
-                    et consequatur laborum quo impedit impedit est fugit officiis.</p>
-                </div>
-
-                <div class="article-subscribe">
-                  <div class="article-subscribe__content">
-                    <p>Monthly newsletter</p>
-                    <span>Subscribe to our newsletter</span>
+        <div class="section blog-inner">
+          <div class="container">
+            <div class="blog__wrapper">
+              <div class="blog__sidebar" id="sidebar">
+                <div class="sidebar__inner">
+                  <a href="#" class="link_blue link_blue_reverce"
+                    >Back to blogs</a
+                  >
+                  <div class="article-navigation">
+                    <p>Table of content</p>
+                    <ol class="article-nav"></ol>
                   </div>
-                  <a href="#" class="btn btn_md">Subscribe</a>
+                  <div class="follow">
+                    <p>Share this</p>
+                    <ul class="follow-list">
+                      <li class="follow-list__item">
+                        <a href="#" class="follow-list__link" target="_blank">
+                          <svg class="svg-blue">
+                            <use xlink:href="img/svg/sprite.svg#linkedin"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li class="follow-list__item">
+                        <a href="#" class="follow-list__link" target="_blank">
+                          <svg class="svg-blue">
+                            <use xlink:href="img/svg/sprite.svg#facebook"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li class="follow-list__item">
+                        <a href="#" class="follow-list__link" target="_blank">
+                          <svg class="svg-blue">
+                            <use xlink:href="img/svg/sprite.svg#twitter"></use>
+                          </svg>
+                        </a>
+                      </li>
+                      <li class="follow-list__item">
+                        <a href="#" class="follow-list__link" target="_blank">
+                          <svg class="svg-blue">
+                            <use
+                              xlink:href="img/svg/sprite.svg#instagram"
+                            ></use>
+                          </svg>
+                        </a>
+                      </li>
+                    </ul>
+                  </div>
                 </div>
-                <h6> title-6</h6>
-                <p>Why create a catalogueLorem ipsum dolor sit amet. Ut mollitia maxime est perferendis reiciendis et
-                  consequatur laborum quo impedit impedit est fugit officiis. Sed consequatur fugit et itaque expedita
-                  aut consectetur dolorum eos consectetur praesentium id laborum dolorum.</p>
+              </div>
+              <div class="blog-article">
+                <article class="article">
+                  <h1>title-1</h1>
 
-                <p>Aut excepturi nemo ut ullam totam vel mollitia consequatur ut repellat quis aut cumque dolores aut
-                  consequatur quibusdam et aliquam quod. Cum tempore omnis eum perferendis voluptatem est ipsa laborum
-                  ut ipsum nobis id voluptate reprehenderit. Aut quia voluptatem et numquam dolores aut rerum blanditiis
-                  id dolorem odit in sequi fugit.</p>
-                <p>Vel obcaecati et incidunt aut fuga quisquam ea nulla sint. Nam voluptas fugiat sed omnis reiciendis
-                  ex nobis quibusdam sit rerum praesentium et voluptatem impedit.</p>
-              </article>
+                  <h2>title-2</h2>
+                  <div class="blog-item__details">
+                    <p class="post-author">
+                      Posted By <strong>Discoverrr Team</strong>
+                    </p>
+                    <p class="post-date">June 30, 2022</p>
+                    <p class="post-time">5 min read</p>
+                  </div>
+                  <!-- <h3> title-3</h3> -->
+                  <h4>title-4</h4>
+                  <p>
+                    Why create a catalogueLorem ipsum dolor sit amet. Ut
+                    mollitia maxime est perferendis reiciendis et consequatur
+                    laborum quo impedit impedit est fugit officiis. Sed
+                    consequatur fugit et itaque expedita aut consectetur dolorum
+                    eos consectetur praesentium id laborum dolorum.
+                  </p>
+                  <p>
+                    Aut excepturi nemo ut ullam totam vel mollitia consequatur
+                    ut repellat quis aut cumque dolores aut consequatur
+                    quibusdam et aliquam quod. Cum tempore omnis eum perferendis
+                    voluptatem est ipsa laborum ut ipsum nobis id voluptate
+                    reprehenderit. Aut quia voluptatem et numquam dolores aut
+                    rerum blanditiis id dolorem odit in sequi fugit.
+                  </p>
+                  <p>
+                    Vel obcaecati et incidunt aut fuga quisquam ea nulla sint.
+                    Nam voluptas fugiat sed omnis reiciendis ex nobis quibusdam
+                    sit rerum praesentium et voluptatem impedit.
+                  </p>
+                  <h5>title-5</h5>
+
+                  <ul>
+                    <li>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Cumque, velit.
+                    </li>
+                    <li>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Cumque, velit.
+                    </li>
+                    <li>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Cumque, velit.
+                    </li>
+                    <li>
+                      Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                      Cumque, velit.
+                    </li>
+                  </ul>
+
+                  <div class="pro-tip">
+                    <p>
+                      <strong>Pro tip:</strong> Lorem ipsum dolor sit amet. Ut
+                      mollitia maxime est perferendis reiciendis et consequatur
+                      laborum quo impedit impedit est fugit officiis.
+                    </p>
+                  </div>
+
+                  <div class="article-subscribe">
+                    <div class="article-subscribe__content">
+                      <p>Monthly newsletter</p>
+                      <span>Subscribe to our newsletter</span>
+                    </div>
+                    <a href="#" class="btn btn_md">Subscribe</a>
+                  </div>
+                  <h6>title-6</h6>
+                  <p>
+                    Why create a catalogueLorem ipsum dolor sit amet. Ut
+                    mollitia maxime est perferendis reiciendis et consequatur
+                    laborum quo impedit impedit est fugit officiis. Sed
+                    consequatur fugit et itaque expedita aut consectetur dolorum
+                    eos consectetur praesentium id laborum dolorum.
+                  </p>
+
+                  <p>
+                    Aut excepturi nemo ut ullam totam vel mollitia consequatur
+                    ut repellat quis aut cumque dolores aut consequatur
+                    quibusdam et aliquam quod. Cum tempore omnis eum perferendis
+                    voluptatem est ipsa laborum ut ipsum nobis id voluptate
+                    reprehenderit. Aut quia voluptatem et numquam dolores aut
+                    rerum blanditiis id dolorem odit in sequi fugit.
+                  </p>
+                  <p>
+                    Vel obcaecati et incidunt aut fuga quisquam ea nulla sint.
+                    Nam voluptas fugiat sed omnis reiciendis ex nobis quibusdam
+                    sit rerum praesentium et voluptatem impedit.
+                  </p>
+                </article>
+              </div>
             </div>
           </div>
-        </div>
-        <div class="blog-slider">
-          <h4>Articles</h4>
-          <!-- Slider main container -->
-          <div class="swiper slider">
-            <!-- Additional required wrapper -->
-            <div class="swiper-wrapper">
-              <!-- Slides -->
-              <div class="swiper-slide blog-slider__item">
-                <div class="blog-slider__tags">
-                  <span class="article-tag">Growth</span>
+          <div class="blog-slider">
+            <h4>Articles</h4>
+            <!-- Slider main container -->
+            <div class="swiper slider">
+              <!-- Additional required wrapper -->
+              <div class="swiper-wrapper">
+                <!-- Slides -->
+                <div class="swiper-slide blog-slider__item">
+                  <div class="blog-slider__tags">
+                    <span class="article-tag">Growth</span>
+                  </div>
+                  <a href="#"
+                    >What is the best way to create a catalogue for my
+                    business</a
+                  >
                 </div>
-                <a href="#">What is the best way to create a catalogue for my business</a>
-              </div>
-              <div class="swiper-slide blog-slider__item">
-                <div class="blog-slider__tags">
-                  <aspan  class="article-tag">Growth</aspan>
+                <div class="swiper-slide blog-slider__item">
+                  <div class="blog-slider__tags">
+                    <aspan class="article-tag">Growth</aspan>
+                  </div>
+                  <a href="#"
+                    >What is the best way to create a catalogue for my
+                    business</a
+                  >
                 </div>
-                <a href="#">What is the best way to create a catalogue for my business</a>
-              </div>
-              <div class="swiper-slide blog-slider__item">
-                <div class="blog-slider__tags">
-                  <span class="article-tag">Growth</span>
+                <div class="swiper-slide blog-slider__item">
+                  <div class="blog-slider__tags">
+                    <span class="article-tag">Growth</span>
+                  </div>
+                  <a href="#">What is </a>
                 </div>
-                <a href="#">What is </a>
-              </div>
-              <!-- <div class="swiper-slide blog-slider__item">
+                <!-- <div class="swiper-slide blog-slider__item">
                 <div class="blog-slider__tags">
                   <a href="#" class="article-tag">Growth</a>
                 </div>
                 <h6>What is the best way to create a catalogue for my business</h6>
               </div> -->
-              <!-- <div class="swiper-slide blog-slider__item">
+                <!-- <div class="swiper-slide blog-slider__item">
                 <div class="blog-slider__tags">
                   <a href="#" class="article-tag">Growth</a>
                 </div>
@@ -179,20 +216,19 @@
                 </div>
                 <h6>What is the best way to create a catalogue for my business</h6>
               </div> -->
-            </div>
+              </div>
 
-            <!-- If we need navigation buttons -->
-            <div class="swiper-button-prev"></div>
-            <div class="swiper-button-next"></div>
+              <!-- If we need navigation buttons -->
+              <div class="swiper-button-prev"></div>
+              <div class="swiper-button-next"></div>
+            </div>
           </div>
         </div>
-      </div>
-    </main>
-    @@include("./html/_footer.html")
-  </div>
+      </main>
+      @@include("./html/_footer.html")
+    </div>
 
-  <script src="./js/libs.min.js"></script>
-  <script src="./js/script.min.js"></script>
-</body>
-
+    <script src="./js/libs.min.js"></script>
+    <script src="./js/script.min.js"></script>
+  </body>
 </html>

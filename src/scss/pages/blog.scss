@@ -1,7 +1,7 @@
 .blog-hero {
   margin-top: 70px;
   padding: 60px 0;
-  background-color: #F6F7FE;
+  background-color: #f6f7fe;
 
   @include d(700) {
     text-align: center;
@@ -14,8 +14,8 @@
 
   p {
     font-size: 20px;
-    line-height: 1.200em;
-    color: #6F6F72;
+    line-height: 1.2em;
+    color: #6f6f72;
     margin-bottom: 25px;
 
     @include d(1600) {
@@ -75,29 +75,29 @@
 
     &::-webkit-input-placeholder {
       font-size: 14px;
-      color: rgba(#494A4D, .5);
+      color: rgba(#494a4d, 0.5);
     }
 
     &::-moz-placeholder {
       font-size: 14px;
-      color: rgba(#494A4D, .5);
+      color: rgba(#494a4d, 0.5);
     }
 
     &:-ms-input-placeholder {
       font-size: 14px;
-      color: rgba(#494A4D, .5);
+      color: rgba(#494a4d, 0.5);
     }
 
     &::placeholder {
       font-size: 14px;
-      color: rgba(#494A4D, .5);
+      color: rgba(#494a4d, 0.5);
     }
   }
 
   p {
     font-size: 12px;
-    color: #4A4A4C;
-    line-height: 1.250em;
+    color: #4a4a4c;
+    line-height: 1.25em;
 
     @include d(1600) {
       font-size: 12px;
@@ -107,11 +107,10 @@
       font-size: 12px;
     }
   }
-
 }
 
 .blog-tags {
-  background-color: #080C29;
+  background-color: #080c29;
 
   &__row {
     display: flex;
@@ -125,11 +124,12 @@
   background-color: transparent;
   font-size: 14px;
   font-weight: 700;
-  transition: color $hover-duration $timing, background-color $hover-duration $timing;
+  transition: color $hover-duration $timing,
+    background-color $hover-duration $timing;
 
   &.active {
     color: $white;
-    background-color: #4D4F62;
+    background-color: #4d4f62;
   }
 }
 
@@ -177,8 +177,6 @@
   }
 }
 
-
-
 .post {
   &-author {
     position: relative;
@@ -189,7 +187,7 @@
       content: "";
       width: 1px;
       height: 16px;
-      background-color: #6E6F73;
+      background-color: #6e6f73;
       position: absolute;
       top: 0;
       right: 0;
@@ -199,8 +197,6 @@
       color: $blackLight;
     }
   }
-
-
 }
 
 .article-tag {
@@ -250,7 +246,7 @@
 }
 
 .subscribe {
-  background: linear-gradient(180deg, #080C29 5.5%, #0F1D5E 122.8%);
+  background: linear-gradient(180deg, #080c29 5.5%, #0f1d5e 122.8%);
   padding: 30px 24px;
   text-align: center;
   max-width: 230px;
@@ -303,11 +299,8 @@
   ol {
     position: relative;
     list-style: none;
-    // counter-reset: my-awesome-counter;
 
     li {
-      // transition: color $hover-duration $timing;
-      // counter-increment: my-awesome-counter;
       padding-left: 15px;
       position: relative;
 
@@ -347,14 +340,56 @@
           border-color: $primary;
         }
       }
-
-      // &:last-child {
-      //   display: none;
-      // }
     }
   }
 }
 
+.privacy__nav {
+  position: relative;
+  list-style: none;
+
+  li {
+    padding-left: 15px;
+    position: relative;
+
+    &::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-top: 2px solid $greyDark;
+      border-right: 2px solid $greyDark;
+      border-radius: 2px;
+      display: block;
+      top: 9px;
+      left: 0;
+      transform: rotate(45deg);
+      position: absolute;
+    }
+
+    &:not(:last-child) {
+      margin-bottom: 10px;
+    }
+
+    a {
+      font-size: 14px;
+      line-height: 1em;
+      padding-left: 3px;
+
+      @include d(1280) {
+        font-size: 12px;
+      }
+    }
+
+    &.active {
+      color: $primary;
+      // font-weight: 600;
+
+      &::before {
+        border-color: $primary;
+      }
+    }
+  }
+}
 .blog-inner {
   padding: 60px 0 90px;
 
@@ -385,7 +420,8 @@
   }
 }
 
-.article {
+.article,
+.policy-article {
   margin-bottom: 120px;
 
   @include d(992) {
@@ -443,7 +479,6 @@
       &:not(:last-child) {
         margin-bottom: 15px;
       }
-
     }
   }
 
@@ -528,7 +563,7 @@
   }
 
   &__item {
-    background-color: #F5F7FE;
+    background-color: #f5f7fe;
     border-radius: 4px;
     position: relative;
     padding: 35px 40px 50px 30px;
@@ -597,14 +632,13 @@
   justify-content: space-between;
   align-items: flex-end;
   padding: 50px 0;
-  border-top: 1px solid #B3B3B3;
-  border-bottom: 1px solid #B3B3B3;
+  border-top: 1px solid #b3b3b3;
+  border-bottom: 1px solid #b3b3b3;
   margin-bottom: 100px;
 
   @include d(1600) {
     padding: 40px 0;
     margin-bottom: 80px;
-
   }
 
   @include d(1440) {
@@ -618,8 +652,6 @@
     justify-content: center;
     text-align: center;
   }
-
-
 
   &__content {
     position: relative;
@@ -642,9 +674,8 @@
     }
   }
 
-
   p {
-    color: #AAAAAA;
+    color: #aaaaaa;
     font-weight: 500;
     font-size: 24px;
     line-height: 1.2em;
@@ -690,7 +721,6 @@
 }
 
 .swiper-initialized {
-
   .swiper-button-prev,
   .swiper-button-next {
     display: block;
@@ -701,14 +731,12 @@
   }
 }
 
-
-
 .blog-item {
   padding: 50px 80px 50px 0;
   display: flex;
   justify-content: space-between;
-  border-bottom: 1px solid #E5E5E5;
-  border-right: 1px solid #E5E5E5;
+  border-bottom: 1px solid #e5e5e5;
+  border-right: 1px solid #e5e5e5;
 
   @include d(1600) {
     padding: 40px 30px 40px 0;
@@ -785,7 +813,7 @@
   &__details {
     display: flex;
     flex-wrap: wrap;
-    color: #6E6F73;
+    color: #6e6f73;
 
     p {
       margin-bottom: 15px;
@@ -801,7 +829,7 @@
 
 .wp-block-quote {
   // .pro-tip {
-  background-color: #F6F7FE;
+  background-color: #f6f7fe;
   border-radius: 5px;
   padding: 30px 30px 30px 50px;
   border-left: 4px solid $primary;
@@ -828,7 +856,6 @@
     @include d(1600) {
       font-size: 18px;
     }
-
   }
 
   // }
