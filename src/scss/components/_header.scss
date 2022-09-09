@@ -1,10 +1,11 @@
 .header {
-  padding: 14px 0;
+  padding: 12px 0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
+  color: #cfd1db;
 
   &.js-show {
     transform: translate(0, -20px);
@@ -20,7 +21,6 @@
     display: flex;
     align-items: center;
 
-    // justify-content: flex-start;
     @include d(768) {
       justify-content: space-between;
     }
@@ -30,19 +30,18 @@
     display: flex;
     flex-grow: 1;
 
-    // align-items: center;
-    // justify-content: space-between;
     @include d(768) {
       position: fixed;
       top: 0;
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: $white;
+      background-color: $primaryDark;
       pointer-events: none;
       opacity: 0;
       transform: translateX(-20px);
-      transition: opacity $hover-duration $timing, transform $hover-duration $timing;
+      transition: opacity $hover-duration $timing,
+        transform $hover-duration $timing;
       flex-direction: column;
       padding-left: 10px;
 
@@ -54,6 +53,79 @@
     }
   }
 
+  &__btn {
+    position: relative;
+    height: 35px;
+    line-height: 35px;
+    border-radius: 3px;
+    border: 1px solid $white;
+    font-weight: bold;
+    font-size: 14px;
+
+    @include d(768) {
+      margin-bottom: 10px;
+    }
+
+    &_arrow {
+      position: relative;
+      background-color: $white;
+      color: $primaryDark;
+      min-width: 150px;
+      padding: 0 10px;
+      margin-right: 20px;
+
+      &:hover {
+        border-color: $white;
+
+        .header-arrow {
+          transform: translate(4px, 0);
+        }
+      }
+    }
+
+    &_transparent {
+      background-color: $primaryDark;
+      padding: 0 15px 0 20px;
+      color: #cfd1db;
+      margin-right: 40px;
+
+      @include d(768) {
+        margin-right: 0;
+        padding: 0 10px;
+        left: 0;
+        min-width: 150px;
+        text-align: center;
+      }
+
+      &:hover {
+        background-color: $primaryDark;
+        border-color: $white;
+        color: $white;
+      }
+    }
+  }
+
+  &-arrow {
+    width: 23px;
+    position: absolute;
+    top: 10px;
+    right: 18px;
+    height: 15px;
+    transition: transform $hover-duration $timing;
+  }
+
+  &-login {
+    position: absolute;
+    width: 16px;
+    height: 20px;
+
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    fill: $white;
+    transition: opacity $hover-duration $timing;
+  }
+
   &__nav {
     @include d(992) {
       position: fixed;
@@ -61,11 +133,12 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background-color: $white;
+      background-color: $primaryDark;
       pointer-events: none;
       opacity: 0;
       transform: translateX(-20px);
-      transition: opacity $hover-duration $timing, transform $hover-duration $timing;
+      transition: opacity $hover-duration $timing,
+        transform $hover-duration $timing;
 
       &.active {
         opacity: 1;
@@ -99,24 +172,6 @@
       align-items: flex-start;
     }
 
-    .btn {
-      @include d(768) {
-        width: 100%;
-      }
-
-      &:not(:last-child) {
-        margin-right: 20px;
-
-        @include d(992) {
-          margin-right: 10px;
-        }
-
-        @include d(768) {
-          margin: 0 0 10px 0;
-        }
-      }
-    }
-
     .link {
       margin-right: 30px;
 
@@ -134,7 +189,8 @@
 
 .logo {
   display: inline-block;
-  max-width: 174px;
+  max-width: 230px;
+  width: 100%;
   margin-right: 80px;
   position: relative;
   z-index: 1;
@@ -145,9 +201,22 @@
   }
 }
 
+.login-link {
+  position: relative;
+  padding-left: 30px;
+  color: #cfd1db;
+
+  &:hover {
+    color: $white;
+
+    .header-login {
+      opacity: 1;
+    }
+  }
+}
+
 .nav {
-  margin-left: 0;
-  margin-right: auto;
+  margin: 0 auto;
 
   &-list {
     display: flex;
@@ -159,12 +228,12 @@
     @include d(992) {
       flex-direction: column;
       align-items: flex-start;
-      padding: 90px 0 0 10px;
+      padding: 100px 0 0 10px;
       justify-content: flex-start;
     }
 
     @include d(768) {
-      padding: 80px 0 0 0;
+      padding: 100px 0 0 0;
     }
 
     &__item,
@@ -175,7 +244,7 @@
         content: "";
         height: 2px;
         border-radius: 4px;
-        background-color: $primary;
+        background-color: $white;
         position: absolute;
         left: 5px;
         bottom: 5px;
@@ -184,23 +253,29 @@
       }
 
       &:not(:last-child) {
-        margin-right: 32px;
+        margin-right: 10px;
       }
 
       &:hover {
         &::before {
           width: calc(100% - 10px);
         }
+
+        .nav-list__link,
+        a {
+          color: $white;
+        }
       }
     }
 
     &__link,
     a {
-      padding: 0 10px;
+      padding: 0 5px;
       font-weight: 600;
       font-size: 14px;
-      color: #707070;
+      color: #cfd1db;
       line-height: 40px;
+      transition: color $hover-duration $timing;
 
       @include d(992) {
         font-size: 18px;
@@ -217,18 +292,20 @@
   opacity: 0;
   pointer-events: none;
   z-index: -10;
+
   @include d(992) {
     width: 28px;
     height: 20px;
     z-index: 101;
     pointer-events: initial;
+    opacity: 1;
   }
 
   &_item {
     position: absolute;
     width: 22px;
     height: 4px;
-    background-color: $primary;
+    background-color: $white;
     left: 0;
     transition: $hover-duration $timing;
     border-radius: 3px;
@@ -251,7 +328,7 @@
     .burger_item {
       &:first-child {
         transform: rotate(45deg);
-        top: 8px;
+        top: 9px;
       }
 
       &:nth-child(2) {

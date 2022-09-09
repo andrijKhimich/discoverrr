@@ -109,7 +109,7 @@ const js = () => {
 
     // modal
     // "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
-    "node_modules/sticky-sidebar/dist/jquery.sticky-sidebar.min.js",
+    "node_modules/sticky-sidebar-v2/dist/jquery.sticky-sidebar.min.js",
     // swiper slider
     "node_modules/swiper/swiper-bundle.min.js",
   ])
@@ -290,7 +290,7 @@ exports.clean = clean;
 // exports.filesToMove = filesToMove;
 exports.libs = libs;
 
-// exports.fontStyle = fontStyle;
+exports.fontStyle = fontStyle;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

@@ -44,6 +44,7 @@
     "jquery-nice-select": "^1.1.0",
     "jquery-ui-touch-punch": "^0.2.3",
     "sticky-sidebar": "^3.3.1",
+    "sticky-sidebar-v2": "^1.1.1",
     "svg4everybody": "^2.1.9",
     "swiper": "^8.3.0"
   }
