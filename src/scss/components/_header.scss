@@ -6,14 +6,68 @@
   width: 100%;
   z-index: 100;
   color: #cfd1db;
+  transition: all $hover-duration $timing;
 
-  &.js-show {
-    transform: translate(0, -20px);
-    transition: all $hover-duration $timing;
+  &.float {
+    top: -100px;
+  }
 
-    &.show {
+  &.sticky {
+    position: fixed;
+    top: 0;
+    background-color: $primaryDark;
+    padding: 10px 0;
+
+    .nav,
+    .header__btn_transparent,
+    .login-link,
+    .burger {
+      display: none;
+    }
+
+    .header__content {
+      justify-content: flex-end;
+    }
+
+    @include d(992) {
+
+      .burger,
+      .nav {
+        display: inline-block;
+      }
+
+    }
+
+    @include d(768) {
+
+      .nav,
+      .header__btn_transparent,
+      .login-link {
+        display: block;
+      }
+
+      .header__content {
+        justify-content: flex-start;
+      }
+    }
+
+  }
+
+  &__overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    backdrop-filter: blur(3px);
+    z-index: -1;
+    transition: opacity $hover-duration $timing;
+    pointer-events: none;
+
+    &.active {
       opacity: 1;
-      transform: translate(0, 0);
     }
   }
 
@@ -29,21 +83,23 @@
   &__content {
     display: flex;
     flex-grow: 1;
+    position: relative;
 
     @include d(768) {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100vw;
+      right: 0;
+      width: 50vw;
       height: 100vh;
       background-color: $primaryDark;
       pointer-events: none;
       opacity: 0;
-      transform: translateX(-20px);
+      transform: translateX(20px);
       transition: opacity $hover-duration $timing,
         transform $hover-duration $timing;
       flex-direction: column;
-      padding-left: 10px;
+      padding: 0 15px;
+
 
       &.active {
         opacity: 1;
@@ -51,50 +107,55 @@
         transform: translateX(0);
       }
     }
+
+    @include d(400) {
+      width: 70vw;
+    }
   }
 
   &__btn {
     position: relative;
-    height: 35px;
-    line-height: 35px;
     border-radius: 3px;
     border: 1px solid $white;
     font-weight: bold;
     font-size: 14px;
 
     @include d(768) {
-      margin-bottom: 10px;
+      font-size: 18px;
+      min-width: 180px;
+      margin-bottom: 15px;
+      order: 1;
     }
 
     &_arrow {
       position: relative;
       background-color: $white;
       color: $primaryDark;
-      min-width: 150px;
-      padding: 0 10px;
+      padding: 5px 50px 5px 15px;
       margin-right: 20px;
+
+      @include d(768) {
+        margin-right: 0;
+      }
 
       &:hover {
         border-color: $white;
 
         .header-arrow {
-          transform: translate(4px, 0);
+          transform: translate(4px, -50%);
         }
       }
     }
 
     &_transparent {
       background-color: $primaryDark;
-      padding: 0 15px 0 20px;
+      padding: 5px 15px;
       color: #cfd1db;
       margin-right: 40px;
+      text-align: center;
 
       @include d(768) {
         margin-right: 0;
-        padding: 0 10px;
-        left: 0;
-        min-width: 150px;
-        text-align: center;
       }
 
       &:hover {
@@ -108,9 +169,12 @@
   &-arrow {
     width: 23px;
     position: absolute;
-    top: 10px;
-    right: 18px;
+    top: 50%;
+    right: 15px;
     height: 15px;
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(0, -50%);
     transition: transform $hover-duration $timing;
   }
 
@@ -118,25 +182,29 @@
     position: absolute;
     width: 16px;
     height: 20px;
-
     top: 0;
     left: 0;
     opacity: 0.8;
     fill: $white;
     transition: opacity $hover-duration $timing;
+
+    @include d(768) {
+      display: none;
+    }
   }
 
   &__nav {
     @include d(992) {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100vw;
+      right: 0;
+      width: 50vw;
       height: 100vh;
       background-color: $primaryDark;
       pointer-events: none;
       opacity: 0;
-      transform: translateX(-20px);
+      transform: translateX(20px);
+      z-index: 1;
       transition: opacity $hover-duration $timing,
         transform $hover-duration $timing;
 
@@ -144,7 +212,12 @@
         opacity: 1;
         pointer-events: initial;
         transform: translateX(0);
+
+        .nav-list {
+          pointer-events: initial;
+        }
       }
+
     }
 
     @include d(768) {
@@ -154,6 +227,7 @@
       height: auto;
       transform: translate(0, 0);
       background-color: transparent;
+      width: 100%;
     }
   }
 
@@ -167,22 +241,9 @@
     }
 
     @include d(768) {
-      margin: 40px auto 0 10px;
+      margin: 10px 0 0 auto;
       flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .link {
-      margin-right: 30px;
-
-      @include d(992) {
-        margin-right: 10px;
-      }
-
-      @include d(768) {
-        margin: 0 0 10px 0;
-        font-size: 18px;
-      }
+      align-items: flex-end;
     }
   }
 }
@@ -205,6 +266,18 @@
   position: relative;
   padding-left: 30px;
   color: #cfd1db;
+  margin-right: 30px;
+
+  @include d(992) {
+    margin-right: 10px;
+  }
+
+  @include d(768) {
+    font-size: 18px;
+    order: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
 
   &:hover {
     color: $white;
@@ -226,19 +299,25 @@
     top: 3px;
 
     @include d(992) {
+      pointer-events: none;
       flex-direction: column;
       align-items: flex-start;
-      padding: 100px 0 0 10px;
+      padding: 70px 15px 0 0;
       justify-content: flex-start;
+      text-align: right;
     }
 
     @include d(768) {
-      padding: 100px 0 0 0;
+      padding: 50px 0 0 0;
     }
 
     &__item,
     li {
       position: relative;
+
+      @include d(992) {
+        width: 100%;
+      }
 
       &::before {
         content: "";
@@ -250,6 +329,11 @@
         bottom: 5px;
         width: 0;
         transition: width $hover-duration $timing;
+
+        @include d(992) {
+          display: none;
+        }
+
       }
 
       &:not(:last-child) {
@@ -279,6 +363,11 @@
 
       @include d(992) {
         font-size: 18px;
+        width: 100%;
+      }
+
+      @include d(768) {
+        padding: 0;
       }
     }
   }
@@ -287,6 +376,7 @@
 .burger {
   position: relative;
   display: inline-block;
+  cursor: pointer;
   width: 0;
   height: 0;
   opacity: 0;
@@ -301,9 +391,9 @@
     opacity: 1;
   }
 
-  &_item {
+  &__item {
     position: absolute;
-    width: 22px;
+    width: 28px;
     height: 4px;
     background-color: $white;
     left: 0;
@@ -325,7 +415,7 @@
   }
 
   &.active {
-    .burger_item {
+    .burger__item {
       &:first-child {
         transform: rotate(45deg);
         top: 9px;

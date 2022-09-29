@@ -63,11 +63,11 @@ h6 {
   font-family: "Inter", sans-serif;
   margin: 0;
   color: $primaryDark;
-  font-weight: 800;
+  font-weight: 700;
 }
 
 h1 {
-  font-size: 63px;
+  font-size: 65px;
   line-height: normal;
 
   @include d(1366) {
@@ -75,16 +75,20 @@ h1 {
   }
 
   @include d(992) {
-    font-size: 40px;
+    font-size: 60px;
   }
 
   @include d(768) {
-    font-size: 32px;
+    font-size: 50px;
+  }
+
+  @include d(575) {
+    font-size: 40px;
   }
 }
 
 h2 {
-  font-size: 50px;
+  font-size: 48px;
   line-height: 1.2em;
   margin-bottom: 20px;
 
@@ -96,12 +100,12 @@ h2 {
     font-size: 44px;
   }
 
-  @include d(992) {
+  @include d(768) {
     font-size: 40px;
   }
 
-  @include d(768) {
-    font-size: 32px;
+  @include d(575) {
+    font-size: 36px;
   }
 }
 
@@ -113,21 +117,18 @@ h3 {
     color: $primary;
   }
 
-  @include d(1600) {
+  @include d(1366) {
     font-size: 38px;
   }
 
-  @include d(992) {
-    font-size: 36px;
-  }
 
   @include d(768) {
-    font-size: 30px;
+    font-size: 32px;
   }
 }
 
 h4 {
-  font-size: 36px;
+  font-size: 40px;
   line-height: 1.111em;
   font-weight: 700;
 
@@ -135,16 +136,13 @@ h4 {
     color: $primary;
   }
 
-  @include d(1600) {
+  @include d(1366) {
     font-size: 32px;
   }
 
-  @include d(992) {
-    font-size: 28px;
-  }
 
   @include d(768) {
-    font-size: 24px;
+    font-size: 28px;
   }
 }
 
@@ -156,16 +154,16 @@ h5 {
     color: $primary;
   }
 
-  @include d(1600) {
+  @include d(1366) {
     font-size: 24px;
   }
 
-  @include d(992) {
-    font-size: 22px;
-  }
+  // @include d(992) {
+  //   font-size: 22px;
+  // }
 
   @include d(768) {
-    font-size: 18px;
+    font-size: 22px;
   }
 }
 
@@ -178,7 +176,7 @@ h6 {
     color: $primary;
   }
 
-  @include d(1600) {
+  @include d(1366) {
     font-size: 22px;
   }
 
@@ -397,7 +395,7 @@ p,
 li {
   line-height: 1.5em;
   margin: 0;
-  font-size: 16px;
+  font-size: inherit;
   color: inherit;
 }
 
@@ -520,7 +518,7 @@ input {
 }
 
 .container {
-  max-width: 80%;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
@@ -555,7 +553,7 @@ main {
   color: $white;
   border: none;
   font-weight: 700;
-  border-radius: 8px;
+  border-radius: 3px;
   padding: 18px 29px;
   font-size: 16px;
   border: 1px solid transparent;
@@ -564,11 +562,11 @@ main {
 
   &:hover {
     background-color: $white;
-    border-color: #080c29;
+    border-color: $primaryDark;
     color: $blackLight;
 
     .svg-arrow-btn {
-      fill: #080c29;
+      fill: $primaryDark;
       transform: translate(5px, 0);
     }
   }
@@ -698,17 +696,6 @@ main {
     }
   }
 
-  &_black-border {
-    background-color: $white;
-    border: 1px solid $blackLight;
-    color: $blackLight;
-
-    &:hover {
-      background-color: $blackLight;
-      color: $white;
-    }
-  }
-
   &_secondary {
     background-color: $green;
     color: $primaryDark;
@@ -718,19 +705,13 @@ main {
     }
 
     &:hover {
-      background-color: $primaryDark;
+      background-color: $white;
+      border-color: $green;
+
+      .svg-arrow-btn {
+        transform: translate(5px, 0);
+      }
     }
-  }
-}
-
-.js-show {
-  opacity: 0;
-  // transform: translate3d(0, 50px, 0);
-  transition: transform $duration $timing, opacity $duration $timing;
-
-  &.show {
-    opacity: 1;
-    // transform: translate3d(0, 0, 0);
   }
 }
 
@@ -761,6 +742,7 @@ main {
     }
 
     &:hover {
+
       &::before {
         transform: translate(3px, 0);
       }
@@ -780,6 +762,33 @@ main {
         &::before {
           transform: translate(-3px, 0);
         }
+      }
+    }
+  }
+
+  &_arrow {
+    position: relative;
+    padding-right: 30px;
+    color: $primary;
+    font-size: 16px;
+
+    &::before {
+      content: "";
+      width: 22px;
+      height: 16px;
+      position: absolute;
+      right: 0;
+      top: 4px;
+      background-image: url(../img/arrow-link.svg);
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      transition: transform $hover-duration $timing;
+    }
+
+    &:hover {
+      &::before {
+        transform: translate(5px, 0);
       }
     }
   }
@@ -886,4 +895,10 @@ a.ui-button:active {
 .sticky {
   position: fixed;
   top: 100px;
+}
+
+.cookie-notice-container #cn-notice-text {
+  a {
+    text-decoration: underline;
+  }
 }

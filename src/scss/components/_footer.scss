@@ -7,6 +7,10 @@
       display: flex;
       align-items: center;
 
+      @include d(768) {
+        margin: 0 auto;
+      }
+
       p {
         font-style: italic;
         font-size: 12px;
@@ -22,10 +26,56 @@
   .form {
     max-width: 526px;
 
+    @include d(768) {
+      max-width: 100%;
+    }
+
     .form-arrow {
       width: 50%;
 
-      @include d(700) {
+      @include d(1024) {
+        width: 60%;
+      }
+
+      @include d(992) {
+        width: 100%;
+      }
+
+      .svg-arrow-btn {
+
+        @include d(1280) {
+          right: 40px;
+        }
+
+        @include d(768) {
+          right: 29%;
+        }
+
+        @include d(460) {
+          right: 26%;
+        }
+
+        @include d(400) {
+          right: 23%;
+        }
+
+        @include d(360) {
+          right: 18%;
+        }
+      }
+
+      &:hover {
+        .btn {
+          border-color: $primary;
+          background-color: $primary;
+        }
+      }
+
+      .svg-arrow-btn {
+        fill: $white;
+      }
+
+      @include d(992) {
         width: 100%;
       }
     }
@@ -35,67 +85,76 @@
       font-size: 14px;
     }
 
-    .form__content {
-      label {
-        width: 50%;
-
-        @include d(768) {
-          width: 100%;
-        }
-      }
-    }
-
-    .btn {
+    label {
       width: 50%;
-      font-size: 16px;
-      line-height: 1em;
-      padding: 15px 40px 15px 17px;
-      background-color: $primary;
-      color: $white;
 
-      @include d(768) {
+      @include d(992) {
         width: 100%;
       }
     }
 
+    .btn {
+      width: 100%;
+      font-size: 16px;
+      line-height: 1em;
+      padding: 15px 70px 15px 45px;
+      background-color: $primary;
+      color: $white;
+
+      @include d(1124) {
+        padding: 15px 30px 15px 30px;
+      }
+
+      @include d(992) {
+        width: 100%;
+      }
+    }
     .form__input {
       padding-left: 20px;
       font-size: 14px;
-      background-color: rgba($white, .9);
+      background-color: $white;
       width: 100%;
-      // height: 52px;
+      color: rgba(#494a4d, 0.9);
 
       &::-webkit-input-placeholder {
         font-size: 14px;
-        color: rgba(#494a4d, 0.5);
+        color: rgba(#494a4d, 0.9);
       }
 
       &::-moz-placeholder {
         font-size: 14px;
-        color: rgba(#494a4d, 0.5);
+        color: rgba(#494a4d, 0.9);
       }
 
       &:-ms-input-placeholder {
         font-size: 14px;
-        color: rgba(#494a4d, 0.5);
+        color: rgba(#494a4d, 0.9);
       }
 
       &::placeholder {
         font-size: 14px;
-        color: rgba(#494a4d, 0.5);
+        color: rgba(#494a4d, 0.9);
       }
     }
   }
 
   &__row {
-    max-width: 1330px;
-    margin: 0 auto;
     display: flex;
     justify-content: space-between;
     margin: 0 -15px;
 
     @include d(992) {
       flex-direction: column;
+    }
+
+    &_bottom {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+
+      @include d(992) {
+        flex-wrap: wrap;
+      }
     }
   }
 
@@ -109,6 +168,8 @@
     @include d(992) {
       margin: 0 auto 30px auto;
       text-align: center;
+      flex: 0 0 100%;
+      max-width: 100%;
     }
 
     &:last-child {
@@ -155,6 +216,15 @@
   }
 
   &__nav {
+    @include d(768) {
+      margin-top: 20px;
+      flex: 0 0 100%;
+    }
+
+    @include d(575) {
+      display: none;
+    }
+
     ul {
       display: flex;
       align-items: center;
@@ -176,6 +246,12 @@
   font-size: 12px;
   line-height: 15px;
   color: rgba(0, 0, 0, 0.7);
+
+  @include d(992) {
+    text-align: center;
+    margin-top: 20px;
+    flex: 0 0 100%;
+  }
 }
 
 .social {
