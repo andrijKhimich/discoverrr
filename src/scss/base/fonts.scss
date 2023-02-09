@@ -1,9 +1,9 @@
-@include font("Inter-Black", "Inter-Black", "900", "normal");
-@include font("Inter-Bold", "Inter-Bold", "700", "normal");
-@include font("Inter-ExtraBold", "Inter-ExtraBold", "800", "normal");
-@include font("Inter-ExtraLight", "Inter-ExtraLight", "200", "normal");
-@include font("Inter-Light", "Inter-Light", "300", "normal");
-@include font("Inter-Medium", "Inter-Medium", "500", "normal");
-@include font("Inter-Regular", "Inter-Regular", "400", "normal");
-@include font("Inter-SemiBold", "Inter-SemiBold", "600", "normal");
-@include font("Inter-Thin", "Inter-Thin", "100", "normal");
+@include font("Inter", "Inter-Black", "900", "normal");
+@include font("Inter", "Inter-Bold", "700", "normal");
+@include font("Inter", "Inter-Medium", "500", "normal");
+@include font("Inter", "Inter-Regular", "400", "normal");
+@include font("Inter", "Inter-SemiBold", "600", "normal");
+
+@include font("ProximaNova", "ProximaNova-Bold", "700", "normal");
+@include font("ProximaNova", "ProximaNova-Regular", "400", "normal");
+@include font("ProximaNova", "ProximaNova-Semibold", "600", "normal");

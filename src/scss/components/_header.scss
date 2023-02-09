@@ -1,18 +1,73 @@
 .header {
-  padding: 14px 0;
+  padding: 12px 0;
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 100;
+  color: #cfd1db;
+  transition: all $hover-duration $timing;
 
-  &.js-show {
-    transform: translate(0, -20px);
-    transition: all $hover-duration $timing;
+  &.float {
+    top: -100px;
+  }
 
-    &.show {
+  &.sticky {
+    position: fixed;
+    top: 0;
+    background-color: $primaryDark;
+    padding: 10px 0;
+
+    .nav,
+    .header__btn_transparent,
+    .login-link,
+    .burger {
+      display: none;
+    }
+
+    .header__content {
+      justify-content: flex-end;
+    }
+
+    @include d(992) {
+
+      .burger,
+      .nav {
+        display: inline-block;
+      }
+
+    }
+
+    @include d(768) {
+
+      .nav,
+      .header__btn_transparent,
+      .login-link {
+        display: block;
+      }
+
+      .header__content {
+        justify-content: flex-start;
+      }
+    }
+
+  }
+
+  &__overlay {
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    position: absolute;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    backdrop-filter: blur(3px);
+    z-index: -1;
+    transition: opacity $hover-duration $timing;
+    pointer-events: none;
+
+    &.active {
       opacity: 1;
-      transform: translate(0, 0);
     }
   }
 
@@ -20,7 +75,6 @@
     display: flex;
     align-items: center;
 
-    // justify-content: flex-start;
     @include d(768) {
       justify-content: space-between;
     }
@@ -29,22 +83,23 @@
   &__content {
     display: flex;
     flex-grow: 1;
+    position: relative;
 
-    // align-items: center;
-    // justify-content: space-between;
     @include d(768) {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100vw;
+      right: 0;
+      width: 50vw;
       height: 100vh;
-      background-color: $white;
+      background-color: $primaryDark;
       pointer-events: none;
       opacity: 0;
-      transform: translateX(-20px);
-      transition: opacity $hover-duration $timing, transform $hover-duration $timing;
+      transform: translateX(20px);
+      transition: opacity $hover-duration $timing,
+        transform $hover-duration $timing;
       flex-direction: column;
-      padding-left: 10px;
+      padding: 0 15px;
+
 
       &.active {
         opacity: 1;
@@ -52,26 +107,117 @@
         transform: translateX(0);
       }
     }
+
+    @include d(400) {
+      width: 70vw;
+    }
+  }
+
+  &__btn {
+    position: relative;
+    border-radius: 3px;
+    border: 1px solid $white;
+    font-weight: bold;
+    font-size: 14px;
+
+    @include d(768) {
+      font-size: 18px;
+      min-width: 180px;
+      margin-bottom: 15px;
+      order: 1;
+    }
+
+    &_arrow {
+      position: relative;
+      background-color: $white;
+      color: $primaryDark;
+      padding: 5px 50px 5px 15px;
+      margin-right: 20px;
+
+      @include d(768) {
+        margin-right: 0;
+      }
+
+      &:hover {
+        border-color: $white;
+
+        .header-arrow {
+          transform: translate(4px, -50%);
+        }
+      }
+    }
+
+    &_transparent {
+      background-color: $primaryDark;
+      padding: 5px 15px;
+      color: #cfd1db;
+      margin-right: 40px;
+      text-align: center;
+
+      @include d(768) {
+        margin-right: 0;
+      }
+
+      &:hover {
+        background-color: $primaryDark;
+        border-color: $white;
+        color: $white;
+      }
+    }
+  }
+
+  &-arrow {
+    width: 23px;
+    position: absolute;
+    top: 50%;
+    right: 15px;
+    height: 15px;
+    pointer-events: none;
+    z-index: 1;
+    transform: translate(0, -50%);
+    transition: transform $hover-duration $timing;
+  }
+
+  &-login {
+    position: absolute;
+    width: 16px;
+    height: 20px;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    fill: $white;
+    transition: opacity $hover-duration $timing;
+
+    @include d(768) {
+      display: none;
+    }
   }
 
   &__nav {
     @include d(992) {
       position: fixed;
       top: 0;
-      left: 0;
-      width: 100vw;
+      right: 0;
+      width: 50vw;
       height: 100vh;
-      background-color: $white;
+      background-color: $primaryDark;
       pointer-events: none;
       opacity: 0;
-      transform: translateX(-20px);
-      transition: opacity $hover-duration $timing, transform $hover-duration $timing;
+      transform: translateX(20px);
+      z-index: 1;
+      transition: opacity $hover-duration $timing,
+        transform $hover-duration $timing;
 
       &.active {
         opacity: 1;
         pointer-events: initial;
         transform: translateX(0);
+
+        .nav-list {
+          pointer-events: initial;
+        }
       }
+
     }
 
     @include d(768) {
@@ -81,6 +227,7 @@
       height: auto;
       transform: translate(0, 0);
       background-color: transparent;
+      width: 100%;
     }
   }
 
@@ -94,47 +241,17 @@
     }
 
     @include d(768) {
-      margin: 40px auto 0 10px;
+      margin: 10px 0 0 auto;
       flex-direction: column;
-      align-items: flex-start;
-    }
-
-    .btn {
-      @include d(768) {
-        width: 100%;
-      }
-
-      &:not(:last-child) {
-        margin-right: 20px;
-
-        @include d(992) {
-          margin-right: 10px;
-        }
-
-        @include d(768) {
-          margin: 0 0 10px 0;
-        }
-      }
-    }
-
-    .link {
-      margin-right: 30px;
-
-      @include d(992) {
-        margin-right: 10px;
-      }
-
-      @include d(768) {
-        margin: 0 0 10px 0;
-        font-size: 18px;
-      }
+      align-items: flex-end;
     }
   }
 }
 
 .logo {
   display: inline-block;
-  max-width: 174px;
+  max-width: 230px;
+  width: 100%;
   margin-right: 80px;
   position: relative;
   z-index: 1;
@@ -145,9 +262,34 @@
   }
 }
 
+.login-link {
+  position: relative;
+  padding-left: 30px;
+  color: #cfd1db;
+  margin-right: 30px;
+
+  @include d(992) {
+    margin-right: 10px;
+  }
+
+  @include d(768) {
+    font-size: 18px;
+    order: 0;
+    margin-right: 0;
+    margin-bottom: 20px;
+  }
+
+  &:hover {
+    color: $white;
+
+    .header-login {
+      opacity: 1;
+    }
+  }
+}
+
 .nav {
-  margin-left: 0;
-  margin-right: auto;
+  margin: 0 auto;
 
   &-list {
     display: flex;
@@ -157,53 +299,75 @@
     top: 3px;
 
     @include d(992) {
+      pointer-events: none;
       flex-direction: column;
       align-items: flex-start;
-      padding: 90px 0 0 10px;
+      padding: 70px 15px 0 0;
       justify-content: flex-start;
+      text-align: right;
     }
 
     @include d(768) {
-      padding: 80px 0 0 0;
+      padding: 50px 0 0 0;
     }
 
     &__item,
     li {
       position: relative;
 
+      @include d(992) {
+        width: 100%;
+      }
+
       &::before {
         content: "";
         height: 2px;
         border-radius: 4px;
-        background-color: $primary;
+        background-color: $white;
         position: absolute;
         left: 5px;
         bottom: 5px;
         width: 0;
         transition: width $hover-duration $timing;
+
+        @include d(992) {
+          display: none;
+        }
+
       }
 
       &:not(:last-child) {
-        margin-right: 32px;
+        margin-right: 10px;
       }
 
       &:hover {
         &::before {
           width: calc(100% - 10px);
         }
+
+        .nav-list__link,
+        a {
+          color: $white;
+        }
       }
     }
 
     &__link,
     a {
-      padding: 0 10px;
+      padding: 0 5px;
       font-weight: 600;
       font-size: 14px;
-      color: #707070;
+      color: #cfd1db;
       line-height: 40px;
+      transition: color $hover-duration $timing;
 
       @include d(992) {
         font-size: 18px;
+        width: 100%;
+      }
+
+      @include d(768) {
+        padding: 0;
       }
     }
   }
@@ -212,23 +376,26 @@
 .burger {
   position: relative;
   display: inline-block;
+  cursor: pointer;
   width: 0;
   height: 0;
   opacity: 0;
   pointer-events: none;
   z-index: -10;
+
   @include d(992) {
     width: 28px;
     height: 20px;
     z-index: 101;
     pointer-events: initial;
+    opacity: 1;
   }
 
-  &_item {
+  &__item {
     position: absolute;
-    width: 22px;
+    width: 28px;
     height: 4px;
-    background-color: $primary;
+    background-color: $white;
     left: 0;
     transition: $hover-duration $timing;
     border-radius: 3px;
@@ -248,10 +415,10 @@
   }
 
   &.active {
-    .burger_item {
+    .burger__item {
       &:first-child {
         transform: rotate(45deg);
-        top: 8px;
+        top: 9px;
       }
 
       &:nth-child(2) {
