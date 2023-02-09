@@ -29,10 +29,7 @@ const path = {
   clean: `./${deployFolder}/`,
 };
 
-let {
-  src,
-  dest
-} = require("gulp"),
+let { src, dest } = require("gulp"),
   gulp = require("gulp"),
   browsersync = require("browser-sync").create(),
   fileinclude = require("gulp-file-include"),
@@ -46,7 +43,7 @@ let {
   concat = require("gulp-concat"),
   babel = require("gulp-babel"),
   imagemin = require("gulp-imagemin"),
-  webp = require("gulp-webp"),
+  // webp = require("gulp-webp"),
   // webphtml = require("gulp-webp-html"),
   // webpcss = require("gulp-webpcss"),
   svgsprite = require("gulp-svg-sprite"),
@@ -54,8 +51,7 @@ let {
   ttf2woff = require("gulp-ttf2woff"),
   ttf2woff2 = require("gulp-ttf2woff2"),
   fonter = require("gulp-fonter"),
-  cache = require("gulp-cache"),
-  sourcemaps = require('gulp-sourcemaps');
+  cache = require("gulp-cache");
 
 const browserSync = () => {
   browsersync.init({
@@ -70,68 +66,56 @@ const browserSync = () => {
 const html = () => {
   return (
     src(path.src.html)
-    .pipe(fileinclude())
-    // .pipe(webphtml())
-    .pipe(dest(path.build.html))
-    .pipe(browsersync.stream())
+      .pipe(fileinclude())
+      // .pipe(webphtml())
+      .pipe(dest(path.build.html))
+      .pipe(browsersync.stream())
   );
 };
 
 const css = () => {
   return (
     src(path.src.css)
-    .pipe(sourcemaps.init())
-    .pipe(scss().on("error", scss.logError))
-    .pipe(gcmq())
-    .pipe(
-      autoprefixer(["last 5 versions"], {
-        cascade: true,
-      })
-    )
-    .pipe(sourcemaps.write('./'))
-    // .pipe(webpcss())
-    .pipe(dest(path.build.css))
-    .pipe(cleanCss())
-    .pipe(
-      rename({
-        extname: ".min.css",
-      })
-    )
-    .pipe(sourcemaps.write('./'))
-    .pipe(dest(path.build.css))
-    .pipe(browsersync.stream())
+      .pipe(scss().on("error", scss.logError))
+      .pipe(gcmq())
+      .pipe(
+        autoprefixer(["last 5 versions"], {
+          cascade: true,
+        })
+      )
+      // .pipe(webpcss())
+      .pipe(dest(path.build.css))
+      .pipe(cleanCss())
+      .pipe(
+        rename({
+          extname: ".min.css",
+        })
+      )
+      .pipe(dest(path.build.css))
+      .pipe(browsersync.stream())
   );
 };
 
 const js = () => {
   src([
-      // js libs uncomment what you need
-      "node_modules/jquery/dist/jquery.min.js",
-      // "node_modules/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js", // no jQuery needed
-      "src/libs/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.min.js",
-      // "src/libs/stickySidebar.js",
-      "src/libs/odometer/odometer.min.js",
-      "src/libs/fancybox/jquery.fancybox.min.js",
+    // js libs uncomment what you need
+    "node_modules/jquery/dist/jquery.min.js",
+    // "node_modules/jquery-ui-touch-punch/jquery.ui.touch-punch.min.js", // no jQuery needed
+    "src/libs/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.min.js",
+    // "src/libs/stickySidebar.js",
 
-      // "src/libs/slick/slick/slick.min.js",
+    // svg support in all browsers
+    "node_modules/svg4everybody/dist/svg4everybody.min.js", // no jQuery needed
 
-      // svg support in all browsers
-      "node_modules/svg4everybody/dist/svg4everybody.min.js", // no jQuery needed
-
-      // modal
-      // "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
-      "node_modules/sticky-sidebar/dist/jquery.sticky-sidebar.min.js",
-      // swiper slider
-      // "node_modules/swiper/swiper-bundle.min.js.map",
-      "node_modules/swiper/swiper-bundle.min.js",
-
-    ])
-    .pipe(sourcemaps.init())
+    // modal
+    // "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
+    "node_modules/sticky-sidebar/dist/jquery.sticky-sidebar.min.js",
+    // swiper slider
+    "node_modules/swiper/swiper-bundle.min.js",
+  ])
     .pipe(concat("libs.min.js"))
-    .pipe(sourcemaps.write('./'))
     .pipe(dest(path.build.js));
   return src(path.src.js)
-    .pipe(sourcemaps.init())
     .pipe(
       babel({
         presets: ["@babel/env"],
@@ -144,7 +128,6 @@ const js = () => {
         extname: ".min.js",
       })
     )
-    .pipe(sourcemaps.write('./'))
     .pipe(dest(path.build.js))
     .pipe(browsersync.stream());
 };
@@ -152,37 +135,35 @@ const js = () => {
 const img = () => {
   return (
     src(path.src.img)
-    .pipe(webp({
-      quality: 70,
-    }))
-    .pipe(
-      cache(
+      // .pipe(webp({
+      //   quality: 70,
+      // }))
+      .pipe(
+        cache(
+          imagemin({
+            interlaced: true,
+          })
+        )
+      )
+      .pipe(dest(path.build.img))
+      .pipe(src(path.src.img))
+      .pipe(
         imagemin({
+          progressive: true,
+          svgoPlugins: [{ removeViewBox: false }],
           interlaced: true,
+          optimizationLevel: 3,
         })
       )
-    )
-    .pipe(dest(path.build.img))
-    .pipe(src(path.src.img))
-    .pipe(
-      imagemin({
-        progressive: true,
-        svgoPlugins: [{
-          removeViewBox: false
-        }],
-        interlaced: true,
-        optimizationLevel: 3,
-      })
-    )
-    .pipe(
-      cache(
-        imagemin({
-          interlaced: true,
-        })
+      .pipe(
+        cache(
+          imagemin({
+            interlaced: true,
+          })
+        )
       )
-    )
-    .pipe(dest(path.build.img))
-    .pipe(browsersync.stream())
+      .pipe(dest(path.build.img))
+      .pipe(browsersync.stream())
   );
 };
 
@@ -262,10 +243,10 @@ const fontStyle = async () => {
             fileSystem.appendFile(
               devFolder + "/scss/base/fonts.scss",
               '@include font("' +
-              fontName +
-              '", "' +
-              fontName +
-              '", "400", "normal");\r\n',
+                fontName +
+                '", "' +
+                fontName +
+                '", "400", "normal");\r\n',
               cb
             );
           }
@@ -309,7 +290,7 @@ exports.clean = clean;
 // exports.filesToMove = filesToMove;
 exports.libs = libs;
 
-exports.fontStyle = fontStyle;
+// exports.fontStyle = fontStyle;
 exports.build = build;
 exports.watch = watch;
 exports.default = watch;

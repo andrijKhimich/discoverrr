@@ -5,18 +5,20 @@
   box-sizing: border-box;
 }
 
+
 html {
   font-size: 100%;
   height: 100%;
   line-height: 1.15; // Correct the line height in all browsers.
   -webkit-text-size-adjust: 100%; // Prevent adjustments of font size after orientation changes in iOS.
   // scroll-behavior: smooth;
+
 }
 
 body {
   margin: 0; // Remove the margin in all browsers.
   font-size: 16px;
-  font-family: "ProximaNova", sans-serif;
+  font-family: "Inter", sans-serif;
   color: $blackLight;
   -webkit-font-smoothing: antialiased;
   -webkit-backface-visibility: hidden;
@@ -51,7 +53,7 @@ body {
 
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
-  background: #314fdc;
+  background: #314FDC;
 }
 
 h1,
@@ -60,75 +62,78 @@ h3,
 h4,
 h5,
 h6 {
-  font-family: "Inter", sans-serif;
   margin: 0;
-  color: $primaryDark;
-  font-weight: 700;
+  color: $blackLight;
+  font-weight: 800;
 }
 
 h1 {
-  font-size: 65px;
-  line-height: normal;
+  font-size: 60px;
+  line-height: 1.2em;
 
-  @include d(1366) {
+  margin-bottom: 60px;
+
+  span {
+    color: $primary;
+  }
+
+  @include d(1600) {
     font-size: 50px;
   }
 
   @include d(992) {
-    font-size: 60px;
-  }
-
-  @include d(768) {
-    font-size: 50px;
-  }
-
-  @include d(575) {
     font-size: 40px;
   }
-}
-
-h2 {
-  font-size: 48px;
-  line-height: 1.2em;
-  margin-bottom: 20px;
-
-  span {
-    color: $primary;
-  }
-
-  @include d(1024) {
-    font-size: 44px;
-  }
-
-  @include d(768) {
-    font-size: 40px;
-  }
-
-  @include d(575) {
-    font-size: 36px;
-  }
-}
-
-h3 {
-  font-size: 40px;
-  line-height: 1.2em;
-
-  span {
-    color: $primary;
-  }
-
-  @include d(1366) {
-    font-size: 38px;
-  }
-
 
   @include d(768) {
     font-size: 32px;
   }
 }
 
+h2 {
+  font-size: 60px;
+  line-height: 1.2em;
+
+  span {
+    color: $primary;
+  }
+
+  @include d(1600) {
+    font-size: 50px;
+  }
+
+  @include d(992) {
+    font-size: 40px;
+  }
+
+  @include d(768) {
+    font-size: 32px;
+  }
+}
+
+h3 {
+  font-size: 50px;
+  line-height: 1.2em;
+
+  span {
+    color: $primary;
+  }
+
+  @include d(1600) {
+    font-size: 44px;
+  }
+
+  @include d(992) {
+    font-size: 36px;
+  }
+
+  @include d(768) {
+    font-size: 30px;
+  }
+}
+
 h4 {
-  font-size: 40px;
+  font-size: 36px;
   line-height: 1.111em;
   font-weight: 700;
 
@@ -136,13 +141,16 @@ h4 {
     color: $primary;
   }
 
-  @include d(1366) {
+  @include d(1600) {
     font-size: 32px;
   }
 
+  @include d(992) {
+    font-size: 28px;
+  }
 
   @include d(768) {
-    font-size: 28px;
+    font-size: 24px;
   }
 }
 
@@ -154,29 +162,29 @@ h5 {
     color: $primary;
   }
 
-  @include d(1366) {
+  @include d(1600) {
     font-size: 24px;
   }
 
-  // @include d(992) {
-  //   font-size: 22px;
-  // }
+  @include d(992) {
+    font-size: 22px;
+  }
 
   @include d(768) {
-    font-size: 22px;
+    font-size: 18px;
   }
 }
 
 h6 {
   font-size: 24px;
   line-height: 1.208em;
-  // font-style: italic;
+  font-style: italic;
 
   span {
     color: $primary;
   }
 
-  @include d(1366) {
+  @include d(1600) {
     font-size: 22px;
   }
 
@@ -253,7 +261,6 @@ picture,
 source {
   max-width: 100%;
   width: 100%;
-  height: auto;
   display: block;
   border-style: none; // Remove the border on images inside links in IE 10.
 }
@@ -301,17 +308,17 @@ select {
 
 // Correct the inability to style clickable types in iOS and Safari.
 button,
-[type="button"],
-[type="reset"],
-[type="submit"] {
+[type='button'],
+[type='reset'],
+[type='submit'] {
   -webkit-appearance: button;
 }
 
 // Remove the inner border and padding in Firefox.
 button::-moz-focus-inner,
-[type="button"]::-moz-focus-inner,
-[type="reset"]::-moz-focus-inner,
-[type="submit"]::-moz-focus-inner {
+[type='button']::-moz-focus-inner,
+[type='reset']::-moz-focus-inner,
+[type='submit']::-moz-focus-inner {
   border-style: none;
   padding: 0;
 }
@@ -348,26 +355,26 @@ label {
   cursor: pointer;
 }
 
-[type="checkbox"],
-[type="radio"] {
+[type='checkbox'],
+[type='radio'] {
   box-sizing: border-box; // Add the correct box sizing in IE 10.
   padding: 0; // Remove the padding in IE 10.
 }
 
 // Correct the cursor style of increment and decrement buttons in Chrome.
 
-[type="number"]::-webkit-inner-spin-button,
-[type="number"]::-webkit-outer-spin-button {
+[type='number']::-webkit-inner-spin-button,
+[type='number']::-webkit-outer-spin-button {
   height: auto;
 }
 
-[type="search"] {
+[type='search'] {
   -webkit-appearance: textfield; //  Correct the odd appearance in Chrome and Safari.
   outline-offset: -2px; // Correct the outline style in Safari.
 }
 
 // Remove the inner padding in Chrome and Safari on macOS.
-[type="search"]::-webkit-search-decoration {
+[type='search']::-webkit-search-decoration {
   -webkit-appearance: none;
 }
 
@@ -396,7 +403,7 @@ p,
 li {
   line-height: 1.5em;
   margin: 0;
-  font-size: inherit;
+  font-size: 16px;
   color: inherit;
 }
 
@@ -417,13 +424,6 @@ ol {
 
   &__title {
     text-align: center;
-    margin-bottom: 50px;
-
-    p {
-      max-width: 580px;
-      margin: 0 auto;
-      font-size: 20px;
-    }
   }
 }
 
@@ -453,7 +453,7 @@ button {
 }
 
 // hide date navigation in input
-input[type="date"] {
+input[type='date'] {
   display: block;
   -webkit-appearance: textfield;
   -moz-appearance: textfield;
@@ -476,36 +476,37 @@ input[type="date"] {
 }
 
 // hide arrows in input type number
-input[type="number"]::-webkit-outer-spin-button,
-input[type="number"]::-webkit-inner-spin-button {
+input[type='number']::-webkit-outer-spin-button,
+input[type='number']::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
 
-input[type="number"] {
+input[type='number'] {
   -moz-appearance: textfield;
 }
 
 textarea,
 input {
+
   &::-webkit-input-placeholder {
     font-size: 16px;
-    color: #494a4d;
+    color: #494A4D;
   }
 
   &::-moz-placeholder {
     font-size: 16px;
-    color: #494a4d;
+    color: #494A4D;
   }
 
   &:-ms-input-placeholder {
     font-size: 16px;
-    color: #494a4d;
+    color: #494A4D;
   }
 
   &::placeholder {
     font-size: 16px;
-    color: #494a4d;
+    color: #494A4D;
   }
 }
 
@@ -519,13 +520,13 @@ input {
 }
 
 .container {
-  max-width: 1200px;
+  max-width: 80%;
   margin: 0 auto;
   padding: 0 15px;
   width: 100%;
 
   @include d(1600) {
-    max-width: 84%;
+    max-width: 86%;
   }
 
   @include d(1280) {
@@ -554,20 +555,23 @@ main {
   color: $white;
   border: none;
   font-weight: 700;
-  border-radius: 3px;
+  border-radius: 8px;
   padding: 18px 29px;
-  font-size: 16px;
+  font-size: 18px;
   border: 1px solid transparent;
-  transition: background-color $hover-duration $timing,
-    color $hover-duration $timing, border $hover-duration $timing;
+  transition: background-color $hover-duration $timing, color $hover-duration $timing, border $hover-duration $timing;
+
+  @include d(1600) {
+    font-size: 16px;
+  }
 
   &:hover {
     background-color: $white;
-    border-color: $primaryDark;
+    border-color: #080C29;
     color: $blackLight;
-
+    
     .svg-arrow-btn {
-      fill: $primaryDark;
+      fill: #080C29;
       transform: translate(5px, 0);
     }
   }
@@ -601,37 +605,24 @@ main {
     border-radius: 5px;
     border: 1px solid $white;
 
-    &-transparent {
+    &-blue {
       color: $primary;
-      background-color: transparent;
-      border: none;
+    }
+
+    .svg-arrow-btn {
+      fill: #080C29;
+    }
+
+    &:hover {
+      background-color: #080C29;
       color: $white;
+      border: 1px solid #080C29;
 
-      span {
-        position: relative;
-
-        &::before {
-          content: "";
-          width: 100%;
-          height: 2px;
-          background-color: $white;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          transform: translate(0, 0);
-          transition: transform $hover-duration $timing;
-        }
+      .svg-icon {
+        fill: $white;
       }
-
-      &:hover {
-        background-color: transparent;
-        color: $white;
-
-        span {
-          &::before {
-            transform: translate(0, -2px);
-          }
-        }
+      .svg-arrow-btn {
+        fill: $white;
       }
     }
   }
@@ -647,72 +638,44 @@ main {
   }
 
   &_black {
-    background-color: #080c29;
+    background-color: #080C29;
     color: $white;
     padding: 16px 21px;
     font-size: 16px;
     border-radius: 5px;
-    border: 1px solid #080c29;
+    border: 1px solid #080C29;
 
     &:hover {
       background-color: $white;
-      color: #080c29;
-      border-color: #080c29;
+      color: #080C29;
+      border-color: #080C29;
 
       .svg-icon {
         fill: $primary;
       }
     }
-
-    &_transparent {
-      background-color: transparent;
-      color: $primary;
-
-      span {
-        position: relative;
-
-        &::before {
-          content: "";
-          width: 100%;
-          height: 2px;
-          background-color: $primary;
-          position: absolute;
-          bottom: 0;
-          left: 0;
-          transform: translate(0, 0);
-          transition: transform $hover-duration $timing;
-        }
-      }
-
-      &:hover {
-        border-color: transparent;
-        color: $primary;
-
-        span {
-          &::before {
-            transform: translate(0, -2px);
-          }
-        }
-      }
-    }
   }
 
-  &_secondary {
-    background-color: $green;
-    color: $primaryDark;
-
-    .svg-arrow-btn {
-      fill: $primaryDark;
-    }
+  &_black-border {
+    background-color: $white;
+    border: 1px solid $blackLight;
+    color: $blackLight;
 
     &:hover {
-      background-color: $white;
-      border-color: $green;
-
-      .svg-arrow-btn {
-        transform: translate(5px, 0);
-      }
+      background-color: $blackLight;
+      color: $white;
     }
+  }
+}
+
+.js-show {
+  opacity: 0;
+  transform: translate(0, 50px);
+  transition: transform $duration $timing, opacity $duration $timing;
+
+  &.show {
+    opacity: 1;
+    transform: translate(0, 0);
   }
 }
 
@@ -734,16 +697,15 @@ main {
     padding-right: 20px;
 
     &::before {
-      content: ">";
+      content: '>';
       position: absolute;
       top: 0;
       right: 5px;
       transform: translate(0, 0);
-      transition: transform $hover-duration $timing;
+      transition: transform $hover-duration $timing
     }
 
     &:hover {
-
       &::before {
         transform: translate(3px, 0);
       }
@@ -766,43 +728,16 @@ main {
       }
     }
   }
-
-  &_arrow {
-    position: relative;
-    padding-right: 30px;
-    color: $primary;
-    font-size: 16px;
-
-    &::before {
-      content: "";
-      width: 22px;
-      height: 16px;
-      position: absolute;
-      right: 0;
-      top: 4px;
-      background-image: url(../img/arrow-link.svg);
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      transition: transform $hover-duration $timing;
-    }
-
-    &:hover {
-      &::before {
-        transform: translate(5px, 0);
-      }
-    }
-  }
 }
 
 .ui-widget.ui-widget-content {
-  height: 4px;
+  height: 6px;
   border-radius: 5px;
   border: none;
 }
 
 .ui-widget-header {
-  background-color: $green;
+  background-color: $primary;
 }
 
 .ui-button,
@@ -812,35 +747,66 @@ main {
 html .ui-button.ui-state-disabled:active,
 html .ui-button.ui-state-disabled:hover {
   border-radius: 50%;
-  border: 2px solid $primary !important;
-  background: $white !important;
+  border: 2px solid #FFFFFF !important;
+  // box-shadow: 0px 0px 14px 2px #FFFFFF, inset 0px 0px 12px #ADADAD;
   width: 25px;
   height: 25px;
   top: -10px;
   animation: boxShadow 2s linear infinite forwards;
 
   .ui-state-active {
-    background-color: $white;
+    background-color: $primary;
     border: none;
   }
 
   .ui-state-focus {
-    background-color: $white;
+    background-color: $primary;
     border: none;
+  }
+
+  &::before {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    left: 2px;
+    background-image: url(../img/triangle-left.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(0, -50%);
+
+  }
+
+  &::after {
+    content: "";
+    width: 8px;
+    height: 8px;
+    position: absolute;
+    top: 50%;
+    right: 2px;
+    background-image: url(../img/triangle-right.svg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center;
+    transform: translate(0, -50%);
   }
 }
 
 @keyframes boxShadow {
   0% {
-    box-shadow: 0px 0px 14px 2px #ffffff, inset 0px 0px 12px #ffff;
+    box-shadow: 0px 0px 14px 2px #FFFFFF, inset 0px 0px 12px #ADADAD;
+
   }
 
   50% {
-    box-shadow: 0px 0px 20px 0px rgba($white, 0.4), inset 0px 0px 12px #ffff;
+    box-shadow: 0px 0px 20px 0px rgba($white, .4), inset 0px 0px 12px #ADADAD;
   }
 
   100% {
-    box-shadow: 0px 0px 20px 2px #ffffff, inset 0px 0px 12px #ffffff;
+    box-shadow: 0px 0px 20px 2px #FFFFFF, inset 0px 0px 12px #ADADAD;
+
   }
 }
 
@@ -862,44 +828,4 @@ a.ui-button:active {
   visibility: hidden;
   opacity: 0;
   font-size: 0;
-}
-
-.sticky {
-  position: fixed;
-  top: 100px;
-}
-
-.cookie-notice-container #cn-notice-text {
-  a {
-    text-decoration: underline;
-  }
-}
-
-.odometer-inside {
-  display: flex;
-}
-
-.odometer-value {
-  text-align: center;
-
-  &.odometer-first-value,
-  &.odometer-last-value {
-    width: 100%;
-  }
-}
-
-.noise {
-
-  &::before {
-    content: "";
-    width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    background-image: url(../img/noise.png);
-    background-repeat: repeat;
-    background-position: center;
-    opacity: .08;
-  }
 }
