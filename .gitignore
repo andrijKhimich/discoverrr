@@ -1,0 +1,11 @@
+/node_modules
+/wp-content
+/dist
+/psd
+/src/libs
+package-lock.json
+.DS_Store
+/.history
+/wp-content
+.idea/
+/.vscode
