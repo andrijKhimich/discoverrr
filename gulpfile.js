@@ -46,7 +46,7 @@ let {
   concat = require("gulp-concat"),
   babel = require("gulp-babel"),
   imagemin = require("gulp-imagemin"),
-  // webp = require("gulp-webp"),
+  webp = require("gulp-webp"),
   // webphtml = require("gulp-webp-html"),
   // webpcss = require("gulp-webpcss"),
   svgsprite = require("gulp-svg-sprite"),
@@ -88,7 +88,7 @@ const css = () => {
         cascade: true,
       })
     )
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('./'))
     // .pipe(webpcss())
     .pipe(dest(path.build.css))
     .pipe(cleanCss())
@@ -97,7 +97,7 @@ const css = () => {
         extname: ".min.css",
       })
     )
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('./'))
     .pipe(dest(path.build.css))
     .pipe(browsersync.stream())
   );
@@ -111,7 +111,9 @@ const js = () => {
       "src/libs/jquery-ui-1.13.2.custom/jquery-ui-1.13.2.custom/jquery-ui.min.js",
       // "src/libs/stickySidebar.js",
       "src/libs/odometer/odometer.min.js",
-      "src/libs/slick/slick/slick.min.js",
+      "src/libs/fancybox/jquery.fancybox.min.js",
+
+      // "src/libs/slick/slick/slick.min.js",
 
       // svg support in all browsers
       "node_modules/svg4everybody/dist/svg4everybody.min.js", // no jQuery needed
@@ -120,9 +122,13 @@ const js = () => {
       // "node_modules/@fancyapps/fancybox/dist/jquery.fancybox.min.js",
       "node_modules/sticky-sidebar/dist/jquery.sticky-sidebar.min.js",
       // swiper slider
+      // "node_modules/swiper/swiper-bundle.min.js.map",
       "node_modules/swiper/swiper-bundle.min.js",
+
     ])
+    .pipe(sourcemaps.init())
     .pipe(concat("libs.min.js"))
+    .pipe(sourcemaps.write('./'))
     .pipe(dest(path.build.js));
   return src(path.src.js)
     .pipe(sourcemaps.init())
@@ -138,7 +144,7 @@ const js = () => {
         extname: ".min.js",
       })
     )
-    .pipe(sourcemaps.write())
+    .pipe(sourcemaps.write('./'))
     .pipe(dest(path.build.js))
     .pipe(browsersync.stream());
 };
@@ -146,9 +152,9 @@ const js = () => {
 const img = () => {
   return (
     src(path.src.img)
-    // .pipe(webp({
-    //   quality: 70,
-    // }))
+    .pipe(webp({
+      quality: 70,
+    }))
     .pipe(
       cache(
         imagemin({

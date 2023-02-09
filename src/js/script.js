@@ -1,3 +1,31 @@
+jQuery.event.special.touchstart = {
+  setup: function (_, ns, handle) {
+    this.addEventListener("touchstart", handle, {
+      passive: !ns.includes("noPreventDefault")
+    });
+  }
+};
+jQuery.event.special.touchmove = {
+  setup: function (_, ns, handle) {
+    this.addEventListener("touchmove", handle, {
+      passive: !ns.includes("noPreventDefault")
+    });
+  }
+};
+jQuery.event.special.wheel = {
+  setup: function (_, ns, handle) {
+    this.addEventListener("wheel", handle, {
+      passive: true
+    });
+  }
+};
+jQuery.event.special.mousewheel = {
+  setup: function (_, ns, handle) {
+    this.addEventListener("mousewheel", handle, {
+      passive: true
+    });
+  }
+};
 document.addEventListener("DOMContentLoaded", function () {
 
   const toggleMenu = () => {
@@ -38,7 +66,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const accordion = document.querySelector(".accordion");
   if (accordion) {
-    // $(".accordion__row:first-child .accordion__btn").addClass("active");
     $(".accordion__btn").on("click", function (e) {
       let $this = $(this);
       if (!$this.hasClass("active")) {
@@ -68,14 +95,6 @@ document.addEventListener("DOMContentLoaded", function () {
       $this.next().slideToggle();
     });
   }
-
-  const removeLogoSizes = () => {
-    const logoImg = document.querySelector(".logo img");
-    logoImg.removeAttribute("width");
-    logoImg.removeAttribute("height");
-  };
-
-  removeLogoSizes();
 
   const blogPage = document.getElementById("blogPage");
   const homePage = document.getElementById("homePage");
@@ -143,29 +162,23 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const initSellersSlider = () => {
       if (sellersSlides.length >= 5) {
-        $('.sellers__row').slick({
-          slidesToShow: 4,
-          autoplay: true,
-          autoplaySpeed: 1,
-          cssEase: 'linear',
-          speed: 10000,
-          arrows: false,
-          dots: false,
-          infinite: true,
-          responsive: [{
-              breakpoint: 992,
-              settings: {
-                slidesToShow: 3
-              }
-            },
-            {
-              breakpoint: 768,
-              settings: {
-                slidesToShow: 2
-              }
-            }
-          ]
-        })
+        let swiperOptions = {
+          loop: true,
+          freeMode: true,
+          spaceBetween: 0,
+          grabCursor: true,
+          slidesPerView: 4,
+          loop: true,
+          autoplay: {
+            delay: 1,
+            disableOnInteraction: true
+          },
+          freeMode: true,
+          speed: 15000,
+          freeModeMomentum: false
+        };
+
+        const sellersSwiper = new Swiper(".sellers__row", swiperOptions);
       }
     };
     if (sellersSlides.length) {
@@ -249,18 +262,16 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     };
 
-    fixImgToBottom();
-    fixImgToTop();
+    // fixImgToBottom();
+    // fixImgToTop();
 
-    window.addEventListener("resize", () => {
+
+    const showcaseSlides = document.querySelectorAll(".showcase-slider__item");
+    if (window.innerWidth > 992) {
       fixImgToBottom();
       fixImgToTop();
-    });
-    const showcaseSlides = document.querySelectorAll(".showcase-slider__item");
-    if (showcaseSlides) {
       const showcaseBlocks = document.querySelectorAll('.showcase__item');
       let oldValue = 0;
-
       window.addEventListener("scroll", function () {
         showcaseBlocks.forEach((item) => {
           const trigger = window.innerHeight / 4;
@@ -284,6 +295,40 @@ document.addEventListener("DOMContentLoaded", function () {
         oldValue = newValue;
       });
     }
+
+    window.addEventListener("resize", () => {
+      if (showcaseSlides && window.innerWidth > 992) {
+        const showcaseBlocks = document.querySelectorAll('.showcase__item');
+        let oldValue = 0;
+        window.addEventListener("scroll", function () {
+          showcaseBlocks.forEach((item) => {
+            const trigger = window.innerHeight / 4;
+            const itemTop = item.getBoundingClientRect().top;
+
+            if (itemTop < trigger) {
+              item.classList.add("show");
+            } else {
+              item.classList.remove("show");
+            }
+          });
+
+
+          let newValue = window.pageYOffset;
+
+          if (oldValue - newValue < 0) {
+            fixImgToBottom();
+          } else if (oldValue - newValue > 0) {
+            fixImgToTop();
+          }
+          oldValue = newValue;
+        });
+        // window.addEventListener("resize", () => {
+        //   fixImgToBottom();
+        //   fixImgToTop();
+        // });
+      }
+    });
+
     $.fn.isInViewport = function () {
       let elementTop = $(this).offset().top;
       let elementBottom = elementTop + $(this).outerHeight();
@@ -370,33 +415,17 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     });
 
-    function openTab(evt, currencyName) {
-      let i, tabContent, tabLinks;
-      tabContent = document.getElementsByClassName("calculator-tab__content");
-      for (i = 0; i < tabContent.length; i++) {
-        tabContent[i].style.display = "none";
-        tabContent[i].classList.remove("active");
-      }
-      tabLinks = document.getElementsByClassName("calculator-tab__links");
-      for (i = 0; i < tabLinks.length; i++) {
-        tabLinks[i].className = tabLinks[i].className.replace(" active", "");
-      }
-      document.getElementById(currencyName).style.display = "block";
-      document.getElementById(currencyName).classList.add("active");
+    $('.calculator-tab__links').click(function () {
+      // Check for active
+      $('.calculator-tab__links').removeClass('active');
+      $(this).addClass('active');
 
-      evt.currentTarget.className += " active";
-    }
+      let id = $(this).attr('data-href');
+      $('.calculator-tab__content').hide();
+      $('#' + id).fadeIn(200);
 
-    const tabBtns = document.querySelectorAll(".calculator-tab__links");
-    const toggleTab = () => {
-      tabBtns.forEach((tabBtn) => {
-        tabBtn.addEventListener("click", (e) => {
-          let target = e.target.getAttribute("data-href");
-          openTab(e, target);
-        });
-      });
-    };
-    toggleTab();
+      return false;
+    });
 
     const roundNumber = (val) => {
       return Math.ceil(val / 100) * 100;

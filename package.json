@@ -41,9 +41,12 @@
     "webp-converter": "^2.2.3"
   },
   "dependencies": {
+    "@fancyapps/fancybox": "^3.5.7",
+    "@fancyapps/ui": "^4.0.31",
     "jquery": "^3.6.0",
     "jquery-nice-select": "^1.1.0",
     "jquery-ui-touch-punch": "^0.2.3",
+    "slick-carousel": "github:nicolaskopp/blaze",
     "sticky-sidebar": "^3.3.1",
     "sticky-sidebar-v2": "^1.1.1",
     "svg4everybody": "^2.1.9",
