@@ -1,0 +1,20 @@
+// project colors
+$white: #ffffff;
+$black: #202020;
+$blackLight: #404040;
+$textColor: rgba($blackLight, 0.9);
+$primary: #3357FF;
+$primaryDark: #080c29;
+$grey: #f2f2f2;
+$greyDark: #a0a0a0;
+$greyLight: #dedede;
+$green:#C4FF96;
+
+// timing
+$duration: 1.6s;
+
+// $hover-duration: .5s;
+// $timing: cubic-bezier(.17,.67,.55,1.05);
+
+$hover-duration: 0.6s;
+$timing: cubic-bezier(0.32, 0.94, 0.6, 1);
