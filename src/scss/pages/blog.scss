@@ -14,8 +14,9 @@
     padding: 80px 0;
   }
 
-  h4 {
+  h1 {
     margin-bottom: 21px;
+    font-size: 40px;
   }
 
   p {
@@ -526,7 +527,6 @@
   margin-right: 0;
   position: relative;
   padding-bottom: 40px;
-
   @include d(1124) {
     width: 90% !important;
     margin: 0 auto;
@@ -536,49 +536,9 @@
   @include d(1024) {
     width: 100% !important;
   }
-
-  .swiper {
+  &__row {
+    display: flex;
     padding-bottom: 60px;
-  }
-
-  .swiper-button-prev,
-  .swiper-button-next {
-    position: absolute;
-    top: auto;
-    width: 40px;
-    height: 40px;
-    bottom: 0;
-    left: 0;
-    border: 1px solid $primary;
-    border-radius: 50%;
-
-    &::after {
-      content: "";
-      width: 8px;
-      height: 14px;
-      background-size: cover;
-      background-repeat: no-repeat;
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-    }
-  }
-
-  .swiper-button-prev {
-    left: 0;
-
-    &::after {
-      background-image: url(../img/slide-left.svg);
-    }
-  }
-
-  .swiper-button-next {
-    left: 60px;
-
-    &::after {
-      background-image: url(../img/slide-right.svg);
-    }
   }
 
   h4 {
@@ -593,11 +553,11 @@
     position: relative;
     padding: 35px 40px 50px 30px;
     border-top: 5px solid $primary;
-    max-width: 32%;
+    width: 32%;
     margin-right: 15px;
 
     @include d(992) {
-      max-width: 100%;
+      width: 100%;
     }
 
     @include d(768) {

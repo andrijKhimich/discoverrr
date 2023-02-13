@@ -451,7 +451,9 @@
     padding: 0 15px;
 
     img {
-      width: auto;
+      width: 100%;
+      margin: 0 auto;
+      max-width: 150px;
     }
   }
 }
