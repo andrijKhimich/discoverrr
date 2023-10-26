@@ -262,10 +262,6 @@ document.addEventListener("DOMContentLoaded", function () {
       });
     };
 
-    // fixImgToBottom();
-    // fixImgToTop();
-
-
     const showcaseSlides = document.querySelectorAll(".showcase-slider__item");
     if (window.innerWidth > 992) {
       fixImgToBottom();
@@ -461,9 +457,9 @@ document.addEventListener("DOMContentLoaded", function () {
 
         config2 = valuesArray.reduce(
           (a, valuesArray) =>
-          Object.assign(a, {
-            [valuesArray]: Number([increasesArray[i++]])
-          }), {}
+            Object.assign(a, {
+              [valuesArray]: Number([increasesArray[i++]])
+            }), {}
         );
       });
       return config2;
@@ -814,8 +810,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
       $(".article-nav li a").on("click", function () {
         $("html, body").animate({
-            scrollTop: $($.attr(this, "href")).offset().top - 65,
-          },
+          scrollTop: $($.attr(this, "href")).offset().top - 65,
+        },
           600
         );
         return false;

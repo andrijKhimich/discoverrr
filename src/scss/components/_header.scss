@@ -89,7 +89,7 @@
       position: fixed;
       top: 0;
       right: 0;
-      width: 50vw;
+      width: 55vw;
       height: 100vh;
       background-color: $primaryDark;
       pointer-events: none;
@@ -123,7 +123,7 @@
     @include d(768) {
       font-size: 18px;
       min-width: 180px;
-      margin-bottom: 15px;
+      margin-bottom: 20px;
       order: 1;
     }
 
@@ -132,7 +132,7 @@
       background-color: $white;
       color: $primaryDark;
       padding: 5px 50px 5px 15px;
-      margin-right: 20px;
+      margin-right: 30px;
 
       @include d(768) {
         margin-right: 0;
@@ -308,7 +308,7 @@
     }
 
     @include d(768) {
-      padding: 50px 0 0 0;
+      padding: 70px 0 0 0;
     }
 
     &__item,

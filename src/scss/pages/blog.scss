@@ -102,16 +102,16 @@
   }
 
   p {
-    font-size: 12px;
+    font-size: 14px;
     color: #4a4a4c;
     line-height: 1.25em;
 
     @include d(1600) {
-      font-size: 12px;
+      font-size: 14px;
     }
 
     @include d(768) {
-      font-size: 12px;
+      font-size: 14px;
     }
   }
 }
@@ -347,7 +347,7 @@
         padding-left: 3px;
 
         @include d(1280) {
-          font-size: 12px;
+          font-size: 14px;
         }
       }
 
@@ -394,7 +394,7 @@
       padding-left: 3px;
 
       @include d(1280) {
-        font-size: 12px;
+        font-size: 14px;
       }
     }
 
@@ -527,6 +527,7 @@
   margin-right: 0;
   position: relative;
   padding-bottom: 40px;
+
   @include d(1124) {
     width: 90% !important;
     margin: 0 auto;
@@ -536,6 +537,7 @@
   @include d(1024) {
     width: 100% !important;
   }
+
   &__row {
     display: flex;
     padding-bottom: 60px;
